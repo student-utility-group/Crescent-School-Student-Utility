@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link type="text/css" rel="stylesheet" href="main.css">
+    <!--<link type="text/css" rel="stylesheet" href="http://cs-static.cscdn.thelibbster.com/css/jquery-mobile.min.css">-->
+</head>
+<body>
+	<!--<script type="text/javascript" src="cordova-2.2.0.js"></script>-->
+	<script type="text/javascript" src="http://cs-static.cscdn.thelibbster.com/js/jquery.min.js"></script>
+	<script type="text/javascript" src="http://cs-static.cscdn.thelibbster.com/js/jquery-mobile.min.js"></script>
+    <script>
+    $.mobile.hidePageLoadingMsg();
+        
+    $.mobile.buttonMarkup.hoverDelay = 0.2;
+        
+       $( document ).on( 'mobileinit', function(){
+                         $.mobile.loader.prototype.options.text = "loading!";
+                         $.mobile.loader.prototype.options.textVisible = false;
+                         $.mobile.loader.prototype.options.theme = "a";
+                         $.mobile.loader.prototype.options.html = "";
+                         });
+        
+        $.mobile.loading( 'show', {
+                         text: 'loading!',
+                         textVisible: false,
+                         theme: 'z',
+                         html: ""
+                         });
+       
+    
+        
+    </script>
+
+<!-- Sorry about the ridiculous amount of nesting here, IT ALMOST LOOKS LIKE GREENROOM! Just trying to keep it centred on various devices.
+Hey, at least I'm using HTML5! -->
+<div data-role="page" id="login">
+<section class="wrapper">
+<section class="content">
+<section class="login-wrapper">
+
+<img class="login-clogo" src="clogo.png" />
+
+
+<form class="login-form" id="login-form" action="http://cs-dynamic.cscdn.thelibbster.com/php/bot/s.php" methot="post">
+    <label for="username" class="ui-hidden-accessible">Username:</label>
+<input type="text" name="username" class="l-username" placeholder="Username" value="jonathanlibby">
+<br>
+<label for="password" class="ui-hidden-accessible">Password:</label>
+<input type="password" name="password" class="l-password" placeholder="Password" value="Jonathan98">
+<br>
+
+<a class="login-button" data-role="button">Login<span style="font-family:Entypo;"&#59234;</span></a>
+</form>
+
+
+</section> <!-- End of the .login-wrapper section -->
+
+
+<script type="text/javascript">
+
+    
+// Our main jQuery / javascript script on the page, don't break it please!
+
+
+$('.login-button').click(function(){ // When they click "login"
+
+
+    // Don't worry about blank spaces or control characters in these strings,
+    // they are re-validated (properly) on the server side.
+	var username = $('.l-username').val();
+	var password = $('.l-password').val();
+	
+// BEGIN THE ERROR CHECKING
+
+	if(username == "" && password == "") { // Some front end form validation
+		alert("Please enter your Greenroom username & password"); 
+		$('.l-username').css('transition','all 0.5s'); // Some dynamically set CSS attributes to highlight errors
+		$('.l-password').css('transition','all 0.5s');
+		$('.l-username').css('border', '1px solid #FF0000');
+		$('.l-password').css('border', '1px solid #FF0000');
+
+        $('.l-username').click(function(){ // So, if the field is outlined in red because of an error, when they click on it, we turn the border grey again
+			$('.l-username').css('border', '1px solid #666');
+		}); // End of the event handler
+        
+        $('.l-password').click(function(){ // Same as the event handler above, just a different input element
+        	$('.l-password').css('border', '1px solid #666');
+        }); // End of the event handler
+        
+		die(); // Kill it with fire, to avoid any other problems
+		} // End of the if
+
+	if(username == "" || username == " ") { // More error checking. You can never be too sure.
+		alert("Please enter your Greenroom username!");	
+		$('.l-username').css('transition','all 0.5s');
+		$('.l-username').css('border', '1px solid #FF0000');
+        $('.l-username').click(function(){
+			$('.l-username').css('border', '1px solid #666');
+		});
+		die(); // Kill it with fire, to avoid any other problems
+	} // End of the if
+	
+	if(password == "" || password == " ") {
+		alert("Please enter your Greenroom password!");
+		$('.l-password').css('transition','all 0.5s');
+		$('.l-password').css('border', '1px solid #FF0000');
+        $('.l-password').click(function(){
+        	$('.l-password').css('border', '1px solid #666');
+        });
+        	die(); // Kill it with fire, to avoid any other problems
+        } // End of the if
+
+        // One last check just to be sure, then log them in and 
+                         
+        if(username != "" && password != "" && username != " " && password != " ") { 
+
+        var url = "http://cs-dynamic.cscdn.thelibbster.com/php/bot/s.php";
+        
+    	var data = $('#login-form').serialize(); //Serialize the form data
+		$.post(url, data)  // No semicolon!! (breaks the script)
+		.success(function(result) { // If it works
+                 localStorage.username = username;
+                 localStorage.password = password;
+                 $.mobile.changePage("main.html");
+                 //$('.content').html(result); // This is for testing only...
+		})
+		.error(function() { // If it don't work
+			alert('Error loading page'); // Then tell em' about it
+		});
+		return false; // Don't know why this has to be here, but it has to be here. DON'T REMOVE IT!
+	} // End of the if
+                         
+}); // End of the top level "click" event handler - when they clicked "login".
+    
+</script>
+
+<div class="home-masthead">&#169; Jonathan Libby 2013</div> <!-- Pretentious AND selfish. We need to change this. -->
+
+</section> <!-- Ending of all those nested elements -->
+</section>
+</div>
+</body>
+</html>

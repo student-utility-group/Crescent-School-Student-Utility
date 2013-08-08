@@ -1,0 +1,216 @@
+/* Main CSS stylesheet for the student utility app */
+/* (c) Libbux Labs 2012-2013 */
+
+/* DO WE NEED TO DO A STYLESHEET RESET!? */
+body {
+	background:#000;
+	font-family:"OpenLight","Roboto", "Open Sans", "Trebuchet MS", "Ubuntu", "Helvetica", "Arial", sans-serif;
+	color:#fff;
+	margin:0;
+	padding:0;
+}
+
+.wrapper {
+	position:relative;
+	width:50%;
+	margin:0 auto;
+	/* border:1px solid #09F; */
+}
+
+.content, .menu-page .ui-page {
+	position:fixed;
+	width:100%;
+	height:100%;
+	z-index:-2;
+	/* border:1px solid #900; */
+
+
+	background-color: #018156;
+			background-image: -webkit-gradient(linear, 0 0, 100% 100%,
+									color-stop(.25, rgba(255, 255, 255, .2)), color-stop(.25, transparent),
+									color-stop(.5, transparent), color-stop(.5, rgba(255, 255, 255, .2)),
+									color-stop(.75, rgba(255, 255, 255, .2)), color-stop(.75, transparent),
+			 						to(transparent));
+			background-image: -webkit-linear-gradient(-45deg, rgba(255, 255, 255, .2) 5%, transparent 5%,
+								transparent 10%, rgba(255, 255, 255, .2) 10%, rgba(255, 255, 255, .2) 15%,
+								transparent 15%, transparent 20%, rgba(255, 255, 255, .2) 20%, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 30%, rgba(255, 255, 255, .2) 30%, rgba(255, 255, 255, .2) 35%, transparent 35%, transparent 40%, rgba(255, 255, 255, .2) 40%, rgba(255, 255, 255, 0.2) 45%, transparent 40%,
+								transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 55%,
+								transparent 55%, transparent 60%, rgba(255, 255, 255, .2) 60%, rgba(255, 255, 255, .2) 65%, transparent 65%, transparent 70%, rgba(255, 255, 255, .2) 70%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent 80%, rgba(255, 255, 255, .2) 80%, rgba(255, 255, 255, 0.2) 85%, transparent 85%, transparent 90%, rgba(255, 255, 255, .2) 90%, rgba(255, 255, 255, .2) 95%, transparent 95%, transparent 100%, 
+								transparent);
+			-webkit-filter: contrast(1.5);
+}
+
+.menu-page:before, .ui-page {
+   	content: " ";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index:-1;
+    top: 0;
+    left: 0;
+    background-image: -webkit-radial-gradient(center, ellipse cover,  rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.2) 50%, rgba(50,50,50,0.5) 100%); /* Chrome10+,Safari5.1+ */
+}
+
+
+
+.content:before {
+   	content: " ";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index:-1;
+    top: 0;
+    left: 0;
+    background-image: -webkit-radial-gradient(center, ellipse cover,  rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.6) 100%); /* Chrome10+,Safari5.1+ */
+}
+
+
+@font-face {
+	font-family: OpenLight;
+	/*src: url('http://cs-static.cscdn.thelibbster.com/f/openlight.ttf'); */
+    src: url('OpenLight.ttf');
+}
+
+@font-face {
+    font-family: OpenLight-Reg;
+    src:url('OpenLightReg.ttf');
+}
+
+@font-face {
+	font-family: Entypo;
+	src: url('http://cs-static.cscdn.thelibbster.com/f/entypo/entypo.ttf');
+}
+
+.ui-hidden-accessible{
+    position:absolute!important;
+    left:-9999px;clip:rect(1px);
+    clip:rect(1px,1px,1px,1px)
+}
+
+.home-masthead {
+	position:relative;
+	top:450px;
+	width:100%;
+	text-align:center;
+	color:#666;
+	font-size:0.9em;
+}
+
+
+.login-wrapper {
+	position:absolute;
+	top:115px;
+	left:90px;
+}
+
+.login-form {
+    position:relative;
+    top:122px;
+    font-family: OpenLight;
+    color:3 #666;
+}
+
+.login-button {
+    position:relative;
+    left:25px;
+    top:5px;
+	-moz-box-shadow:inset 0px 1px 0px 0px #caefab;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #caefab;
+	box-shadow:inset 0px 1px 0px 0px #caefab;
+	background-color:#018156;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #268a16;
+	display:inline-block;
+	color:#ffffff;
+	font-family:OpenLight-Reg;
+	font-size:15px;
+	font-weight:normal;
+	padding:6px 24px;
+	text-decoration:none;
+}.login-button:active {
+	background-color:#007146;
+}
+.login-clogo {
+	position:absolute;
+	top:0px;
+	left:20px;
+}
+
+.main-content {
+    position:relative;
+    top:50px;
+    width:250px;
+    margin:0 auto;
+    text-shadow: none !important;
+    color:#FFF;
+    font-family: OpenLight;
+}
+
+.main-content img {
+    position:relative;
+    left:75px;
+}
+
+.main-content p {
+    position:relative;
+    top:-15px;
+    text-align:center;
+}
+
+.main-links {
+    position:relative;
+    top:30px;
+}
+
+.login-loader {
+	position: absolute;
+	top:25px;
+	left:-42px;
+	padding:5px;
+	padding-top:10px;
+	border:1px solid #555;
+	border-radius:10px;
+	z-index: 99;
+	background: #555;
+	text-align: center;
+	-webkit-box-shadow:  0px 0px 15px 5px #444;    
+    box-shadow:  0px 0px 15px 5px #444;
+  /*  text-shadow: 0px 1px 2px #ffffff;
+    filter: dropshadow(color=#ffffff, offx=0, offy=1); */
+}
+
+/* iPhone * < 5 (3.5 inch screens, including Retina) */
+
+@media all and (height: 480px) and (width: 320px) { 
+
+.wrapper {
+	width:320px;
+}
+
+
+}
+
+
+
+/* iPhone 5 (4 inch screen, which is only made in Retina) */
+
+@media all and (height:568px) and (width: 320px) { 
+
+.wrapper {
+	width:320px;
+}
+
+
+}
+
+
+/* iPad (portrait, including Retina -- This is also the media query for Droid or BB tablets in portrait proportions) */
+
+@media all and (min-height:1024px) and (min-width:768px) {}
+
+
+/* iPad (landscape, including Retina -- This is also the media query for Droid or BB tablets in landscape proportions) */
+
+@media all and (min-height:768px) and (min-width:1024px) {}

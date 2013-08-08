@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Main Page</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, target-densitydpi=500">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+  	<!--  <link rel="stylesheet" href="main.css" /> -->
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.css" />
+	<link rel="stylesheet" href="themes/student_utility.min.css" />
+
+	<script type="text/javascript" src="cordova-2.2.0.js"></script>
+	<script type="text/javascript" src="http://cs-static.cscdn.thelibbster.com/js/jquery.min.js"></script>
+	<!--<script type="text/javascript" src="http://cs-static.cscdn.thelibbster.com/js/jquery-mobile.min.js"></script>-->
+	<script src="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.js"></script>
+	<script src="http://cs-static.cscdn.thelibbster.com/js/fastclick.js"></script>
+
+	<!--<script type="text/javascript" src="noty/jquery.noty.js"></script>
+	<script type="text/javascript" src="noty/themes/default.js"></script>-->
+	
+
+	<script> 
+ 
+	   // Wait for Cordova to load
+	    document.addEventListener("deviceready", onD
+	    	eviceReady, false);
+		// Cordova is ready (this is bad in our case!)
+	    function onDeviceReady(){
+	    	var hour        = now.getHours();
+			var minute      = now.getMinutes();
+			var second      = now.getSeconds();
+			var monthnumber = now.getMonth();
+			var monthday    = now.getDate();
+			var year        = now.getYear();
+	    	apprise("There was a fatal error in the application. Check your cellular or wi-fi network connection and relaunch the app. If the problem persists, please contact jonathanlibby@crescentschool.org and include this message: 
+	    		
+	    		<error scope='fatal'>
+	    			<message>
+	    				[STUDENTUTIL][" + monthday + "-" + monthnumber + "-" year + "] User [" + localStorage.username + "] - Cordova detected that the device was ready (JQM did not load!)
+	    			</message>
+	    		</error>
+
+	    		We apologize for the inconvenience.
+	    		");
+		}
+		</script>
+</head>
+<body onLoad="initFastButtons()">
+<style>
+
+* {
+	font-family:OpenLight, Helvetica, Arial, sans-serif;
+	z-index: 4;
+	overflow: visible;
+}
+
+a {
+    -webkit-touch-callout: none !important;
+    color:#FFF;
+    text-decoration:none;
+}
+
+input {
+	z-index:4;
+}
+.bg-page {
+	margin:0; 
+	position:fixed;
+	width:100%;
+	height:100%; 
+	z-index:2; 
+	/* border:1px solid #900; */
+
+
+	background-color: #018156;
+			background-image: -webkit-gradient(linear, 0 0, 100% 100%,
+									color-stop(.25, rgba(255, 255, 255, .2)), color-stop(.25, transparent),
+									color-stop(.5, transparent), color-stop(.5, rgba(255, 255, 255, .2)),
+									color-stop(.75, rgba(255, 255, 255, .2)), color-stop(.75, transparent),
+			 						to(transparent));
+			background-image: -webkit-linear-gradient(-45deg, rgba(255, 255, 255, .2) 5%, transparent 5%,
+								transparent 10%, rgba(255, 255, 255, .2) 10%, rgba(255, 255, 255, .2) 15%,
+								transparent 15%, transparent 20%, rgba(255, 255, 255, .2) 20%, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 30%, rgba(255, 255, 255, .2) 30%, rgba(255, 255, 255, .2) 35%, transparent 35%, transparent 40%, rgba(255, 255, 255, .2) 40%, rgba(255, 255, 255, 0.2) 45%, transparent 40%,
+								transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 55%,
+								transparent 55%, transparent 60%, rgba(255, 255, 255, .2) 60%, rgba(255, 255, 255, .2) 65%, transparent 65%, transparent 70%, rgba(255, 255, 255, .2) 70%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent 80%, rgba(255, 255, 255, .2) 80%, rgba(255, 255, 255, 0.2) 85%, transparent 85%, transparent 90%, rgba(255, 255, 255, .2) 90%, rgba(255, 255, 255, .2) 95%, transparent 95%, transparent 100%, 
+								transparent);
+			-webkit-filter: contrast(1.5);
+}
+
+.bg-page:before {
+    content: " ";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index:1;
+    top: 0;
+    left: 0;
+    background-image: -webkit-radial-gradient(center, ellipse cover,  rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.2) 50%, rgba(50,50,50,0.5) 100%); /* Chrome10+,Safari5.1+ */
+}
+
+.ui-body-d {
+			background-color: #018156;
+			background-image: -webkit-gradient(linear, 0 0, 100% 100%,
+									color-stop(.25, rgba(255, 255, 255, .2)), color-stop(.25, transparent),
+									color-stop(.5, transparent), color-stop(.5, rgba(255, 255, 255, .2)),
+									color-stop(.75, rgba(255, 255, 255, .2)), color-stop(.75, transparent),
+			 						to(transparent));
+			background-image: -webkit-linear-gradient(-45deg, rgba(255, 255, 255, .2) 5%, transparent 5%,
+								transparent 10%, rgba(255, 255, 255, .2) 10%, rgba(255, 255, 255, .2) 15%,
+								transparent 15%, transparent 20%, rgba(255, 255, 255, .2) 20%, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 30%, rgba(255, 255, 255, .2) 30%, rgba(255, 255, 255, .2) 35%, transparent 35%, transparent 40%, rgba(255, 255, 255, .2) 40%, rgba(255, 255, 255, 0.2) 45%, transparent 40%,
+								transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 55%,
+								transparent 55%, transparent 60%, rgba(255, 255, 255, .2) 60%, rgba(255, 255, 255, .2) 65%, transparent 65%, transparent 70%, rgba(255, 255, 255, .2) 70%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent 80%, rgba(255, 255, 255, .2) 80%, rgba(255, 255, 255, 0.2) 85%, transparent 85%, transparent 90%, rgba(255, 255, 255, .2) 90%, rgba(255, 255, 255, .2) 95%, transparent 95%, transparent 100%, 
+								transparent);
+		/*	-webkit-filter: contrast(1.5); */
+}
+
+#main {
+	position:relative;
+	top:110px;
+	background: transparent;
+	z-index:3;
+	border: 0px;
+} 
+
+@font-face {
+	font-family: OpenLight;
+	src: url('http://cs-static.cscdn.thelibbster.com/f/openlight.ttf');
+    /*src: url('OpenLight.ttf');*/
+}
+
+@font-face {
+    font-family: OpenLight-Reg;
+    src:url('http://cs-static.cscdn.thelibbster.com/f/OpenLightReg.ttf');
+}
+
+.main-content {
+    position:relative;
+    top:0px;
+    width:250px;
+    margin:0 auto;
+    text-shadow: none !important;
+    color:#FFF;
+    font-family: OpenLight;
+}
+.login-clogo {
+	position:absolute;
+	top:0px;
+	left:0px;
+}
+
+.main-links {
+	position:relative;
+	top:0;
+}
+
+
+.loader {
+	padding:5px;
+	padding-top:10px;
+	border:1px solid #555;
+	border-radius:10px;
+	z-index: 99;
+	background: #555;
+	text-align: center;
+	-webkit-box-shadow:  0px 0px 15px 5px #444;    
+    box-shadow:  0px 0px 15px 5px #444;
+  /*  text-shadow: 0px 1px 2px #ffffff;
+    filter: dropshadow(color=#ffffff, offx=0, offy=1); */
+}
+
+#lunch img {
+	max-width: 320px;
+}
+
+tr {
+	background-repeat: no-repeat;
+}
+
+tbody {
+	margin: 0;
+	padding:5px;
+}
+
+</style>
+	<div data-role="page" id="index" data-theme="a" data-add-back-btn="false">
+		<div data-role="panel" id="left-panel" data-theme="a" data-position="left" data-display="push">
+        <ul data-role="listview" data-theme="a">
+            <li data-icon="back"><a id="logout-button">Logout</a></li>
+            <li data-icon="info"><a href="#about" data-transition="flip">About</a></li>
+            <li data-icon="search"><a href="#help" data-transition="flow">Help</a></li>
+           <!-- <li data-icon="gear"><a href="conn.html" rel="external">Test conn</a></li> -->
+        </ul>
+    </div><!-- /panel -->
+		<div data-role="header" data-theme="b">
+			<div><h1 style="font-size:1em; text-align:center">Crescent School Student Utility </h1></div>
+			<a href="#left-panel" data-iconpos="notext" data-icon="bars" data-iconshadow="false" data-theme="b">Logout</a>
+		</div>
+		<div data-role="content" id="main">
+			    <span id="fastclick">
+				<div class="main-content">
+			    <img class="login-clogo" src="clogo.png" />
+					<ul data-role="listview" data-inset="true" class="main-links">
+	                    <li><a href="#sched" data-transition="slide">Class Schedule</a></li>
+	                    <li><a href="#grades" data-transition="slide">Class Averages</a></li>
+	                    <li><a href="#lunch" data-transition="slide">Lunch Menu</a></li>
+	            	 </ul>
+	         	</div>
+		</div>
+		<script>
+			$('.loader').hide();
+			function getItAll(username, password) {
+				$('.loader').show();
+
+				$.post('http://cs-dynamic.cscdn.thelibbster.com/php/bot/nc.php', { username: username, password: password }, function(grades) {
+	  				$('#grades-loader').slideUp('200').delay('100');
+	  				$('#averages').fadeIn('500').html(grades);
+				});
+
+				$.post('http://cs-dynamic.cscdn.thelibbster.com/php/bot/s.php', { username: username, password: password }, function(sched) {
+	  				$('#sched-loader').slideUp('200').delay('100');
+	  				$('#schedule').fadeIn('500').html(sched);
+				});
+				
+				$.post('http://cs-dynamic.cscdn.thelibbster.com/php/bot/lunch.php', { username: username, password: password }, function(lunch) {
+	  				$('#lunch-loader').slideUp('200').delay('100');
+	  				$('#lunch-menu').fadeIn('500').html(lunch);
+				});
+			}
+			// Defining these vars after defining the function seems to be the best way to do things
+			var username = localStorage.username;
+			var password = localStorage.password;
+			getItAll(username, password);
+
+			$('#logout-button').click(function(){
+				// A hacked up way to clear the username and password from localStorage:
+				localStorage.username = "";
+				localStorage.password = "";
+				/* The following is the "real" way of doing it, but it doesn't seem to work for some reason
+				localStorage.removeItem(username);
+				localStorage.removeItem(password);
+				*/
+				$(location).attr("href", "index.html");
+			});
+
+			$('#problem-submit-button').touchstart(function(){
+				var message = $('#problem-text').val();
+				var type = "problem";
+				var username = localStorage.username;
+				var device_os = "iOS";
+				$.post('http://cs-dynamic.cscdn.thelibbster.com/php/bot/lunch.php', { username: username, device_os: device_os, type: type, message: message, }, function(problem) {
+	  				alert("Your message has been sent! Thank you, we'll get back to you as soon as we can.");
+				});
+			});
+		</script>
+	</div>
+	<div data-role="page" id="sched" data-theme="a" data-add-back-btn="true">
+		<div data-role="header" data-theme="a">
+			<h1>Class Schedule</h1>
+			<a href="main1.html" rel="external" data-iconpos="notext" class="ui-btn-right refresh" id="refresh-sched" data-icon="refresh" data-iconshadow="false" data-theme="a">Refresh</a>
+		</div>
+		<div data-role="content">
+			<div class="loader" id="sched-loader">
+                    <img src="ajax-loader.gif" id="loader-img" />
+                    <p id="loader-message">Loading your schedule...</p>
+            </div>
+			<div id="schedule">
+				&nbsp;
+            </div>
+	   	</div>
+	</div>
+	<div data-role="page" id="grades" data-theme="a" data-add-back-btn="true">
+		<div data-role="header">
+			<h1>Class Averages</h1>
+			<a href="main1.html" rel="external" data-iconpos="notext" class="ui-btn-right refresh" id="refresh-grades" data-icon="refresh" data-iconshadow="false" data-theme="a">Refresh</a>
+		</div>
+		<div data-role="content">
+			<div class="loader" id="grades-loader">
+                    <img src="ajax-loader.gif" id="loader-img" />
+                    <p id="loader-message">Loading your latest averages...</p>
+            </div>
+			<div id="averages">
+				&nbsp;
+			</div>
+		</div>
+	</div>
+	<div data-role="page" id="lunch" data-theme="a" data-add-back-btn="true">
+		<div data-role="header">
+			<h1>Lunch Menu</h1>
+			<a href="main1.html" rel="external" data-iconpos="notext" class="ui-btn-right refresh" id="refresh-lunch" data-icon="refresh" data-iconshadow="false" data-theme="a">Refresh</a>
+		</div>
+		<div data-role="content">
+			<div class="loader" id="lunch-loader">
+                    <img src="ajax-loader.gif" id="loader-img" />
+                    <p id="loader-message">Loading your lunch menu...</p>
+            </div>
+			<div id="lunch-menu">
+				&nbsp;
+			</div>
+		</div>
+	</div>
+	<div data-role="page" id="about" data-theme="a" data-add-back-btn="true">
+		<div data-role="header" data-theme="a">
+			<h1>About</h1>
+		</div>
+		<div data-role="content">
+			<div data-role="collapsible-set" data-theme="a" data-content-theme="a">
+		    <div data-role="collapsible" id="theapp-coll">
+		        <h3>[The App]</h3>
+		        <p>This is the first version of the Student Utility app. It's <i>far</i> from complete. The end of this year is a test-drive, to see how
+		        	people like the idea of the app. When you return in the fall, this will change your life. Promise.
+		        <br>
+		        <br>
+		        	The Student Utility app helps Crescent students keep their daily academic lives in line. Forget what class you have next? No problem.
+		        	Wondering what your <span id="class-changer"></span> average is? No problem. 
+		        <br>
+		        <br>
+		        The Student Utility was born out of the idea that we should be able to access the information which is important to us quickly and easily. The legacy of the Student Utility is to simplify the academic lives of Crescent Students by providing them with access 
+		        to this information.
+		        <br>
+				This application requires and internet connection. Data transfer rates may apply.
+				<br>
+				<b>Current version: 1.0</b>
+		        </p>
+		    </div>
+		    <div data-role="collapsible">
+		        <h3>[The People]</h3>
+		        <p>The Student Utility was dreamed of, designed, programmed, and is maintained by Upper School Students.
+		        	So far, the members of the <i>Student Utility Team</i> are:
+						<ul style="list-style-type:square;">
+							<li>Jonathan Libby (programming, design, everything else)</li>
+							<br>
+							<li>Matthew Cheung (design, logistics)</li>
+							<br>
+							<li>Ian Lo (original idea)</li>
+						</ul>
+					If you'd like to get involved, drop us an email from the "Help" page of this app. Thanks for using the Student Utility!
+				</p>
+		    </div>
+		</div>
+		<a href="#index" data-role="button" data-icon="arrow-l" data-iconpos="left" data-transition="reverse flip">Back</a>
+		</div>
+	<script>
+		$('#theapp-coll').touchstart(function(){
+	 		function nextClass() {
+	         if (classes.length == 0) {
+	        	       nextClass();
+	        	      } else {
+	        	        $('#class-changer').html(classes.pop()).fadeIn(500).delay(1700).fadeOut(500, nextClass);
+	        	    }
+	        	};
+	        	var classes = [
+	        		// This list needs to be expanded!
+	        	    "Math",
+	        	    "Science",
+	        	    "Art",
+	        	    "Music",
+	        	    "Computer Sciences",
+	        	    "Technological Design",
+	        	    "Exploring Technologies",
+	        	    "Physical Education", // Yeah, right (again)
+	        	    "Judo",
+	        	    "English",
+	        	    "French",
+	        	    "Spanish",
+	        	    "Mandarin",
+	        	    "Geography",
+	        	    "Civics",
+	        	    "Careers",
+	        	    "Economics"
+	        	].reverse();
+	        	nextClass();
+        });
+	</script>
+	</div>
+	<div data-role="page" id="help" data-theme="a" data-add-back-btn="true">
+		<div data-role="header" data-theme="a">
+			<h1>Help</h1>
+		</div>
+		<div data-role="content">
+			<div data-role="collapsible-set">
+		    <div data-role="collapsible">
+		        <h3>[General Help]</h3>
+		        <p>The list below includes some of the most common problems with the app. If you can't find your problem in this list, please submit your problem below.</p>
+		        <div data-role="collapsible-set">
+		    	<div data-role="collapsible">
+		    		<h4>I can't login?</h4>
+		    		<b>I can't login?</b>
+		    		<p>Make sure you are using your GreenRoom credentials and typed in your username and password correctly. Also be sure to check and see if you are connected to the Internet. A Wi-Fi or 3G/4G connection is required. If your problem persists, please report your problem.</p>
+		    	</div>
+		    	<div data-role="collapsible">
+		    		<h4>What do I do if it says the login is unsuccessful but I have already logged in on the login page?</h4>
+		    		<b>What do I do if it says the login is unsuccessful but I have already logged in on the login page?</b>
+		    		<p>Try reloading the page. There should be a button on the top right corner. If you continue to encounter problems, logout and try logging in again. Make sure you type in your username and password correctly. If your problem persists, please report a problem.</p>
+		    	</div>
+		    	<div data-role="collapsible">
+		    		<h4>I can't access my class schedule, class averages, or lunch room?</h4>
+		    		<b>I can't access my class schedule, class averages, or lunch room?</b>
+		    		<p>Make sure you typed in your GreenRoom username and password correctly. If you continue to get an error, maybe something went wrong on our end. If you think so, please contact us immediately by reporting a problem.</p>
+		    	</div>
+		    	<div data-role="collapsible">
+		    		<h4>The loading message stays on the screen and nothing happens?</h4>
+		    		<b>The loading message stays on the screen and nothing happens?</b>
+		    		<p>Make sure you have a decent and steady internet connection. A Wi-Fi or 3G/4G connection is required. If your problem persists, please report your problem.</p>
+		    	</div>
+		    	<div data-role="collapsible">
+		    		<h4>I clicked on a link (ie. View full schedule) and can't go back to the main app?</h4>
+		    		<b>I clicked on a link (ie. View full schedule) and can't go back to the main app?</b>
+		    		<p>Exit the app and remove it from your recent apps list. Re-launch the app again to access everything again. This is a known issue and will be fixed in an upcoming update.</p>
+		    	</div>
+		    </div>
+		    </div>
+		    
+		    <div data-role="collapsible">
+		        <h3>[Report a problem]</h3>
+		        <p>Give us a quick description of your problem, and we'll get back to you as soon as we can. If it's a bug, we'll look into fixing it as soon as possible.</p>
+		        <form>
+		        	<a href="mailto:jonathanlibby@crescentschool.org?CC=matthewcheung@crescentschool.org&Subject=Question%20or%20comment%20about%20the%20Student%20Utility">Report a problem</a>
+		        		<!--<textarea id="problem-text" name="message" placeholder="Describe your problem" rows="20"></textarea>
+		        		<button id="problem-submit-button">Send</button>-->
+		        </form>
+		    </div>
+		    <div data-role="collapsible">
+		    	<h3>[Give Feedback]</h3>
+		    	<p>Have a question or comment about the Student Utility? Drop us a message, your feedback is appreciated!</p>
+		    	<form>
+		    		<a href="mailto:jonathanlibby@crescentschool.org?CC=matthewcheung@crescentschool.org&Subject=Question%20or%20comment%20about%20the%20Student%20Utility">Send feedback</a>
+		        		<!--<textarea id="feedback-text" name="message" placeholder="Questions, comments, or concerns" rows="20"></textarea>
+		        		<button id="feedback-submit-button">Send</button>-->
+		        </form>
+		    </div>
+			</div>
+			<a href="#index" data-role="button" data-icon="arrow-l" data-iconpos="left" data-transition="reverse flow">Back</a>
+		</div>
+	</div>
+</span>
+</body>
+</html>

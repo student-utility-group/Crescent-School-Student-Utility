@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <!-- Adding viewport -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=yes">
+    
+    <!-- Adding jQuery scripts -->
+    <script type="text/javascript" src="http://cs-static.cscdn.thelibbster.com/js/jquery.min.js"></script>
+
+        
+    <!-- Since jQuery Mobile relies on jQuery core's $.ajax() functionality,
+    $.support.cors & $.mobile.allowCrossDomainPages must be set to true to tell
+    $.ajax to load cross-domain pages. -->
+    <script type="text/javascript">
+            $(document).bind("mobileinit", function() {
+                             $.support.cors = true;
+                             $.mobile.allowCrossDomainPages = true;
+            });
+    </script>
+        
+    <!-- Adding cordova script -->
+    <script type="text/javascript" src="cordova-2.2.0.js"></script>
+    
+    <!-- Adding jQuery mobile scripts & CSS -->
+    <script type="text/javascript" src="http://cs-static.cscdn.thelibbster.com/js/jquery-mobile.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="http://cs-static.cscdn.thelibbster.com/css/jquery-mobile.min.css">
+
+    
+    <!-- Adding our main stylesheet -->
+    <link type="text/css" rel="stylesheet" href="main.css">
+    
+        <link type="text/css" rel="stylesheet" href="http://cs-static.cscdn.thelibbster.com/css/themes/crescent_studentutility.min.css">
+            <!-- <link type="text/css" rel="stylesheet" href="jquery-mobile-test.css"> -->
+
+   <!-- <script type="text/javascript">
+        // Listener that will invoke the onDeviceReady() function as soon as phonegap has loaded properly
+        document.addEventListener("deviceready", onDeviceReady, false);
+        function onDeviceReady() {
+            navigator.splashscreen.hide();
+                
+            document.addEventListener("backbutton", onBackClickEvent, false); // Adding the back button listener
+            
+        }
+    </script> -->
+
+</head>
+    <body>
+
+        <div class="ui-page" data-role="page" data-theme="a">
+            <!--<div data-role="header" data-theme="a" class="header">
+                <h1>Crescent Student Utility</h1>
+            </div> -->           
+            
+            <div class="menu-page" data-role="content" data-theme="a">
+                
+                <div class="main-content">
+                <img class="login-clogo" src="clogo.png" />
+                <p>Crescent School Student Utility</p>
+                </div>
+                 
+            <!--    <ul data-role="listview" data-inset="true" class="main-links">
+                    <li><a href="#">Acura</a></li>
+                    <li><a href="#">Audi</a></li>
+                    <li><a href="#">BMW</a></li>
+                    <li><a href="#">Cadillac</a></li>
+                    <li><a href="#">Ferrari</a></li>
+                </ul> -->
+                
+                <a class="button" data-role="button">Click meh...</a>
+                    
+                </div>
+            
+            
+        </div>
+        
+        <script type="text/javascript">
+            $('li').on('click',function(){
+                       alert('clicked');
+                       $('ul').append('<li><a href="#">Cadillac</a></li>');
+                       $('ul').listview('refresh');
+                       
+                       });
+            
+            
+            </script>
+</body>
+</html>
