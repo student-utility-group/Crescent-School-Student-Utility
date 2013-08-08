@@ -84,9 +84,9 @@
                             <Add.Item>
                                 <Group GroupName="Group" Id="3c240691-082b-6285-4844-58ebb10d3519" Panel.Bounds="93,479,0*,0*">
                                     <Group.Children>
-                                        <ProgressBar Foreground="#FF018156" Value="87" Id="227f4a23-1ecc-809a-2c5d-7faa4f0961c2" Panel.Bounds="2,44,450{5,2147483647},12{5,2147483647}" />
-                                        <Ellipse Color="Transparent" Background="#FF018156" Id="e608aadc-ec61-6e87-5855-102378ba6b40" Panel.Bounds="0,0,100{5,2147483647},100{5,2147483647}" />
-                                        <Title Text="87%" Foreground="White" Id="3f5e983c-e25d-22ba-9eb4-7e6feadc8f53" Panel.Bounds="18,26,67*,47*" />
+                                        <ProgressBar Foreground="#FF018156" Value="87" Id="227f4a23-1ecc-809a-2c5d-7faa4f0961c2" Panel.Bounds="2,44,450{5,2147483647},20{5,2147483647}" />
+                                        <Ellipse Color="Transparent" Background="#FF018156" Id="e608aadc-ec61-6e87-5855-102378ba6b40" Panel.Bounds="0,4,100{5,2147483647},100{5,2147483647}" />
+                                        <Title Text="87%" Foreground="White" Id="3f5e983c-e25d-22ba-9eb4-7e6feadc8f53" Panel.Bounds="18,30,67*,47*" />
                                     </Group.Children>
                                 </Group>
                             </Add.Item>
@@ -95,9 +95,9 @@
                             <Add.Item>
                                 <Group GroupName="Group" Id="8902f767-9642-72e4-d61b-2802bc52580b" Panel.Bounds="93,736,0*,0*">
                                     <Group.Children>
-                                        <ProgressBar Foreground="#FF018156" Value="98" Id="23a6961b-a8c4-1a16-2516-a846622b3fa2" Panel.Bounds="2,44,450{5,2147483647},12{5,2147483647}" />
-                                        <Ellipse Color="Transparent" Background="#FF018156" Id="08cf7d5e-9ff5-d6d0-7250-7fe769adef65" Panel.Bounds="0,0,100{5,2147483647},100{5,2147483647}" />
-                                        <Title Text="98%" Foreground="White" Id="a5b3eaea-871c-0ede-d275-9fade06e488f" Panel.Bounds="18,26,5*{5,2147483647},5*{5,2147483647}" />
+                                        <ProgressBar Foreground="#FF018156" Value="98" Id="23a6961b-a8c4-1a16-2516-a846622b3fa2" Panel.Bounds="2,44,450{5,2147483647},20{5,2147483647}" />
+                                        <Ellipse Color="Transparent" Background="#FF018156" Id="08cf7d5e-9ff5-d6d0-7250-7fe769adef65" Panel.Bounds="0,4,100{5,2147483647},100{5,2147483647}" />
+                                        <Title Text="98%" Foreground="White" Id="a5b3eaea-871c-0ede-d275-9fade06e488f" Panel.Bounds="18,30,5*{5,2147483647},5*{5,2147483647}" />
                                     </Group.Children>
                                 </Group>
                             </Add.Item>
