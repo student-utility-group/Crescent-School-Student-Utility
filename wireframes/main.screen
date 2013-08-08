@@ -1,0 +1,277 @@
+﻿<?Infragistics.Models format="xaml" version="23"?>
+<Page xmlns="http://prototypes.infragistics.com/"
+                                                         xmlns:d="http://prototypes.infragistics.com/views/design"
+                                                         Id="5b73b4da-d1ae-ebf4-fc12-e9b9abf3cfa0" d:Design.ShowOpeningAnimation="True">
+    <Page.Content>
+        <Content Width="640" Height="1136" Id="5b912112-dde0-72b7-5ae2-ab27848d4c50">
+            <Content.Layers>
+                <Layer Id="61818937-721b-2a20-52e8-54d8eae0e5cd" Panel.Layout="Stretch" />
+                <AnnotationsLayer Id="51a35ad2-b65b-f4b2-1832-e5c526b53b08" Panel.Layout="Stretch" />
+            </Content.Layers>
+        </Content>
+    </Page.Content>
+    <Page.Scenes>
+        <Scene Title="Start" Created="08/08/2013 04:11:01" Id="f0f0dd5e-f321-3487-2442-37690232ac2d">
+            <Scene.KeyFrames>
+                <KeyFrame Duration="250" Id="2188c89c-655f-17e3-54ce-d59e636eb20c">
+                    <KeyFrame.Operations>
+                        <Add Property="Panel.Children" Target="61818937-721b-2a20-52e8-54d8eae0e5cd">
+                            <Add.Item>
+                                <Group GroupName="Group" Id="c6825c83-ed32-0766-b859-94cb8b213bac" Panel.Bounds="179,141,0*,0*">
+                                    <Group.Children>
+                                        <ContainerBox Background="#FF006030" CornerRadius="5" Id="25e36c32-e768-2608-c47e-631ee7ccf83a" Panel.Bounds="0,4,282{5,2147483647},132{5,2147483647}">
+                                            <ContainerBox.Content>
+                                                <Container ClipToContainer="True" Id="737a3046-1588-0c8a-50a1-0fddc2824e47" />
+                                            </ContainerBox.Content>
+                                        </ContainerBox>
+                                        <Title Text="9:41" Foreground="White" FontSize="100" Id="e76a5515-40ff-81c8-188b-72834cf10829" Panel.Bounds="42,0,5*{5,2147483647},5*{5,2147483647}" />
+                                    </Group.Children>
+                                    <Group.Click>
+                                        <CommandNext SceneId="ccbc08b7-7e7d-8d47-6872-d92b6c7e86f4" Created="08/08/2013 04:42:35" Id="ebb4f1a2-3c50-d605-f888-57b166ec799c" />
+                                    </Group.Click>
+                                </Group>
+                            </Add.Item>
+                        </Add>
+                        <Add Property="Panel.Children" Target="61818937-721b-2a20-52e8-54d8eae0e5cd">
+                            <Add.Item>
+                                <Group GroupName="Group" Id="38cd58da-4ac5-ee95-6cf2-3feda69a3d53" Panel.Bounds="210,322,0*,0*">
+                                    <Group.Children>
+                                        <ProgressBar Foreground="#FF018156" Value="40" Id="af23f522-f998-5494-f064-d43795dec739" Panel.Bounds="0,0,220{5,2147483647},35{5,2147483647}" />
+                                        <Label Text="2nd Period" Foreground="White" FontSize="15" Id="c6f11b1d-25ff-73b2-4964-4080f62e6e75" Panel.Bounds="72,7,5*{5,2147483647},5*{5,2147483647}" />
+                                    </Group.Children>
+                                    <Group.Click>
+                                        <CommandNext SceneId="ccbc08b7-7e7d-8d47-6872-d92b6c7e86f4" Created="08/08/2013 05:13:15" Id="4dcd0dd1-9627-5699-64a8-a4cf3a9532e6" />
+                                    </Group.Click>
+                                </Group>
+                            </Add.Item>
+                        </Add>
+                        <Add Property="Panel.Children" Before="c6825c83-ed32-0766-b859-94cb8b213bac" Target="61818937-721b-2a20-52e8-54d8eae0e5cd">
+                            <Add.Item>
+                                <Group GroupName="Group" Id="0b43eb29-fb30-e013-0fd1-3349a20fd153" Panel.Bounds="210,664,0*,0*">
+                                    <Group.Children>
+                                        <ContainerBox Background="#FF006030" CornerRadius="5" Id="b3114c9a-e6ff-f354-ac91-7a27113dedce" Panel.Bounds="0,0,220{5,2147483647},108{5,2147483647}">
+                                            <ContainerBox.Content>
+                                                <Container ClipToContainer="True" Id="19b47f3a-4095-0c0e-699c-2dc8131118f5" Panel.Bounds="0,0,218*,106*" />
+                                            </ContainerBox.Content>
+                                        </ContainerBox>
+                                        <Title Text="ICS3U" Foreground="White" FontSize="48" Id="eaf3e675-5d55-84b2-08e3-788ea3a87064" Panel.Bounds="43,5,133*,66*" />
+                                        <Label Text="103" Foreground="White" FontSize="20" Id="47d6238c-f253-a534-a0ef-160609ed4da8" Panel.Bounds="92,70,35*,28*" />
+                                    </Group.Children>
+                                </Group>
+                            </Add.Item>
+                        </Add>
+                        <Add Property="Panel.Children" Before="c6825c83-ed32-0766-b859-94cb8b213bac" Target="61818937-721b-2a20-52e8-54d8eae0e5cd">
+                            <Add.Item>
+                                <Group GroupName="Group" Id="b4edadca-e40c-1386-d6ad-b2dd7809b5d0" Panel.Bounds="207,409,0*,0*">
+                                    <Group.Children>
+                                        <ContainerBox Background="#FF006030" CornerRadius="5" Id="e91162d2-40b6-b6f8-78bb-e7d29c9c609a" Panel.Bounds="0,0,220{5,2147483647},108{5,2147483647}">
+                                            <ContainerBox.Content>
+                                                <Container ClipToContainer="True" Id="ff2b0948-740c-7b8e-16da-9a109af09369" Panel.Bounds="0,0,218*,106*" />
+                                            </ContainerBox.Content>
+                                        </ContainerBox>
+                                        <Title Text="ENG2D" Foreground="White" FontSize="48" Id="151d77d0-dec7-2529-f569-3898ac05ffc6" Panel.Bounds="33,5,161*,66*" />
+                                        <Label Text="L403" Foreground="White" FontSize="20" Id="6b094e17-ace6-3171-3872-4d0f2d160d13" Panel.Bounds="91,73,45*,28*" />
+                                    </Group.Children>
+                                </Group>
+                            </Add.Item>
+                        </Add>
+                        <Add Property="Panel.Children" Before="0b43eb29-fb30-e013-0fd1-3349a20fd153" Target="61818937-721b-2a20-52e8-54d8eae0e5cd">
+                            <Add.Item>
+                                <Title Text="Next class:" Id="6b7c73ea-023c-30b0-31ee-c0d7f85af2a3" Panel.Bounds="235,571,169*,47*" />
+                            </Add.Item>
+                        </Add>
+                        <Add Property="Panel.Children" Before="0b43eb29-fb30-e013-0fd1-3349a20fd153" Target="61818937-721b-2a20-52e8-54d8eae0e5cd">
+                            <Add.Item>
+                                <Group GroupName="Group" Id="3c240691-082b-6285-4844-58ebb10d3519" Panel.Bounds="93,479,0*,0*">
+                                    <Group.Children>
+                                        <ProgressBar Foreground="#FF018156" Value="87" Id="227f4a23-1ecc-809a-2c5d-7faa4f0961c2" Panel.Bounds="2,44,450{5,2147483647},12{5,2147483647}" />
+                                        <Ellipse Color="Transparent" Background="#FF018156" Id="e608aadc-ec61-6e87-5855-102378ba6b40" Panel.Bounds="0,0,100{5,2147483647},100{5,2147483647}" />
+                                        <Title Text="87%" Foreground="White" Id="3f5e983c-e25d-22ba-9eb4-7e6feadc8f53" Panel.Bounds="18,26,67*,47*" />
+                                    </Group.Children>
+                                </Group>
+                            </Add.Item>
+                        </Add>
+                        <Add Property="Panel.Children" Before="0b43eb29-fb30-e013-0fd1-3349a20fd153" Target="61818937-721b-2a20-52e8-54d8eae0e5cd">
+                            <Add.Item>
+                                <Group GroupName="Group" Id="8902f767-9642-72e4-d61b-2802bc52580b" Panel.Bounds="93,736,0*,0*">
+                                    <Group.Children>
+                                        <ProgressBar Foreground="#FF018156" Value="98" Id="23a6961b-a8c4-1a16-2516-a846622b3fa2" Panel.Bounds="2,44,450{5,2147483647},12{5,2147483647}" />
+                                        <Ellipse Color="Transparent" Background="#FF018156" Id="08cf7d5e-9ff5-d6d0-7250-7fe769adef65" Panel.Bounds="0,0,100{5,2147483647},100{5,2147483647}" />
+                                        <Title Text="98%" Foreground="White" Id="a5b3eaea-871c-0ede-d275-9fade06e488f" Panel.Bounds="18,26,5*{5,2147483647},5*{5,2147483647}" />
+                                    </Group.Children>
+                                </Group>
+                            </Add.Item>
+                        </Add>
+                    </KeyFrame.Operations>
+                </KeyFrame>
+                <KeyFrame Duration="250" Id="7b79c228-47d3-76ac-6ed9-0b57332d7379" />
+            </Scene.KeyFrames>
+        </Scene>
+        <Scene Title="Tapped/Clicked Group" StateGroup="f0f0dd5e-f321-3487-2442-37690232ac2d" ParentScene="f0f0dd5e-f321-3487-2442-37690232ac2d" Created="08/08/2013 04:42:35" Id="ccbc08b7-7e7d-8d47-6872-d92b6c7e86f4">
+            <Scene.KeyFrames>
+                <KeyFrame Id="f4abce79-71fe-de79-7252-adc2a219c7f0">
+                    <KeyFrame.Operations>
+                        <Add Property="Panel.Children" Target="61818937-721b-2a20-52e8-54d8eae0e5cd">
+                            <Add.Item>
+                                <ContainerBox Background="#FF006030" CornerRadius="5" Id="dd4f48e9-d9de-5a12-e20e-23ac774e8bae" Panel.Bounds="40,345,560{5,2147483647},742{5,2147483647}">
+                                    <ContainerBox.Content>
+                                        <Container ClipToContainer="True" Id="3f3566c7-50e1-72f4-cfe2-64461417b7c6">
+                                            <Container.Children>
+                                                <Grid FontSize="20" HeaderFontSize="22" Id="438f8c21-56c0-36d4-f853-1e525b4aa13d" Panel.Bounds="48,53,464{5,2147483647},200{5,2147483647}">
+                                                    <Grid.HeaderRow>
+                                                        <GridHeaderRow FontStyle="" Height="47" Id="aa252db8-4923-335b-8583-a74e4a2dede1" />
+                                                    </Grid.HeaderRow>
+                                                    <Grid.Columns>
+                                                        <GridColumn ColumnId="6901fef7-24f1-6183-73d0-68e8f6f3143f" Type="Text" Width="166" Id="4b1d76d3-a472-a5b4-cb01-4041bf0a97f3">
+                                                            <GridColumn.CellData>
+                                                                <GridCellData ColumnId="6901fef7-24f1-6183-73d0-68e8f6f3143f" Value="Day 3" Id="d74abb1c-3d6e-cde8-7ed8-c30f31c1c3f8" />
+                                                            </GridColumn.CellData>
+                                                        </GridColumn>
+                                                        <GridColumn ColumnId="3a50023e-cd69-c9e1-ebb0-36eaf8769ff2" Type="Text" Width="296" Id="0e0ed12e-b808-b47b-647e-04cfebc821e5">
+                                                            <GridColumn.CellData>
+                                                                <GridCellData ColumnId="3a50023e-cd69-c9e1-ebb0-36eaf8769ff2" Value="April 19th, 2014" Id="8596e44c-903d-50ad-a39a-51c04087442b" />
+                                                            </GridColumn.CellData>
+                                                        </GridColumn>
+                                                    </Grid.Columns>
+                                                    <Grid.Rows>
+                                                        <GridRow Height="41" Id="b612a0e2-8046-7d6a-f56d-24d5715ad5d2">
+                                                            <GridRow.Data>
+                                                                <GridCellData ColumnId="fc873b20-3f39-dad2-9c19-f9f44645a43c" Value=" consetetur no ipsum accumsan." Id="74585811-113d-75ec-4652-58fe2676e2c1" />
+                                                                <GridCellData ColumnId="6901fef7-24f1-6183-73d0-68e8f6f3143f" Value="Period 1" Id="3d801df6-8013-1ccc-1aed-1d7d456b78f4" />
+                                                                <GridCellData ColumnId="3a50023e-cd69-c9e1-ebb0-36eaf8769ff2" Value="ASM2O-2, Media Arts" Id="7ddfd036-fb9c-4b62-f5a8-3db8887e53ca" />
+                                                            </GridRow.Data>
+                                                        </GridRow>
+                                                        <GridRow Height="36" Id="2afe967b-873a-c8c3-eff1-db8f127f9906">
+                                                            <GridRow.Data>
+                                                                <GridCellData ColumnId="fc873b20-3f39-dad2-9c19-f9f44645a43c" Value=" sea tation sea commodo." Id="a367ac88-f00b-5993-6d95-5ceaf1058ca7" />
+                                                                <GridCellData ColumnId="6901fef7-24f1-6183-73d0-68e8f6f3143f" Value="Period 2" Id="b20b704f-2d16-6629-7235-161e51b32fc8" />
+                                                                <GridCellData ColumnId="3a50023e-cd69-c9e1-ebb0-36eaf8769ff2" Value="ENG2D-6, English" Id="3de4cfbc-8619-340f-a82b-90337fe8d1ed" />
+                                                            </GridRow.Data>
+                                                        </GridRow>
+                                                        <GridRow Height="39" Id="e1d20560-fe2d-9a82-02dd-f50ffc2e80da">
+                                                            <GridRow.Data>
+                                                                <GridCellData ColumnId="fc873b20-3f39-dad2-9c19-f9f44645a43c" Value=" dolor autem aliquam ex." Id="c3f2f083-83d9-70be-3bda-b445a7b155b4" />
+                                                                <GridCellData ColumnId="6901fef7-24f1-6183-73d0-68e8f6f3143f" Value="Period 3" Id="a5f2b4b5-48df-8569-a963-b244ed239570" />
+                                                                <GridCellData ColumnId="3a50023e-cd69-c9e1-ebb0-36eaf8769ff2" Value="ICS3U-2, Computer Studies" Id="c7d31a5c-095d-319a-c6be-873810415cac" />
+                                                            </GridRow.Data>
+                                                        </GridRow>
+                                                        <GridRow Height="35" Id="e04d98ec-ca12-d8c2-e74e-009171da33e1">
+                                                            <GridRow.Data>
+                                                                <GridCellData ColumnId="6901fef7-24f1-6183-73d0-68e8f6f3143f" Value="Period 4" Id="ca243690-9de5-c9ed-6c5c-6b44b9c79cb5" />
+                                                                <GridCellData ColumnId="3a50023e-cd69-c9e1-ebb0-36eaf8769ff2" Value="CHV2O-2, Civics &amp; Citizenship" Id="04c554d1-cdeb-1270-8c73-82a8213dd389" />
+                                                            </GridRow.Data>
+                                                        </GridRow>
+                                                    </Grid.Rows>
+                                                </Grid>
+                                                <Grid FontSize="20" HeaderFontSize="22" Id="25e5e7d5-07aa-6cc4-1a8b-a72fd3b88c6b" Panel.Bounds="48,264,464{5,2147483647},200{5,2147483647}">
+                                                    <Grid.HeaderRow>
+                                                        <GridHeaderRow FontStyle="" Height="47" Id="6dd7b69e-62c8-ba53-949c-40471853f2fb" />
+                                                    </Grid.HeaderRow>
+                                                    <Grid.Columns>
+                                                        <GridColumn ColumnId="6901fef7-24f1-6183-73d0-68e8f6f3143f" Type="Text" Width="166" Id="3aa7ef5c-6806-0d57-9d7e-e06f7dfbc042">
+                                                            <GridColumn.CellData>
+                                                                <GridCellData ColumnId="6901fef7-24f1-6183-73d0-68e8f6f3143f" Value="Day 4" Id="8a02e898-4173-d62e-1852-30131eb5ca38" Panel.Bounds="0,0,166*,47*" />
+                                                            </GridColumn.CellData>
+                                                        </GridColumn>
+                                                        <GridColumn ColumnId="3a50023e-cd69-c9e1-ebb0-36eaf8769ff2" Type="Text" Width="296" Id="38c919dd-b71f-f8b8-cb0c-12e5250d62f8">
+                                                            <GridColumn.CellData>
+                                                                <GridCellData ColumnId="3a50023e-cd69-c9e1-ebb0-36eaf8769ff2" Value="April 22nd, 2014" Id="d0b7ac55-50f9-7c9e-26db-c382ca7b9e6c" Panel.Bounds="0,0,296*,47*" />
+                                                            </GridColumn.CellData>
+                                                        </GridColumn>
+                                                    </Grid.Columns>
+                                                    <Grid.Rows>
+                                                        <GridRow Height="41" Id="b27ad96d-f0b6-9f4c-eed1-2e929ec8acf1">
+                                                            <GridRow.Data>
+                                                                <GridCellData ColumnId="fc873b20-3f39-dad2-9c19-f9f44645a43c" Value=" consetetur no ipsum accumsan." Id="c382f58a-a8df-bc74-c8ff-c5e78e477411" />
+                                                                <GridCellData ColumnId="6901fef7-24f1-6183-73d0-68e8f6f3143f" Value="Period 1" Id="a1d148fb-1e8a-eec2-97bd-e3dab32ce4a7" Panel.Bounds="0,0,166*,41*" />
+                                                                <GridCellData ColumnId="3a50023e-cd69-c9e1-ebb0-36eaf8769ff2" Value="FSF2D-2, French" Id="b1de5759-d340-b054-6ce8-170445bf62ba" Panel.Bounds="0,0,296*,41*" />
+                                                            </GridRow.Data>
+                                                        </GridRow>
+                                                        <GridRow Height="36" Id="b29371a6-0f2f-0fb7-3c0b-767bba398370">
+                                                            <GridRow.Data>
+                                                                <GridCellData ColumnId="fc873b20-3f39-dad2-9c19-f9f44645a43c" Value=" sea tation sea commodo." Id="9a34f179-fa8b-d1eb-b92b-86979ae253fa" />
+                                                                <GridCellData ColumnId="6901fef7-24f1-6183-73d0-68e8f6f3143f" Value="Period 2" Id="46d89c37-88ce-ef43-1bf8-37d6102230bc" Panel.Bounds="0,0,166*,36*" />
+                                                                <GridCellData ColumnId="3a50023e-cd69-c9e1-ebb0-36eaf8769ff2" Value="MPM2D-3, Math" Id="ac9193a0-2cc4-2a70-bf98-d90d6520a691" Panel.Bounds="0,0,296*,36*" />
+                                                            </GridRow.Data>
+                                                        </GridRow>
+                                                        <GridRow Height="39" Id="48938f94-05d9-3ab7-766b-30d56b32fcc4">
+                                                            <GridRow.Data>
+                                                                <GridCellData ColumnId="fc873b20-3f39-dad2-9c19-f9f44645a43c" Value=" dolor autem aliquam ex." Id="cf3aaab0-1be5-a9da-2653-f2eba79a9d20" />
+                                                                <GridCellData ColumnId="6901fef7-24f1-6183-73d0-68e8f6f3143f" Value="Period 3" Id="ef95f87d-25e6-41a3-c440-95c5df0e4216" Panel.Bounds="0,0,166*,39*" />
+                                                                <GridCellData ColumnId="3a50023e-cd69-c9e1-ebb0-36eaf8769ff2" Value="CHC2D-5, Canadian History" Id="8a5b7055-985f-9384-f55f-017c0c64209c" Panel.Bounds="0,0,296*,39*" />
+                                                            </GridRow.Data>
+                                                        </GridRow>
+                                                        <GridRow Height="35" Id="2aeb2d7d-e0a9-6979-e237-36efb93dc30d">
+                                                            <GridRow.Data>
+                                                                <GridCellData ColumnId="6901fef7-24f1-6183-73d0-68e8f6f3143f" Value="Period 4" Id="1bf5b609-7bb0-7777-9dbe-092884e7cc60" Panel.Bounds="0,0,166*,35*" />
+                                                                <GridCellData ColumnId="3a50023e-cd69-c9e1-ebb0-36eaf8769ff2" Value="SNC2D-6, Science" Id="d24eb6aa-fba1-011d-6b38-4ab1e1417c4d" Panel.Bounds="0,0,296*,35*" />
+                                                            </GridRow.Data>
+                                                        </GridRow>
+                                                    </Grid.Rows>
+                                                </Grid>
+                                                <Grid FontSize="20" HeaderFontSize="22" Id="cbb3c49d-b5d2-4bcb-b6a5-98d0d82db68e" Panel.Bounds="48,475,464{5,2147483647},200{5,2147483647}">
+                                                    <Grid.HeaderRow>
+                                                        <GridHeaderRow FontStyle="" Height="47" Id="81579b50-9f5d-1a60-e0b0-716b7c9fcfa4" />
+                                                    </Grid.HeaderRow>
+                                                    <Grid.Columns>
+                                                        <GridColumn ColumnId="6901fef7-24f1-6183-73d0-68e8f6f3143f" Type="Text" Width="166" Id="ac828f1f-b8b4-594b-4fa7-8d36da92253f">
+                                                            <GridColumn.CellData>
+                                                                <GridCellData ColumnId="6901fef7-24f1-6183-73d0-68e8f6f3143f" Value="Day 5" Id="9621aa30-a3b1-c313-b8ee-fafc54d6baba" Panel.Bounds="0,0,166*,47*" />
+                                                            </GridColumn.CellData>
+                                                        </GridColumn>
+                                                        <GridColumn ColumnId="3a50023e-cd69-c9e1-ebb0-36eaf8769ff2" Type="Text" Width="296" Id="0aad6fa5-9270-d438-c4ae-e34f1c2e217a">
+                                                            <GridColumn.CellData>
+                                                                <GridCellData ColumnId="3a50023e-cd69-c9e1-ebb0-36eaf8769ff2" Value="April 23rd, 2014" Id="65102cae-0c15-bcff-260e-5a42cd0c8bf4" Panel.Bounds="0,0,296*,47*" />
+                                                            </GridColumn.CellData>
+                                                        </GridColumn>
+                                                    </Grid.Columns>
+                                                    <Grid.Rows>
+                                                        <GridRow Height="41" Id="129cb329-7c0d-fab8-4f55-10b553826399">
+                                                            <GridRow.Data>
+                                                                <GridCellData ColumnId="fc873b20-3f39-dad2-9c19-f9f44645a43c" Value=" consetetur no ipsum accumsan." Id="8faca7de-cc68-48a6-1600-9de863f32452" />
+                                                                <GridCellData ColumnId="6901fef7-24f1-6183-73d0-68e8f6f3143f" Value="Period 1" Id="4952307d-f664-28ea-ccf2-1a1cdcf1cd69" Panel.Bounds="0,0,166*,41*" />
+                                                                <GridCellData ColumnId="3a50023e-cd69-c9e1-ebb0-36eaf8769ff2" Value="CHV2O-2, Civics &amp; Citizenship" Id="ca74736b-9877-8aee-3164-6def98e89625" Panel.Bounds="0,0,296*,41*" />
+                                                            </GridRow.Data>
+                                                        </GridRow>
+                                                        <GridRow Height="36" Id="ecbbf30a-ab2f-b3e8-6a04-aa46d17bbbf3">
+                                                            <GridRow.Data>
+                                                                <GridCellData ColumnId="fc873b20-3f39-dad2-9c19-f9f44645a43c" Value=" sea tation sea commodo." Id="e6378d3b-debf-44c9-0257-d157b2fd58b7" />
+                                                                <GridCellData ColumnId="6901fef7-24f1-6183-73d0-68e8f6f3143f" Value="Period 2" Id="82398cc0-9e76-6af4-01ec-8e5490bf5a95" Panel.Bounds="0,0,166*,36*" />
+                                                                <GridCellData ColumnId="3a50023e-cd69-c9e1-ebb0-36eaf8769ff2" Value="ASM2O-2, Media Arts" Id="3cfb10bb-bcae-fef0-b5d4-6a66a3437012" Panel.Bounds="0,0,296*,36*" />
+                                                            </GridRow.Data>
+                                                        </GridRow>
+                                                        <GridRow Height="39" Id="402c45af-99a5-6239-e464-15fec60db04a">
+                                                            <GridRow.Data>
+                                                                <GridCellData ColumnId="fc873b20-3f39-dad2-9c19-f9f44645a43c" Value=" dolor autem aliquam ex." Id="44599585-b5b9-bf8a-bd2a-2bb671d84467" />
+                                                                <GridCellData ColumnId="6901fef7-24f1-6183-73d0-68e8f6f3143f" Value="Period 3" Id="bf7f5891-d17f-87ad-a873-f0a1910b2164" Panel.Bounds="0,0,166*,39*" />
+                                                                <GridCellData ColumnId="3a50023e-cd69-c9e1-ebb0-36eaf8769ff2" Value="END2D-6, English" Id="dd19e26b-d0d9-cb92-8173-fc24af495c1b" Panel.Bounds="0,0,296*,39*" />
+                                                            </GridRow.Data>
+                                                        </GridRow>
+                                                        <GridRow Height="35" Id="690f353b-0954-11c5-987e-0cdd569e3214">
+                                                            <GridRow.Data>
+                                                                <GridCellData ColumnId="6901fef7-24f1-6183-73d0-68e8f6f3143f" Value="Period 4" Id="0e94298b-163c-660d-4756-2bd5039d0b4f" Panel.Bounds="0,0,166*,35*" />
+                                                                <GridCellData ColumnId="3a50023e-cd69-c9e1-ebb0-36eaf8769ff2" Value="ICS3U-2, Computer Studies" Id="53024816-d83b-b59f-42c5-b72649c9d186" Panel.Bounds="0,0,296*,35*" />
+                                                            </GridRow.Data>
+                                                        </GridRow>
+                                                    </Grid.Rows>
+                                                </Grid>
+                                                <Button Text="Close" CornerRadius="5" FontSize="22" Id="7403a0ff-f5be-b645-e309-3cfad28f1680" Panel.Bounds="176,683,200{5,2147483647},45{5,2147483647}">
+                                                    <Button.Click>
+                                                        <CommandSwitchTo SceneId="f0f0dd5e-f321-3487-2442-37690232ac2d" Created="08/08/2013 05:12:07" Id="885d8e06-bb7f-62c4-3591-98be0b0177b1" />
+                                                    </Button.Click>
+                                                </Button>
+                                                <Title Text="Class Schedule" Foreground="White" Id="7d05fa2c-ac5c-7d27-caba-338450e3dabb" Panel.Bounds="162,3,5*{5,2147483647},5*{5,2147483647}" />
+                                            </Container.Children>
+                                        </Container>
+                                    </ContainerBox.Content>
+                                </ContainerBox>
+                            </Add.Item>
+                        </Add>
+                        <Move To="210,298" Target="38cd58da-4ac5-ee95-6cf2-3feda69a3d53" />
+                        <Move To="179,117" Target="c6825c83-ed32-0766-b859-94cb8b213bac" />
+                    </KeyFrame.Operations>
+                </KeyFrame>
+            </Scene.KeyFrames>
+        </Scene>
+    </Page.Scenes>
+</Page>

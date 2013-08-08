@@ -1,0 +1,46 @@
+﻿<?Infragistics.Models format="xaml" version="23"?>
+<Page xmlns="http://prototypes.infragistics.com/"
+                                                         Id="320e0c0d-4cc1-9453-3bf9-f6fb652913ea">
+    <Page.Content>
+        <Content Width="640" Height="1136" Id="fb4e1b86-ab9c-2a84-ce5e-e47c2fc4368d">
+            <Content.Layers>
+                <Layer Id="196c316c-b9d5-d880-6316-5bd9f93f7c2f" Panel.Layout="Stretch" />
+                <AnnotationsLayer Id="282f44fb-c0ae-921e-dc03-425b97e4f6d1" Panel.Layout="Stretch" />
+            </Content.Layers>
+        </Content>
+    </Page.Content>
+    <Page.Scenes>
+        <Scene Title="Start" Created="08/08/2013 04:00:41" Id="ea109551-216d-be64-4cc7-441c59787c08">
+            <Scene.KeyFrames>
+                <KeyFrame Id="b545e61f-a6cb-f33c-ff66-9b6088ad9e88">
+                    <KeyFrame.Operations>
+                        <Add Property="Panel.Children" Target="196c316c-b9d5-d880-6316-5bd9f93f7c2f">
+                            <Add.Item>
+                                <Image SourcePath="assets/clogo.png" Id="5a7a7476-a9dd-0924-673a-cfdded9873d7" Panel.Bounds="199,221,241{5,2147483647},261{5,2147483647}" />
+                            </Add.Item>
+                        </Add>
+                        <Add Property="Panel.Children" Target="196c316c-b9d5-d880-6316-5bd9f93f7c2f">
+                            <Add.Item>
+                                <TextBox Id="71fec7ef-cf86-df66-b45a-cfd0170bc31d" Panel.Bounds="170,573,299{5,2147483647},5*{5,2147483647}" />
+                            </Add.Item>
+                        </Add>
+                        <Add Property="Panel.Children" Target="196c316c-b9d5-d880-6316-5bd9f93f7c2f">
+                            <Add.Item>
+                                <TextBox Id="30302a00-d3cc-8809-1311-50edd6152987" Panel.Bounds="170,638,299{5,2147483647},5*{5,2147483647}" />
+                            </Add.Item>
+                        </Add>
+                        <Add Property="Panel.Children" Target="196c316c-b9d5-d880-6316-5bd9f93f7c2f">
+                            <Add.Item>
+                                <Button Text="Login" Id="66ac21b7-8dbe-09ff-9ad6-8cf1c22c71f2" Panel.Bounds="202,732,228{5,2147483647},100{5,2147483647}">
+                                    <Button.Click>
+                                        <CommandNavigate Screen="/main.screen" Created="08/08/2013 04:11:01" Id="b68ed563-b358-e4fb-780a-d3cdda255116" />
+                                    </Button.Click>
+                                </Button>
+                            </Add.Item>
+                        </Add>
+                    </KeyFrame.Operations>
+                </KeyFrame>
+            </Scene.KeyFrames>
+        </Scene>
+    </Page.Scenes>
+</Page>

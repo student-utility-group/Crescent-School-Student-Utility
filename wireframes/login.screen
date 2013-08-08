@@ -1,0 +1,177 @@
+﻿<?Infragistics.Models format="xaml" version="23"?>
+<Page xmlns="http://prototypes.infragistics.com/"
+                                                         Id="763527f5-998f-a5b6-6733-2a363b9a5abd">
+    <Page.Content>
+        <Content Width="640" Height="1136" Id="3dd0b0bb-dff7-1b4a-6281-3677ecf9b4e5">
+            <Content.Layers>
+                <Layer Id="69747ecb-0cc8-1a77-0f26-aa52f7f1963c" Panel.Layout="Stretch" />
+                <AnnotationsLayer Id="ac22a647-bb0a-e03f-d659-7754454b5db1" Panel.Layout="Stretch" />
+            </Content.Layers>
+        </Content>
+    </Page.Content>
+    <Page.Scenes>
+        <Scene Title="Start" Created="08/08/2013 05:21:07" Id="b4da3990-21e0-b75a-3cb6-c9329487fa94">
+            <Scene.KeyFrames>
+                <KeyFrame Id="05661ea0-9b25-efbb-c90c-23b1892acae0">
+                    <KeyFrame.Operations>
+                        <Add Property="Panel.Children" Target="69747ecb-0cc8-1a77-0f26-aa52f7f1963c">
+                            <Add.Item>
+                                <Group GroupName="Group" Id="b18f0092-0838-3a5b-442a-d5f5be58d260" Panel.Bounds="161,197,0*,0*">
+                                    <Group.Children>
+                                        <Image SourcePath="assets/clogo.png" Id="0490dca8-e554-0160-49b5-45f20aa20952" Panel.Bounds="41,0,235{5,2147483647},256{5,2147483647}" />
+                                        <Label Text="By Jonathan Libby &amp; Matthew Cheung" FontSize="18" Id="b957b1ba-81ea-d45e-cced-0f9edef5577d" Panel.Bounds="0,879,5*{5,2147483647},5*{5,2147483647}" />
+                                    </Group.Children>
+                                    <Group.Click>
+                                        <CommandNext SceneId="b7501ab9-6c55-5ed8-afaf-964e37f26b63" Created="08/08/2013 05:49:10" Id="fcbe937c-41be-3496-f5f6-d11d3b762a86" />
+                                    </Group.Click>
+                                </Group>
+                            </Add.Item>
+                        </Add>
+                        <Add Property="Panel.Children" Before="b18f0092-0838-3a5b-442a-d5f5be58d260" Target="69747ecb-0cc8-1a77-0f26-aa52f7f1963c">
+                            <Add.Item>
+                                <Group GroupName="Group" Id="9cd81b54-1a6f-481e-3475-cf71ce391bf2" Panel.Bounds="185,528,0*,0*">
+                                    <Group.Children>
+                                        <TextBox Text="johnappleseed" FontSize="28" Id="f65c06c8-0986-dc5c-260a-d5231597ffae" Panel.Bounds="1,0,265{5,2147483647},5*{5,2147483647}" />
+                                        <PasswordBox Password="password" FontSize="28" Id="ed1da440-ed4b-4a19-9c7d-0a2db7b2b59d" Panel.Bounds="0,97,268{5,2147483647},5*{5,2147483647}" />
+                                        <Button Text="Login" Background="#FF006030" CornerRadius="5" Foreground="White" FontSize="28" Id="fd604b6f-d70f-4bb6-f0d7-ea4c6c7ea7ed" Panel.Bounds="59,245,150{5,2147483647},50{5,2147483647}" />
+                                        <CheckBox Text="Remember me!" FontSize="18" Id="bd4793a3-f9e1-b556-2e40-1847aa96d0f2" Panel.Bounds="55,178,5*{5,2147483647},5*{5,2147483647}" />
+                                    </Group.Children>
+                                    <Group.Click>
+                                        <CommandNext SceneId="ebaa3f65-6e64-acc3-3ad0-205294fecd6a" Created="08/08/2013 05:53:20" Id="1e509cac-94b5-5572-b6bf-bb7bdb67d7d4" />
+                                    </Group.Click>
+                                </Group>
+                            </Add.Item>
+                        </Add>
+                        <Add Property="Panel.Children" Before="9cd81b54-1a6f-481e-3475-cf71ce391bf2" Target="69747ecb-0cc8-1a77-0f26-aa52f7f1963c">
+                            <Add.Item>
+                                <Label Id="cba26829-34f7-8001-05f6-28610e1e60ff" Panel.Bounds="246,1101,5*{5,2147483647},5*{5,2147483647}" />
+                            </Add.Item>
+                        </Add>
+                        <Add Property="Panel.Children" Before="b18f0092-0838-3a5b-442a-d5f5be58d260" Target="69747ecb-0cc8-1a77-0f26-aa52f7f1963c">
+                            <Add.Item>
+                                <Group GroupName="Group" Id="f038b256-ba1c-6c0d-bc48-3546cd0b3a52" Panel.Bounds="253,1037,0*,0*">
+                                    <Group.Children>
+                                        <Icon CatalogId="Cell Bars" Id="2f1d1789-7cc1-affd-e6a7-b4b63e597464" Panel.Bounds="0,0,32{5,2147483647},32{5,2147483647}" />
+                                        <Icon CatalogId="Wireless" Id="76d79584-740b-5e87-ef41-43ddc3642f41" Panel.Bounds="51,0,32{5,2147483647},32{5,2147483647}" />
+                                    </Group.Children>
+                                    <Group.Click>
+                                        <CommandNext SceneId="15434e87-3fdc-ccb2-d834-f30822321c29" Created="08/08/2013 05:45:38" Id="b1cb3a41-e8da-0166-0aba-bce0d460d9fd" />
+                                    </Group.Click>
+                                </Group>
+                            </Add.Item>
+                        </Add>
+                        <Add Property="Panel.Children" Before="b18f0092-0838-3a5b-442a-d5f5be58d260" Target="69747ecb-0cc8-1a77-0f26-aa52f7f1963c">
+                            <Add.Item>
+                                <Icon CatalogId="Link Globe" Id="ec2b41a3-c67d-9ddc-1fdf-a628dd7e2194" Panel.Bounds="355,1037,32{5,2147483647},32{5,2147483647}">
+                                    <Icon.Click>
+                                        <CommandOpenUrl Url="http://studentutility.crescentschool.org" Created="08/08/2013 05:48:54" Id="a205a182-9e72-ffbc-0881-56440bf88e66" />
+                                    </Icon.Click>
+                                </Icon>
+                            </Add.Item>
+                        </Add>
+                    </KeyFrame.Operations>
+                </KeyFrame>
+            </Scene.KeyFrames>
+        </Scene>
+        <Scene Title="Tapped/Clicked Group" StateGroup="b4da3990-21e0-b75a-3cb6-c9329487fa94" ParentScene="b4da3990-21e0-b75a-3cb6-c9329487fa94" Created="08/08/2013 05:35:54" Id="15434e87-3fdc-ccb2-d834-f30822321c29">
+            <Scene.KeyFrames>
+                <KeyFrame Id="f0e3ca13-f55c-ed7f-4e3c-f13ea0022eae">
+                    <KeyFrame.Operations>
+                        <Add Property="Panel.Children" Target="69747ecb-0cc8-1a77-0f26-aa52f7f1963c">
+                            <Add.Item>
+                                <ContainerBox Background="#FF555555" Padding="5" CornerRadius="5" Id="1dbf3a9a-4806-0b63-2e05-b66cf0fbe851" Panel.Bounds="100,496,440{5,2147483647},250{5,2147483647}">
+                                    <ContainerBox.Content>
+                                        <Container ClipToContainer="True" Id="154cda80-b63f-50b4-fec8-78e25537aef7">
+                                            <Container.Children>
+                                                <Title Text="Notice" Foreground="White" Id="2d142933-0b7e-1f47-f756-3682be3e7d82" Panel.Bounds="162,24,5*{5,2147483647},5*{5,2147483647}" />
+                                                <Label Text="This app requires a cellular data (3G or LTE) or WiFi connection. Additional data &#xA;charges may apply." Align="Center" Foreground="White" FontSize="22" Id="432781fe-8b95-0ba3-7f63-732003a56cdc" Panel.Bounds="8,82,411{5,2147483647},82*{5,2147483647}" />
+                                                <Group GroupName="Group" Id="c87316d8-66c4-6f37-11b6-39219ffe07b0" Panel.Bounds="174,8,0*,0*">
+                                                    <Group.Children>
+                                                        <Button Text="Close" CornerRadius="5" FontSize="14" Id="42a85620-f932-e9a0-10fb-d66fa93336f6" Panel.Bounds="0,185,80{5,2147483647},35{5,2147483647}" />
+                                                        <Icon Color="White" CatalogId="CircledX" Id="9cfd5145-a616-088c-3b49-4a2c4277e0fa" Panel.Bounds="213,0,32{5,2147483647},32{5,2147483647}" />
+                                                    </Group.Children>
+                                                    <Group.Click>
+                                                        <CommandSwitchTo SceneId="b4da3990-21e0-b75a-3cb6-c9329487fa94" Created="08/08/2013 05:43:27" Id="6a85415d-4b8d-cdca-8b5f-67f4682571a6" />
+                                                    </Group.Click>
+                                                </Group>
+                                            </Container.Children>
+                                        </Container>
+                                    </ContainerBox.Content>
+                                </ContainerBox>
+                            </Add.Item>
+                        </Add>
+                        <Add Property="Panel.Children" Target="69747ecb-0cc8-1a77-0f26-aa52f7f1963c">
+                            <Add.Item>
+                                <Group GroupName="Group" Id="75353437-0f16-0c5c-a519-735f8a418f55" Panel.Bounds="253,1037,0*,0*" />
+                            </Add.Item>
+                        </Add>
+                        <Move To="0,0" At="75353437-0f16-0c5c-a519-735f8a418f55" Target="2f1d1789-7cc1-affd-e6a7-b4b63e597464" />
+                        <Move To="51,0" At="75353437-0f16-0c5c-a519-735f8a418f55" Target="76d79584-740b-5e87-ef41-43ddc3642f41" />
+                    </KeyFrame.Operations>
+                </KeyFrame>
+            </Scene.KeyFrames>
+        </Scene>
+        <Scene Title="Tapped/Clicked Group" StateGroup="b4da3990-21e0-b75a-3cb6-c9329487fa94" ParentScene="b4da3990-21e0-b75a-3cb6-c9329487fa94" Created="08/08/2013 05:49:10" Id="b7501ab9-6c55-5ed8-afaf-964e37f26b63">
+            <Scene.KeyFrames>
+                <KeyFrame Id="f313ca2c-8a86-cc1d-1d3a-61f9afd165f4">
+                    <KeyFrame.Operations>
+                        <Add Property="Panel.Children" Target="69747ecb-0cc8-1a77-0f26-aa52f7f1963c">
+                            <Add.Item>
+                                <ContainerBox Background="#FF555555" Padding="5" CornerRadius="5" Id="a5967a6c-8fef-0d74-95e2-04a2bb19027f" Panel.Bounds="100,480,440{5,2147483647},384{5,2147483647}">
+                                    <ContainerBox.Content>
+                                        <Container ClipToContainer="True" Id="96397144-d15c-e73b-3b0f-48587d073044" Panel.Bounds="0,0,428*,238*">
+                                            <Container.Children>
+                                                <Title Text="About" Foreground="White" Id="5e5f157c-5b15-89e2-e158-0f9aab08410e" Panel.Bounds="162,24,103*,47*" />
+                                                <Label Text="The Crescent School Student Utility is a Student designed, student oriented app that allows students to access important academic information quickly, easily, and securily; from anywhere. It is developed and maintained by Jonathan Libby and Matthew Cheung." Align="Center" Foreground="White" FontSize="22" Id="5985c98a-ef2a-9fa3-849b-fc81a453b378" Panel.Bounds="8,82,411,90*" />
+                                                <Group GroupName="Group" Id="8049b93b-3f06-ec1d-4b22-0de511d0839a" Panel.Bounds="174,107,245*,220*">
+                                                    <Group.Children>
+                                                        <Button Text="Close" CornerRadius="5" FontSize="14" Id="48c03bc3-4643-e1f6-c1ae-53c08b2ea0e1" Panel.Bounds="0,225,80{5,2147483647},35{5,2147483647}" />
+                                                        <Icon Color="White" CatalogId="CircledX" Id="40c38057-a7b3-0156-8647-14fdf301f3c6" Panel.Bounds="216,-101,32{5,2147483647},32{5,2147483647}" />
+                                                    </Group.Children>
+                                                    <Group.Click>
+                                                        <CommandSwitchTo SceneId="b4da3990-21e0-b75a-3cb6-c9329487fa94" Created="08/08/2013 05:52:00" Id="7d68cec3-73bb-9a9f-e1fd-c4500197a14c" />
+                                                    </Group.Click>
+                                                </Group>
+                                            </Container.Children>
+                                        </Container>
+                                    </ContainerBox.Content>
+                                </ContainerBox>
+                            </Add.Item>
+                        </Add>
+                    </KeyFrame.Operations>
+                </KeyFrame>
+            </Scene.KeyFrames>
+        </Scene>
+        <Scene Title="Tapped/Clicked Group" StateGroup="b4da3990-21e0-b75a-3cb6-c9329487fa94" ParentScene="b4da3990-21e0-b75a-3cb6-c9329487fa94" Created="08/08/2013 05:53:20" Id="ebaa3f65-6e64-acc3-3ad0-205294fecd6a">
+            <Scene.KeyFrames>
+                <KeyFrame Id="3d697c45-a1a3-a903-04da-4292d4566990">
+                    <KeyFrame.Operations>
+                        <Add Property="Panel.Children" Target="69747ecb-0cc8-1a77-0f26-aa52f7f1963c">
+                            <Add.Item>
+                                <ContainerBox Background="#FF555555" Padding="5" CornerRadius="5" Id="dce25212-e382-61f6-c7c1-59edef0a3622" Panel.Bounds="100,510,440{5,2147483647},188{5,2147483647}">
+                                    <ContainerBox.Content>
+                                        <Container ClipToContainer="True" Id="ccb35102-7697-63f4-1108-adebe15b9eb3" Panel.Bounds="0,0,428*,238*">
+                                            <Container.Children>
+                                                <Title Text="Error!" Foreground="White" Id="f68743eb-2a09-3edf-4072-23cb35a902e2" Panel.Bounds="162,24,103*,47*" />
+                                                <Label Text="Username or password incorrect." Align="Center" Foreground="White" FontSize="22" Id="d591a149-7159-dfa5-8c3d-dc4e0f7204e8" Panel.Bounds="8,82,411,90*" />
+                                                <Group GroupName="Group" Id="63dcb7c0-fc32-c527-ddea-c532c2626f34" Panel.Bounds="174,8,245*,220*">
+                                                    <Group.Children>
+                                                        <Button Text="Close" CornerRadius="5" FontSize="14" Id="2b5b7bff-bfe4-a961-a9e8-40a62a881d5b" Panel.Bounds="0,121,80{5,2147483647},35{5,2147483647}" />
+                                                        <Icon Color="White" CatalogId="CircledX" Id="d74b268e-c6dd-a6c5-c876-619a10d11eb9" Panel.Bounds="213,0,32{5,2147483647},32{5,2147483647}" />
+                                                    </Group.Children>
+                                                    <Group.Click>
+                                                        <CommandSwitchTo SceneId="b4da3990-21e0-b75a-3cb6-c9329487fa94" Created="08/08/2013 05:54:26" Id="fe23fb0c-e841-a89d-1c45-8eecdfcca87e" />
+                                                    </Group.Click>
+                                                </Group>
+                                            </Container.Children>
+                                        </Container>
+                                    </ContainerBox.Content>
+                                </ContainerBox>
+                            </Add.Item>
+                        </Add>
+                    </KeyFrame.Operations>
+                </KeyFrame>
+            </Scene.KeyFrames>
+        </Scene>
+    </Page.Scenes>
+</Page>
