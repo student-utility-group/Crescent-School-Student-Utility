@@ -104,12 +104,12 @@
                         </Add>
                         <Add Property="Panel.Children" Target="61818937-721b-2a20-52e8-54d8eae0e5cd">
                             <Add.Item>
-                                <Icon CatalogId="Cell Bars" Id="58ca7423-aaf3-8d28-27c9-1c4ca76e4126" Panel.Bounds="20,5,25{5,2147483647},25{5,2147483647}" />
+                                <Icon CatalogId="Cell Bars" Id="58ca7423-aaf3-8d28-27c9-1c4ca76e4126" Panel.Bounds="15,5,23{5,2147483647},23{5,2147483647}" />
                             </Add.Item>
                         </Add>
                         <Add Property="Panel.Children" Target="61818937-721b-2a20-52e8-54d8eae0e5cd">
                             <Add.Item>
-                                <Label Text="LIBBUX   LTE" FontSize="22" Id="b2a3f736-19e5-1d99-82f0-4a75b57f37a4" Panel.Bounds="48,2,5*{5,2147483647},5*{5,2147483647}" />
+                                <Label Text="LIBBUX   LTE" FontSize="22" Id="b2a3f736-19e5-1d99-82f0-4a75b57f37a4" Panel.Bounds="45,0,5*{5,2147483647},5*{5,2147483647}" />
                             </Add.Item>
                         </Add>
                         <Add Property="Panel.Children" Target="61818937-721b-2a20-52e8-54d8eae0e5cd">
@@ -124,7 +124,7 @@
                         </Add>
                         <Add Property="Panel.Children" Target="61818937-721b-2a20-52e8-54d8eae0e5cd">
                             <Add.Item>
-                                <Icon CatalogId="Battery" Id="126d30a4-26ab-db6c-f017-44e94695dde2" Panel.Bounds="590,0,35{5,2147483647},35{5,2147483647}" />
+                                <Icon CatalogId="Battery" Id="126d30a4-26ab-db6c-f017-44e94695dde2" Panel.Bounds="594,-2,35{5,2147483647},35{5,2147483647}" />
                             </Add.Item>
                         </Add>
                     </KeyFrame.Operations>
