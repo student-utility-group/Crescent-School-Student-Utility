@@ -1,0 +1,24 @@
+@charset utf-8
+
+/* Let's do this. */
+
+@font-face {
+	font-family: 'OpenLight-Light';
+	src: url('f/OpenLight-Light.woff') format('woff'),
+	url('f/OpenLight-Light.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'OpenLight-Regular';
+	src: url('f/OpenLight-Regular.woff') format('woff'),
+	url('f/OpenLight-Regular.ttf') format('truetype');
+}
+
+
+.container {
+	margin: 0;
+	padding: 0;
+}
+
+
+}
