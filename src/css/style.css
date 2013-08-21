@@ -33,7 +33,7 @@ html, body {
 }
 
 .login-logo {
-	position: relative;;
-	left: 45%;
+	position: relative;
 	border: 1px solid #00eaff;
+	text-align: center;
 }
