@@ -3,10 +3,10 @@
     <head>
         <link type="text/css" rel="stylesheet" href="main.css">
         <script type="text/javascript" src="cordova-2.2.0.js"></script>
-        <script type="text/javascript" src="http://cs-static.cscdn.thelibbster.com/js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery.min.js"></script>
            <!-- <script type="text/javascript" src="jquery.min.js"></script>
             <script type="text/javascript" src="jquery-mobile.min.js"></script>-->
-            <script type="text/javascript" src="http://cs-static.cscdn.thelibbster.com/js/jquery-mobile.min.js"></script>
+            <script type="text/javascript" src="js/jquery-mobile.min.js"></script>
             <script type="text/javascript" src="apprise-1.5.min.js"></script>
             <link rel="stylesheet" href="apprise.min.css" type="text/css" />
     </head>
@@ -44,8 +44,8 @@
                         $.mobile.loadingMessage = false; // This should probably always be the first line
                         $('.login-loader').hide();
 
-                        // Yes, I really made a jQuery plugin for this. It just centers things on the page, removing the need for all the CSS to do so. Yes, I do realize that's the American spelling of "centre". That's just the way the cookie crumbles buddy.
-                       $.fn.center = function() {
+                        // Evaluate the necessity of this plugin - pretty sure it doesn't even work
+                        $.fn.center = function() {
                             this.css({
                                 'position': 'fixed',
                                 'left': '50%',
@@ -59,100 +59,61 @@
                             return this;
                         }
 
+
+                        function showFormError() {
+                            $('.l-password').css('transition','all 0.5s');
+                            $('.l-password').css('border', '1px solid #FF0000');
+                            $('.l-username').css('transition','all 0.5s');
+                            $('.l-username').css('border', '1px solid #FF0000');
+                        }
+
                         if(window.width >= 768 && window.height >= 1024 || window.height == 768) {
                        // $('body').center();
-                        $('.login-wrapper').center();
+                        //$('.login-wrapper').center();
                         }
 
                         if(localStorage.username && localStorage.password && localStorage.username != "" && localStorage.password != "") { // The latter half (where we check to see if the username and password [in localStorage] are empty) is the other end of the hack up on the main page that clears the username and password from localStorage when the logout button (#logout-button) is clicked.
                             $('.l-username').val(localStorage.username);
                             $('.l-password').val(localStorage.password);
                         }
-
-
-                        // Our main jQuery / javascript script on the page, don't break it please!
-                                                
-                        // start by checking if there is any type of network connection by using the Network API of
-                        // Cordova. If not connection exits exit.
-                     //   if(navigator.network.connection.type === Connection.UNKNOWN || navigator.network.connection.type === Connection.NONE){
-                      //      alert('I cannot detect a suitable network connection to call ES Workplace. ' +
-                       //           'Please make sure you have a network available before trying again');
-                        //    return;
-                      //  }
-                        
+                    
                         $('.login-button').touchstart(function(){ // When they tap "login"
-                                                var online = navigator.onLine;
-                                                if(online == "false") {
-                                                    apprise("You must be connected to the internet to use the Student Utility!", {'animate':true});
-                                                }
-                                                
-                                                 // Don't worry about blank spaces or control characters in these strings,
-                                                 // they are re-validated (properly) on the server side.
-                                                 var username = $('.l-username').val();
-                                                 var password = $('.l-password').val();
+                    
+                            // Don't worry about blank spaces or control characters in these strings,
+                            // they are validated (properly) on the server side.
+                            var username = $('.l-username').val();
+                            var password = $('.l-password').val();
                                                  
-                                                 // BEGIN THE ERROR CHECKING
+                            // Validation
+                            // This is some very simple form validation. It just checks for blank fields.
+                            if(username == "" || username == " " || password == "" || password == " ") {
+                                apprise("Please enter your Greenroom username!", {'animate':true});	
+                                showFormError();
+                                die(); // Kill it with fire, to avoid any other problems
+                            } // fi username and password fields blank
                                                  
-                                                 if(username == "" && password == "") { // Some front end form validation
-                                                 apprise("Please enter your Greenroom username & password", {'animate':true});
-                                                 $('.l-username').css('transition','all 0.5s'); // Some dynamically set CSS attributes to highlight errors
-                                                 $('.l-password').css('transition','all 0.5s');
-                                                 $('.l-username').css('border', '1px solid #FF0000');
-                                                 $('.l-password').css('border', '1px solid #FF0000');
-                                                 
-                                                 $('.l-username').vclick(function(){ // So, if the field is outlined in red because of an error, when they click on it, we turn the border grey again
-                                                                        $('.l-username').css('border', '1px solid #666');
-                                                                        }); // End of the event handler
-                                                 
-                                                 $('.l-password').vclick(function(){ // Same as the event handler above, just a different input element
-                                                                        $('.l-password').css('border', '1px solid #666');
-                                                                        }); // End of the event handler
-                                                 
-                                                 die(); // Kill it with fire, to avoid any other problems
-                                                 } // End of the if
-                                                 
-                                                 if(username == "" || username == " ") { // More error checking. You can never be too sure.
-                                                 apprise("Please enter your Greenroom username!", {'animate':true});	
-                                                 $('.l-username').css('transition','all 0.5s');
-                                                 $('.l-username').css('border', '1px solid #FF0000');
-                                                 $('.l-username').keydown(function(){
-                                                    $('.l-username').css('border', '1px solid #666');
-                                                    });
-                                                 die(); // Kill it with fire, to avoid any other problems
-                                                 } // End of the if
-                                                 
-                                                 if(password == "" || password == " ") {
-                                                 apprise("Please enter your Greenroom password!", {'animate':true});
-                                                 $('.l-password').css('transition','all 0.5s');
-                                                 $('.l-password').css('border', '1px solid #FF0000');
-                                                 $('.l-password').keydown(function(){
-                                                    $('.l-password').css('border', '1px solid #666');
-                                                    });
-                                                 die(); // Kill it with fire, to avoid any other problems
-                                                 } // End of the if
                                                  
                                                  // One last check just to be sure, then log them in and 
                                                  
                                                  else if(username != "" && password != "" && username != " " && password != " ") { // If their credentials look ok
                                                  
                                                  $('.login-loader').fadeIn('fast');
-                                                function nextMsg() {
-                                                    if (messages.length == 0) {
-                                                        $('#loader-message').html("This app is run by unionized servers. They like to take their time.");
-                                                    } else {
+                                                    function nextMsg() {
+                                                        if (messages.length == 0) {
+                                                            $('#loader-message').html("This app is run by unionized servers. They like to take their time.");
+                                                        } else {
                                                         $('#loader-message').html(messages.pop()).fadeIn(0).delay(700).fadeOut(500, nextMsg);
                                                     }
                                                 };
 
                                                 var messages = [
-                                                    "Attaching your password to a carrier pigeon...",
-                                                    "Herding sheep...",
-                                                    "Checking you out...",
-                                                    "Dog whispering...",
-                                                    "Doing some more high tech stuff...",
-                                                    "I swear this shouldn't take this long...",
-                                                    "Something might have gone wrong...",
-                                                    "This program doesn't have any easter eggs!", // Yeah, right.
+                                                    "Encoding...",
+                                                    "Hiding from the NSA...",
+                                                    "Sending to the NSA...",
+                                                    "Receiving from the NSA...",
+                                                    "Notifying FBI Cyber Crimes...",
+                                                    "Waiting for the government to respond...",
+                                                    "Something might have gone wrong",
                                                     "Loading.",
                                                     "Loading..",
                                                     "Loading...",
@@ -163,37 +124,81 @@
 
                                                 nextMsg();
 
-                                                var url = "http://cs-dynamic.cscdn.thelibbster.com/php/bot/auth.php";
+                                                var url = "http://wylienet.thelibbster.com/liv.php/user/auth";
                                                  
                                                 var data = $('#login-form').serialize(); //Serialize the form data
-                                                $.post(url, data)  // No semicolon!! (breaks the script)
-                                                    .success(function(result) { // If it works
-                                                        if(result = username) { // The initial auth script (auth.php) echo's out the username which it logged in. This statement just makes sure that it logged in the same username that we supplied it (stored in the 'username' variable.)
-                                                           localStorage.username = username;
-                                                           localStorage.password = password;
-                                                           $(location).attr('href',"main1.html");
-                                                        } else {
-                                                            apprise(result, {'animate':true});
-                                                        } // End of the else & if
-                                                    }) // End of ".success"
+                                                
 
-                                                    .error(function() { // If it don't work
-                                                        apprise('Sorry, there was a problem. Please check your internet connection. Do you want to try again?', {'animate':true, 'verify':true}, function(y){
-                                                                if(y) { // If they click "yes" - NOTE: THIS IS A RECURSIVE FUNCTION (see above line)
-                                                                    $('.login-button').trigger('touchstart');
-                                                                    //setTimeout(function() {$(location).attr('href',"index.html");},1500);
-                                                                } else { // If they click "no"
-                                                                    apprise("Please try again later.", {'animate':true});
-                                                                    setTimeout(function() {$(location).attr('href',"index.html");},1500);
-                                                                }   
-                                                        });
-                                                        $('.login-loader').fadeOut('1500');
-                                                     //   setTimeout(function() {$(location).attr('href',"index.html");},5000);
-                                                        die(); // Kill the script
-                                                        });
-                                                 return false; // Don't know why this has to be here, but it has to be here. DON'T REMOVE IT!
-                                                 } // End of the if
-                                                 }); // End of the top level "touchstart" event handler - when they clicked "login".
+                                                $.ajax({
+                                                    url: url,
+                                                    type: 'POST',
+                                                    data: data,
+                                                    dataType: 'json',
+                                                    crossDomain: true,
+                                                    statusCode: {
+                                                        500: function() {
+                                                            apprise("The app is currently unavailable. We apologize for the inconvenience");
+                                                        }
+                                                    },
+                                                    success: function(jsonResponse) {
+                                                        if(jsonResponse.auth === "success") {
+                                                            console.log("Auth success, proceding");
+                                                            localStorage.username = username;
+                                                            localStorage.password = password;
+                                                            console.log("Credentials saved to localStorage");
+                                                            $(location).attr('href',"main1.html");
+                                                        } else {
+
+                                                        }
+                                                    },
+                                                    error: function(jsonResponse) {
+                                                        apprise("There was a problem with your connection. Be sure that your device is connected to the Internet and try again.", {animation: true});
+                                                    }
+                                                }); // end of $.ajax
+
+                                                // $.post(url, data)  // No semicolon!! (breaks the script)
+                                                //     .success(function(result) { // If it works
+                                                //         //var response = jQuery.parseJSON(result);
+                                                       
+                                                //        alert(response);
+                                                //         var response = jQuery.parseJSON(result);
+
+                                                //         if (response.auth === "success") {
+                                                //             alert("mission really succesful");
+                                                //         } else {
+                                                //             alert("There was a serious problem");
+                                                //         }
+                                                //         // if(response.auth === "success") { // The initial auth script (auth.php) echo's out the username which it logged in. This statement just makes sure that it logged in the same username that we supplied it (stored in the 'username' variable.)
+                                                //         //    localStorage.username = username;
+                                                //         //    localStorage.password = password;
+                                                //         //    alert("mission actually successful");
+                                                //         //    $(location).attr('href',"main1.html");
+                                                //         // } 
+                                                //         // else if (response.auth === "fail") {
+                                                //         //     apprise("Username or password incorrect.", {'animate':true});
+                                                //         // } else {
+                                                //         //     alert("There was a serious problem");
+                                                //         // }
+                                                //     }) // End of ".success"
+
+                                                //     .error(function() { // If it don't work
+                                                //         apprise('Sorry, there was a problem. Please check your internet connection. Do you want to try again?', {'animate':true, 'verify':true}, function(y){
+                                                //                 if(y) { // If they click "yes" - NOTE: THIS IS A RECURSIVE FUNCTION (see above line)
+                                                //                     $('.login-button').trigger('touchstart');
+                                                //                     //setTimeout(function() {$(location).attr('href',"index.html");},1500);
+                                                //                 } else { // If they click "no"
+                                                //                     apprise("Please try again later.", {'animate':true});
+                                                //                     setTimeout(function() {$(location).attr('href',"index.html");},1500);
+                                                //                 }   
+                                                //         });
+                                                //         $('.login-loader').fadeOut('1500');
+                                                //      //   setTimeout(function() {$(location).attr('href',"index.html");},5000);
+                                                //         die(); // Kill the script
+                                                //         });
+                                                //  return false; // Don't know why this has to be here, but it has to be here. DON'T REMOVE IT!
+                                                 
+                                                 } // End of the else if that the submitted credentials aren't blank
+                                                 }); // End of the top level "touchstart" event handler, when they clicked "login".
                         
                         </script>
                     
