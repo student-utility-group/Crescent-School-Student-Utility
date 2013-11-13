@@ -72,10 +72,11 @@ html, body {
 
 .clock-inner {
     position: relative;
-    top: 5px;
+    top: 2px;
     text-align: center;
     margin: 0 auto;
     border: 1px solid #F00;
+    vertical-align: middle;
 }
 
 .time {
