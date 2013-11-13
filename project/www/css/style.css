@@ -71,16 +71,17 @@ html, body {
 }
 
 .clock-inner {
+    position: relative;
+    top: 5px;
     text-align: center;
     margin: 0 auto;
     border: 1px solid #F00;
 }
 
 .time {
-    font-size: 4.3em;
+    font-size: 4.0em;
     font-weight: 596; /* This is a very precise design element. Jony Ive designed this. */
     vertical-align:baseline;
-    text-align: center;
 }
 
 .ampm-indicator {
