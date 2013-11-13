@@ -1,2 +1,8 @@
 
 .DS_Store
+
+project/www default/config.xml
+
+project/www default/img/logo.png
+
+project/www default/index.html
