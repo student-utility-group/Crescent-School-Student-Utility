@@ -1,0 +1,89 @@
+/* Let's do this. */
+
+html, body { 
+	height: 100%;
+	width: 100%;
+	margin: 0; 
+}
+
+.screen {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+    background-color: #FFF;
+ /*   background-image: linear-gradient(-45deg, rgba(255, 255, 255, .2) 5%, transparent 5%, transparent 10%, rgba(255, 255, 255, .2) 10%, rgba(255, 255, 255, .2) 15%, transparent 15%, transparent 20%, rgba(255, 255, 255, .2) 20%, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 30%, rgba(255, 255, 255, .2) 30%, rgba(255, 255, 255, .2) 35%, transparent 35%, transparent 40%, rgba(255, 255, 255, .2) 40%, rgba(255, 255, 255, .2) 45%, transparent 45%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 55%, transparent 55%, transparent 60%, rgba(255, 255, 255, .2) 60%, rgba(255, 255, 255, .2) 65%, transparent 65%, transparent 70%, rgba(255, 255, 255, .2) 70%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent 80%, rgba(255, 255, 255, .2) 80%, rgba(255, 255, 255, .2) 85%, transparent 85%, transparent 90%, rgba(255, 255, 255, .2) 90%, rgba(255, 255, 255, .2) 95%, transparent 95%, transparent 100%); */
+    border: 1px solid #fbff00;
+}
+
+.screen:before {
+	    background-image: radial-gradient(transparent, rgba(0,0,0,.7));
+}
+
+@font-face {
+	font-family: 'OpenLight-Light';
+	src: url('../f/OpenLight-Light.woff') format('woff'),
+	url('../f/OpenLight-Light.ttf') format('truetype'),
+	url('../f/OpenLight-Light.otf') format('opentype');
+}
+
+@font-face {
+	font-family: 'OpenLight-Regular';
+	src: url('../f/OpenLight-Regular.woff') format('woff'),
+	url('../f/OpenLight-Regular.ttf') format('truetype'),
+	url('../f/OpenLight-Regular.otf') format('opentype');
+}
+
+.page-container {
+	max-width: 1024px;
+}
+
+.login-page {
+	border: 1px solid #ff00e6;
+}
+
+.login-logo {
+	position: relative;
+	border: 1px solid #00eaff;
+	text-align: center;
+}
+
+.center {
+     float: none;
+     margin: 0 auto;
+}
+
+
+.footer-links {
+    text-align: center;
+}
+
+.login-footer {
+    text-align: center;
+}
+
+
+.clock {
+    background-color:#018156;
+    height: 100px;
+    border-radius: 10px;
+    color: #FFF;
+}
+
+.clock-inner {
+    text-align: center;
+    margin: 0 auto;
+    border: 1px solid #F00;
+}
+
+.time {
+    font-size: 4.3em;
+    font-weight: 596; /* This is a very precise design element. Jony Ive designed this. */
+    vertical-align:baseline;
+    text-align: center;
+}
+
+.ampm-indicator {
+    font-weight: 100;
+    font-size: 1.2em;
+}

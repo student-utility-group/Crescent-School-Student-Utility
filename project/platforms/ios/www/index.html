@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>CSSU v2.0</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+	<link type="text/css" rel="stylesheet" href="css/style.css">
+	<script type="text/javascript" src="js/jquery-2.0.2.min.js"></script> <!-- jQuery first -->
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/lawnchair-0.6.1.min.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+</head>
+<body>
+	<div class="screen row">
+		<div class="container page-container row">
+			<div class="login-page col-md-12 center">
+				<div class="row">
+					&nbsp;
+				</div> 
+				<div class="login-logo">
+					<img src="img/Icon-Small-50@2x.png" alt="Crescent School Crest">
+				</div> <!-- /login-logo -->
+				<div>&nbsp;</div>
+				<div class="login-form col-md-6 center well">
+					<!-- <form method="post" action="#" accept-charset="UTF-8"> -->
+								<div class="form-group">
+    								<input type="text" class="form-control" id="login-username-input" placeholder="Username">
+    								<br>
+    								<input type="password" class="form-control" id="login-password-input" placeholder="Password">
+  								</div>
+								<div class="form-group">
+									<input type="checkbox" name="remember-me" id="login-remember-me-input">
+									<label class="string optional" for="remember_me"> Remember me</label>
+									<br>
+									<button class="btn btn-lg btn-primary btn-block" id="login-button">Login</button>
+								</div>
+							<!-- </form> -->
+				</div> <!-- /login-form -->
+                <footer class="login-footer">
+                    <!-- Footer with icons -->
+                </footer>
+			</div> <!-- /login-page -->
+            <div class="main-page page-container row">
+                <div class="row">
+                    &nbsp;
+                </div>
+                <div class="clock col-xs-6 center row">
+                    <div class="clock-innner col-xs-12">
+                        <span class="time">9:41</span><span class="ampm-indicator">AM</span>
+                    </div>
+                </div>
+            </div>
+		</div> <!-- /container -->
+	</div> <!-- /screen -->	
+    <script>
+       // $('.main-page').hide();
+        //$('#login-button').click(function(){
+            $('.login-page').slideUp();
+            $('.main-page').slideDown();
+        //});
+    </script>
+</body>
+</html>
