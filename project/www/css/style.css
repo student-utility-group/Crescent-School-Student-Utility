@@ -17,7 +17,9 @@ html, body {
 }
 
 .screen:before {
+/*
 	    background-image: radial-gradient(transparent, rgba(0,0,0,.7));
+*/
 }
 
 @font-face {
@@ -35,7 +37,7 @@ html, body {
 }
 
 .page-container {
-	max-width: 1024px;
+    margin: 0 auto; /* Fixes the overscrolling issue */
 }
 
 .login-page {
@@ -44,7 +46,7 @@ html, body {
 
 .login-logo {
 	position: relative;
-	border: 1px solid #00eaff;
+/*	border: 1px solid #00eaff;*/
 	text-align: center;
 }
 
@@ -62,12 +64,14 @@ html, body {
     text-align: center;
 }
 
-
-.clock {
+.hero-block {
     background-color:#018156;
-    height: 100px;
     border-radius: 10px;
     color: #FFF;
+}
+
+.clock {
+    height: 100px;
 }
 
 .clock-inner {
@@ -76,9 +80,10 @@ html, body {
     text-align: center;
     margin: 0 auto;
     vertical-align: middle;
-    border: 1px solid #F00;
+/*    border: 1px solid #F00;*/
 }
 
+/* The actual clock time */
 .time {
     font-size: 4.0em;
     font-weight: 596; /* This is a very precise design element. Jony Ive designed this. */
@@ -88,4 +93,37 @@ html, body {
 .ampm-indicator {
     font-weight: 100;
     font-size: 1.2em;
+}
+
+/* The current academic class the user is in */
+.class-current {
+    position: relative;
+    top: 50px;
+    text-align: center;
+    vertical-align: middle;
+    font-weight: 500;
+}
+
+.class-code {
+    font-weight: 500;
+    position: relative;
+}
+
+.class-current-mark {   
+}
+
+.class-mark-average {
+    background-color: #018156;
+    height: 60px;
+    width: 60px;
+    border-radius: 60px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 0.5em;
+}
+
+.class-mark-average-percentage {
+    position: relative;
+    top: 20px;
+    color: #FFF;
 }

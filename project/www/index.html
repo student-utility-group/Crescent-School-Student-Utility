@@ -21,7 +21,7 @@
 					<img src="img/Icon-Small-50@2x.png" alt="Crescent School Crest">
 				</div> <!-- /login-logo -->
 				<div>&nbsp;</div>
-				<div class="login-form col-md-6 center well">
+				<form class="login-form col-md-6 center well">
 					<!-- <form method="post" action="#" accept-charset="UTF-8"> -->
 								<div class="form-group">
     								<input type="text" class="form-control" id="login-username-input" placeholder="Username">
@@ -35,7 +35,7 @@
 									<button class="btn btn-lg btn-primary btn-block" id="login-button">Login</button>
 								</div>
 							<!-- </form> -->
-				</div> <!-- /login-form -->
+				</form> <!-- /login-form -->
                 <footer class="login-footer">
                     <!-- Footer with icons -->
                 </footer>
@@ -44,20 +44,43 @@
                 <div class="row">
                     &nbsp;
                 </div>
-                <div class="clock col-xs-7 center row">
+                <div class="clock hero-block col-xs-7 center row">
                     <div class="clock-inner col-xs-12">
                         <span class="time">9:41</span><span class="ampm-indicator">AM</span>
                     </div>
                 </div>
-            </div>
+                <div class="class-current hero-block col-xs-6 center row">
+                    <div class="class-code">
+                        <h3>ENG2D-6</h3>
+                    </div>
+                    <div class="class-teacher">
+                        <h5>Costanzo</h5>
+                    </div>
+                    <div class="class-location">
+                        <h6>L410</h6>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <br>
+                <div class="class-current-mark col-xs-3 center">
+                    <div class="class-mark-average">
+                        <h4 class="class-mark-average-percentage">87%</h4>
+                    </div>
+                </div>
+                <footer class="footer-build">
+                    <p>build 3402</p>
+                </footer>
+            </div> <!-- /main-page -->
+
 		</div> <!-- /container -->
 	</div> <!-- /screen -->	
     <script>
-       // $('.main-page').hide();
-        //$('#login-button').click(function(){
+        $('.main-page').hide();
+        $('#login-button').click(function(){
             $('.login-page').slideUp();
             $('.main-page').slideDown();
-        //});
+        });
     </script>
 </body>
 </html>
