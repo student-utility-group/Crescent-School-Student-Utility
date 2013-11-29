@@ -44,20 +44,66 @@
                 <div class="row">
                     &nbsp;
                 </div>
-                <div class="clock col-xs-7 center row">
+                <!-- The clock on the main page -->
+                <div class="clock hero-block col-xs-8 center row">
                     <div class="clock-inner col-xs-12">
                         <span class="time">9:41</span><span class="ampm-indicator">AM</span>
                     </div>
                 </div>
-            </div>
+                <!-- Start of the current class indicator and related elements -->
+                <div class="class-current hero-block col-xs-6 center row">
+                    <div class="class-code">
+                        <h3>ENG2D-6</h3>
+                    </div>
+                    <div class="class-teacher">
+                        <h5>Costanzo</h5>
+                    </div>
+                    <div class="class-location">
+                        <h6>L410</h6>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="class-current-mark col-xs-3 center">
+                    <div class="class-mark-average">
+                        <h4 class="class-mark-average-percentage">87%</h4>
+                    </div>
+                </div>
+                <!-- End of the current class indicator and related elements -->
+                <!-- Start of the next class indicator and related elements -->
+                <div class="class-current hero-block col-xs-6 center row">
+                    <div class="class-code">
+                        <h3>ICS3U-2</h3>
+                    </div>
+                    <div class="class-teacher">
+                        <h5>Lim</h5>
+                    </div>
+                    <div class="class-location">
+                        <h6>103</h6>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="class-current-mark col-xs-3 center">
+                    <div class="class-mark-average">
+                        <h4 class="class-mark-average-percentage">87%</h4>
+                    </div>
+                </div>
+                <!-- End of the next class indicator and related elements -->
+                <footer class="footer-build">
+                    <p>build 3404</p>
+                </footer>
+            </div> <!-- /main-page -->
+
 		</div> <!-- /container -->
 	</div> <!-- /screen -->	
     <script>
-       // $('.main-page').hide();
-        //$('#login-button').click(function(){
+        $('.main-page').hide();
+       $('#login-button').click(function(){
             $('.login-page').slideUp();
             $('.main-page').slideDown();
-        //});
+        }); 
+//        alert(time);
     </script>
 </body>
 </html>
