@@ -5,4 +5,4 @@ project/www default/
 
 *.xcuserstate
 
-project/platforms/ios/www
+project/platforms/ios/www/
