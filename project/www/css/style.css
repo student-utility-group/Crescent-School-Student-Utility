@@ -42,6 +42,7 @@ html, body {
 
 .login-page {
 	/*border: 1px solid #ff00e6; */
+    height: 100%;
 }
 
 .login-logo {
@@ -62,6 +63,7 @@ html, body {
 
 .login-footer {
     text-align: center;
+    position: relative;
 }
 
 .hero-block {
