@@ -4,5 +4,7 @@
 project/www default/
 
 *.xcuserstate
+*.pbxproj
 
-project/platforms/ios/www/
+project/platforms/ios/www
+project/platforms
