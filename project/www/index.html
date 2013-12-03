@@ -8,6 +8,7 @@
 	<script type="text/javascript" src="js/jquery-2.0.2.min.js"></script> <!-- jQuery first -->
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/lawnchair-0.6.1.min.js"></script>
+    <script type="text/javascript" src="js/fastclick.js"></script> 
 	<script type="text/javascript" src="js/app.js"></script>
 </head>
 <body>
@@ -52,9 +53,7 @@
                 </div>
                 <!-- The clock on the main page -->
                 <div class="clock hero-block col-xs-8 center row">
-                    <div class="build-indicator label label-warning pull-right">
-                        20409
-                    </div>
+                    <div class="build-indicator label label-warning pull-right">20410</div>
                     <div class="clock-inner col-xs-12">
                         <span class="time">9:41</span><span class="ampm-indicator">AM</span>
                     </div>
@@ -62,9 +61,7 @@
                 <!-- Start of the current class indicator and related elements -->
                 <div class="class-current hero-block col-xs-6 center row">
                     <div class="class-current-mark">
-                        <div class="class-mark-average label label-default">
-                            87%
-                        </div>
+                        <div class="class-mark-average label label-default">87%</div>
                     </div>
                     <div class="class-code">
                         <h3>ENG2D-6</h3>
@@ -82,9 +79,7 @@
                 <!-- Start of the next class indicator and related elements -->
                 <div class="class-current hero-block col-xs-6 center row">
                 <div class="class-current-mark">
-                    <div class="class-mark-average label label-success">
-                        95%
-                    </div>
+                    <div class="class-mark-average label label-success">95%</div>
                 </div>
                     <div class="class-code">
                         <h3>ICS3U-2</h3>
@@ -107,12 +102,19 @@
 		</div> <!-- /container -->
 	</div> <!-- /screen -->	
     <script>
+        // For some unknown reason, this needs to be within script tags in this file
+        // rather than in app.js with everything else.
         $('.main-page').hide();
-       $('#login-button').click(function(){
-            $('.login-page').slideUp();
-            $('.main-page').slideDown();
-        }); 
-//        alert(time);
+        
+            $(function () {
+        FastClick.attach(document.body);
+    });
+        
+        $('#login-button').click(function () {
+        $('.login-page').slideUp();
+        $('.main-page').slideDown();
+    });
+
     </script>
 </body>
 </html>
