@@ -95,6 +95,8 @@
                 <br>
                 <!-- End of the next class indicator and related elements -->
                 <footer class="footer-build">
+                    <br>
+                    <a>Logout</a>
                     <!-- Replaced by badge on clock -->
                 </footer>
             </div> <!-- /main-page -->
@@ -106,14 +108,19 @@
         // rather than in app.js with everything else.
         $('.main-page').hide();
         
-            $(function () {
-        FastClick.attach(document.body);
-    });
+        $(function () {
+            FastClick.attach(document.body);
+        });
         
         $('#login-button').click(function () {
-        $('.login-page').slideUp();
-        $('.main-page').slideDown();
-    });
+            $('.login-page').slideUp();
+            $('.main-page').slideDown();
+        });
+        
+        $('.footer-build').click(function () {
+            $('.main-page').slideUp();
+            $('.login-page').slideDown();
+        });
 
     </script>
 </body>
