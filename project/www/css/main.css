@@ -97,6 +97,12 @@ html, body {
     font-size: 1.2em;
 }
 
+.build-indicator{
+    position: absolute;
+    right: -5px;
+    top: -5px;
+}
+
 /* The current academic class the user is in */
 .class-current {
     position: relative;
@@ -111,21 +117,24 @@ html, body {
     position: relative;
 }
 
-.class-current-mark {   
+.class-current-mark {
+    position: absolute;
+    top: -5px;
+    right: -10px;
 }
 
 .class-mark-average {
-    background-color: #018156;
+   /* background-color: #018156;
     height: 60px;
     width: 60px;
     border-radius: 60px;
     text-align: center;
     vertical-align: middle;
-    font-size: 0.5em;
+    font-size: 0.5em; */
 }
 
 .class-mark-average-percentage {
-    position: relative;
+  /*  position: relative;
     top: 20px;
-    color: #FFF;
+    color: #FFF; */
 }
