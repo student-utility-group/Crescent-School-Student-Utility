@@ -4,7 +4,7 @@
 	<title>CSSU v2.0</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
-	<link type="text/css" rel="stylesheet" href="css/style.css">
+	<link type="text/css" rel="stylesheet" href="css/main.css">
 	<script type="text/javascript" src="js/jquery-2.0.2.min.js"></script> <!-- jQuery first -->
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/lawnchair-0.6.1.min.js"></script>
@@ -52,12 +52,20 @@
                 </div>
                 <!-- The clock on the main page -->
                 <div class="clock hero-block col-xs-8 center row">
+                    <div class="build-indicator label label-warning pull-right">
+                        20409
+                    </div>
                     <div class="clock-inner col-xs-12">
                         <span class="time">9:41</span><span class="ampm-indicator">AM</span>
                     </div>
                 </div>
                 <!-- Start of the current class indicator and related elements -->
                 <div class="class-current hero-block col-xs-6 center row">
+                    <div class="class-current-mark">
+                        <div class="class-mark-average label label-default">
+                            87%
+                        </div>
+                    </div>
                     <div class="class-code">
                         <h3>ENG2D-6</h3>
                     </div>
@@ -70,14 +78,14 @@
                 </div>
                 <br>
                 <br>
-                <div class="class-current-mark col-xs-3 center">
-                    <div class="class-mark-average">
-                        <h4 class="class-mark-average-percentage">87%</h4>
-                    </div>
-                </div>
                 <!-- End of the current class indicator and related elements -->
                 <!-- Start of the next class indicator and related elements -->
                 <div class="class-current hero-block col-xs-6 center row">
+                <div class="class-current-mark">
+                    <div class="class-mark-average label label-success">
+                        95%
+                    </div>
+                </div>
                     <div class="class-code">
                         <h3>ICS3U-2</h3>
                     </div>
@@ -90,14 +98,9 @@
                 </div>
                 <br>
                 <br>
-                <div class="class-current-mark col-xs-3 center">
-                    <div class="class-mark-average">
-                        <h4 class="class-mark-average-percentage">87%</h4>
-                    </div>
-                </div>
                 <!-- End of the next class indicator and related elements -->
                 <footer class="footer-build">
-                    <p>build 20408</p>
+                    <!-- Replaced by badge on clock -->
                 </footer>
             </div> <!-- /main-page -->
 
