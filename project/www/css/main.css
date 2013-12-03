@@ -99,8 +99,8 @@ html, body {
 
 .build-indicator{
     position: absolute;
-    right: -5px;
-    top: -5px;
+    right: 0px;
+    top: 0px;
 }
 
 /* The current academic class the user is in */
