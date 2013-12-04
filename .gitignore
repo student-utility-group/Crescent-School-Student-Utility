@@ -48,3 +48,5 @@ project/platforms/ios/Student Utility.xcodeproj/project.pbxproj
 project/platforms/ios/Student Utility/Student Utility-Info.plist
 
 *.xcconfig
+
+project/platforms/ios/cordova/build.xcconfig
