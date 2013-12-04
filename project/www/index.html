@@ -98,17 +98,54 @@
 
 		</div> <!-- /container -->
 	</div> <!-- /screen -->	
-    <script>
-        // For some unknown reason, this needs to be within script tags in this file
-        // rather than in app.js with everything else.
-
-
-    </script>
+ 
 <script type="text/javascript" src="js/jquery-2.0.2.min.js"></script> <!-- jQuery first -->
 <script type="text/javascript" src="cordova.js"></script> <!-- cordova.js not in the js directory for a reason -->
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/lawnchair-0.6.1.min.js"></script>
 <script type="text/javascript" src="js/fastclick.js"></script> 
+<!--
 <script type="text/javascript" src="js/app.js"></script>
+-->
+    
+       <script>
+        // For some unknown reason, this needs to be within script tags in this file
+        // rather than in app.js with everything else.
+
+    $(document).ready(function(){
+        // Attach the FastClick library to the .click event
+        // FastClick.js
+        // https://github.com/ftlabs/fastclick
+        $(function () {
+            FastClick.attach(document.body);
+        });
+
+         
+        
+        // Main login-page event handling for the login form submission
+//        $('#login-button').click(function () {
+//            $('.login-page').slideUp();
+//            $('.main-page').slideDown();
+//        });
+        
+            $('.main-page').hide();
+        
+        $(function () {
+            FastClick.attach(document.body);
+        });
+        
+        $('#login-button').click(function () {
+            $('.login-page').slideUp();
+            $('.main-page').slideDown();
+        });
+        
+        $('.footer-build').click(function () {
+            $('.main-page').slideUp();
+            $('.login-page').slideDown();
+        });
+    
+    });
+    
+    </script>
 </body>
 </html>
