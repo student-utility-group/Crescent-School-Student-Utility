@@ -1,66 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>CSSU v2.0</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
-	<link type="text/css" rel="stylesheet" href="css/main.css">
+    <title>CSSU v2.0</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="css/main.css">
 </head>
 <body>
-	<div class="screen row">
-		<div class="container page-container row">
-			<div class="login-page col-md-12 center">
-				<div class="row">
-					<br>
+    <div class="statusbar">&nbsp;</div>
+    <!-- Fixed position element to cover the tranparent status bar -->
+    <div class="screen row">
+        <div class="container page-container row">
+            <div class="login-page col-md-12 center">
+                <div class="row">
                     <br>
-				</div> 
+                    <br>
+                </div>
                 <div class="login-logo">
                     <img src="img/apple-touch-icon-144x144-precomposed.png" alt="Crescent School Crest" height="100" width="100">
                     <br>
-                    <h2 style="color: #444;">Crescent School Student Utility</h2>
-                </div> <!-- /login-logo -->
-				<div>&nbsp;</div>
-				<div class="login-form col-md-6 center">
-					<!-- <form method="post" action="#" accept-charset="UTF-8"> -->
-								<div class="form-group">
-    								<input type="text" class="form-control" id="login-username-input" placeholder="Username">
-    								<br>
-    								<input type="password" class="form-control" id="login-password-input" placeholder="Password">
-  								</div>
-								<div class="form-group">
-								<!--<input type="checkbox" name="remember-me" id="login-remember-me-input">
+                    <h2 style="color: #444;">Crescent School
+                        <br>Student Utility</h2>
+                </div>
+                <!-- /login-logo -->
+                <div>&nbsp;</div>
+                <div class="login-form col-md-6 center">
+                    <!-- <form method="post" action="#" accept-charset="UTF-8"> -->
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="login-username-input" placeholder="Username">
+                        <br>
+                        <input type="password" class="form-control" id="login-password-input" placeholder="Password">
+                    </div>
+                    <!--<div class="form-group">-->
+                    <!--<input type="checkbox" name="remember-me" id="login-remember-me-input">
 									<label class="string optional" for="remember_me"> Remember me</label>
 									<br>-->
-									<button class="btn btn-lg btn-primary btn-block" id="login-button">Login</button>
-								</div>
-							<!-- </form> -->
-				</div> <!-- /login-form -->
+                    <button class="btn btn-lg btn-primary btn-block" id="login-button">Login</button>
+                    <!--</div>-->
+                    <!-- </form> -->
+                </div>
+                <!-- /login-form -->
                 <br>
                 <footer class="login-footer">
                     <!-- Footer with icons -->
-                    <br>
                     <h5>By Jonathan Libby & Matthew Cheung</h5>
                 </footer>
-			</div> <!-- /login-page -->
+            </div>
+            <!-- /login-page -->
             <div class="main-page page-container row">
                 <div class="row">
                     <!-- &nbsp; -->
                 </div>
                 <!-- The clock on the main page -->
                 <div class="clock hero-block col-xs-8 center row">
-                    <div class="build-indicator label label-warning pull-right">20412</div>
+                    <div class="build-indicator label label-primary">[20413]</div>
                     <div class="clock-inner col-xs-12">
-                        <span class="time"><span class="time-hour"></span>:<span class="time-min"></span></span></span><span class="ampm-indicator"></span>
+                        <span class="time">
+                            <span class="time-hour"></span>:
+                            <span class="time-min"></span>
+                        </span>
+                        </span>
+                        <span class="ampm-indicator"></span>
                     </div>
                 </div>
                 <br>
                 <!-- Start of the class 1 indicator and related elements -->
                 <div class="class-1 hero-block col-xs-6 center row">
                     <div class="class-1-mark">
-                        <div class="class-mark-average badge label-default">87%</div>
+                        <div class="class-mark-average label label-default">87%</div>
                     </div>
                     <div class="class-code">
-                        <h3>ENG2D-6</h3> <!-- Eg. ENG2D-6 -->
+                        <h3>ENG2D-6</h3>
+                        <!-- Eg. ENG2D-6 -->
                     </div>
                     <!--<div class="class-teacher">
                         <h5>Costanzo</h5>
@@ -74,63 +85,60 @@
                 <!-- Start of the class 2 indicator and related elements -->
                 <div class="class-1 hero-block col-xs-6 center row">
                     <div class="class-1-mark">
-                        <div class="class-mark-average badge label-danger">95%</div>
+                        <div class="class-mark-average label label-danger">95%</div>
                     </div>
                     <div class="class-code">
                         <h3>ICS3U-2</h3>
                     </div>
-                <!-- Future: teacher (.class-teacher) and location (.class-location) -->
+                    <!-- Future: teacher (.class-teacher) and location (.class-location) -->
                 </div>
                 <br>
                 <!-- End of the class 2 indicator and related elements -->
                 <!-- Start of the class 3 indicator and related elements -->
                 <div class="class-1 hero-block col-xs-6 center row">
                     <div class="class-1-mark">
-                        <div class="class-mark-average badge label-default">84%</div>
+                        <div class="class-mark-average label label-default">84%</div>
                     </div>
                     <div class="class-code">
                         <h3>FSF2D-1</h3>
                     </div>
-                <!-- Future: teacher (.class-teacher) and location (.class-location) -->
+                    <!-- Future: teacher (.class-teacher) and location (.class-location) -->
                 </div>
                 <br>
                 <!-- End of the class 3 indicator and related elements -->
                 <!-- Start of the class 4 indicator and related elements -->
                 <div class="class-1 hero-block col-xs-6 center row">
                     <div class="class-1-mark">
-                        <div class="class-mark-average badge label-success">93%</div>
+                        <div class="class-mark-average label label-success">93%</div>
                     </div>
                     <div class="class-code">
                         <h3>ASM2O-2</h3>
                     </div>
-                <!-- Future: teacher (.class-teacher) and location (.class-location) -->
+                    <!-- Future: teacher (.class-teacher) and location (.class-location) -->
                 </div>
                 <br>
-                <br>
                 <!-- End of the class 4 indicator and related elements -->
-                <footer class="footer-build">
-                    <br>
-                    <a>Logout</a>
-                    <!-- Replaced by badge on clock -->
-                </footer>
-            </div> <!-- /main-page -->
-
-		</div> <!-- /container -->
-	</div> <!-- /screen -->	
- 
-<script type="text/javascript" src="js/jquery-2.0.2.min.js"></script> <!-- jQuery first -->
-<script type="text/javascript" src="cordova.js"></script> <!-- cordova.js not in the js directory for a reason -->
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/lawnchair-0.6.1.min.js"></script>
-<script type="text/javascript" src="js/fastclick.js"></script> 
-<script type="text/javascript" src="js/app.js"></script>
-
-    
-       <script>
-        // For some unknown reason, this needs to be within script tags in this file
-        // rather than in app.js with everything else.
-
-    
-    </script>
+                <div class="col-xs-8 center">
+                    <footer class="footer">
+                        <div class="btn-group">
+                            <button class="btn btn-lg btn-default logout">Logout</button>
+                            <button class="btn btn-lg btn-default refresh">Refresh</button>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+            <!-- /main-page -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /screen -->
+    <script type="text/javascript" src="js/jquery-2.0.2.min.js"></script>
+    <!-- jQuery first -->
+    <script type="text/javascript" src="cordova.js"></script>
+    <!-- cordova.js not in the js directory for a reason -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/lawnchair-0.6.1.min.js"></script>
+    <script type="text/javascript" src="js/fastclick.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>
