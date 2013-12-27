@@ -105,12 +105,12 @@ html, body {
 }
 
 /* The current academic class the user is in */
-.class-current {
+.class-1 {
     position: relative;
-    top: 50px;
     text-align: center;
     vertical-align: middle;
     font-weight: 500;
+    padding-bottom: 8px;
 }
 
 .class-code {
@@ -118,7 +118,7 @@ html, body {
     position: relative;
 }
 
-.class-current-mark {
+.class-1-mark {
     position: absolute;
     top: -5px;
     right: -10px;
