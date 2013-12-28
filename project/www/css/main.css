@@ -24,11 +24,11 @@ body {
 }
 @font-face {
     font-family: 'OpenLight-Light';
-    src: url('../f/OpenLight-Light.woff') format('woff'), url('../f/OpenLight-Light.ttf') format('truetype'), url('../f/OpenLight-Light.otf') format('opentype');
+    src: url('../fonts/OpenLight-Light.woff') format('woff'), url('../fonts/OpenLight-Light.ttf') format('truetype'), url('../fonts/OpenLight-Light.otf') format('opentype');
 }
 @font-face {
     font-family: 'OpenLight-Regular';
-    src: url('../f/OpenLight-Regular.woff') format('woff'), url('../f/OpenLight-Regular.ttf') format('truetype'), url('../f/OpenLight-Regular.otf') format('opentype');
+    src: url('../fonts/OpenLight-Regular.woff') format('woff'), url('../fonts/OpenLight-Regular.ttf') format('truetype'), url('../fonts/OpenLight-Regular.otf') format('opentype');
 }
 .page-container {
     margin: 0 auto;

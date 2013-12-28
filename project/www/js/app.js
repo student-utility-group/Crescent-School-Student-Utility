@@ -57,4 +57,8 @@ $(document).ready(function () {
     setInterval(function () {
         myDate();
     }, 1000);
+    
+    $('.refresh').click(function () {
+        $('.refresh').html('<span class="glyphicon glyphicon-refresh"></span>')
+    });
 });
