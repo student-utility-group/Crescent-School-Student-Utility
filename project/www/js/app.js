@@ -12,7 +12,7 @@ var apiAuthURL = apiBaseURL + "/auth"; // NEED TO VERIFY THIS
 $(document).ready(function () {
 
     // Hide the main page
-    $('.login-page').hide();
+    $('.main-page').hide();
 
 
     // Attach the FastClick library to the .click event
