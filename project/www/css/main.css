@@ -58,6 +58,10 @@ body {
     text-align: center;
     position: relative;
 }
+.main-page-toggled {
+    position: relative;
+    left: 135px;
+}
 .hero-block {
     background-color: #018156;
     border-radius: 10px;
@@ -88,8 +92,8 @@ body {
 }
 .build-indicator {
     position: absolute;
-    right: 0px;
-    top: 0px;
+    top: -5px;
+    right: -10px;
 }
 /* The current academic class the user is in */
 
@@ -122,4 +126,41 @@ body {
     /*  position: relative;
     top: 20px;
     color: #FFF; */
+}
+.menu-toggle {
+    position: absolute;
+    left: 0;
+    font-size: 2em;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    border-left: 0;
+}
+
+.menu-toggle-toggled {
+        font-size: 1.4em;   
+    }
+
+.menu {
+    position: absolute;
+    width: 150px;
+    left: -150px;
+}
+/* Everything below 768px wide */
+
+@media (max-width: 768px) {
+    .menu .list-group-item:first-child {
+        border-top-right-radius: 0;
+        border-top-left-radius: 0;
+    }
+    .menu .list-group-item:last-child {
+        border-bottom-left-radius: 0;
+    }
+    .menu .list-group-item {
+        border-left: 0;
+    }
+}
+/* Hack fix for a bug on screens narrower than 460px */
+
+@media (max-width: 460px) {
+    
 }

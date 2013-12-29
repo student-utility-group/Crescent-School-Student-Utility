@@ -1,12 +1,108 @@
+/************************************
+ *              app.js               *
+ *        The main logic file        *
+ *      Jonathan Libby, 11/2013      *
+ *                                   *
+ ************************************/
+
+var apiBaseURL = "http://wylienet.thelibbster.com/liv.php"; // No trailing slash
+var apiStatusURL = apiBaseURL + "/status"; // Note the leading slash
+var apiAuthURL = apiBaseURL + "/auth"; // NEED TO VERIFY THIS
+
 $(document).ready(function () {
+
     // Hide the main page
-    $('.main-page').hide();
+    $('.login-page').hide();
+
+
     // Attach the FastClick library to the .click event
     // FastClick.js
     // https://github.com/ftlabs/fastclick
     $(function () {
         FastClick.attach(document.body);
     });
+
+    // Functions to get whether or not DST is in effect
+    Date.prototype.stdTimezoneOffset = function () {
+        var january = new Date(this.getFullYear(), 0, 1);
+        var july = new Date(this.getFullYear(), 6, 1);
+        return Math.max(january.getTimezoneOffset(), july.getTimezoneOffset());
+    }
+
+    Date.prototype.dst = function () {
+        return this.getTimezoneOffset() < this.stdTimezoneOffset();
+    }
+
+    function NTPSync() {
+        var clientTimestamp = (new Date()).valueOf();
+        $.getJSON('http://wylienet.thelibbster.com/liv.php/time/' + clientTimestamp, function (data) {
+            var nowTimeStamp = (new Date()).valueOf();
+            var serverClientRequestDiffTime = data.diff;
+            var serverTimestamp = data.serverTimestamp;
+            var serverClientResponseDiffTime = nowTimeStamp - serverTimestamp;
+            var responseTime = (serverClientRequestDiffTime - nowTimeStamp + clientTimestamp - serverClientResponseDiffTime) / 2
+
+            var syncedServerTime = new Date((new Date()).valueOf() + (serverClientResponseDiffTime - responseTime));
+            alert(syncedServerTime);
+        });
+    }
+
+    // Gets the date and time
+    function clock() {
+        var now = new Date();
+        var outHour = now.getHours();
+        //var offset = (now.getTimezoneOffset() / 60);
+
+        // When UTC is after midnight but the local time isn't
+        //if (outHour < 12) {
+        //    outHour += 12;
+        //}
+        // Check for daylight savings time. If it is in effect, subtract 1 hour from the time.
+        if (now.dst()) {
+            outHour -= 1;
+        }
+        //outHour = outHour - offset;
+        var ampm;
+
+        if (outHour >= 12) {
+            ampm = "PM";
+        }
+
+        if (outHour > 12) {
+            var newHour = outHour - 12;
+            outHour = newHour;
+        } else if (outHour < 12) {
+            ampm = "AM";
+        }
+
+        $('.ampm-indicator').text(ampm);
+
+        if (outHour < 10) {
+            $('.time-hour').text("0" + outHour); // leading 0
+        } else {
+            $('.time-hour').text(outHour);
+        }
+
+        var outMin = now.getMinutes();
+
+        if (outMin < 10) {
+            $('.time-min').text("0" + outMin); // leading 0
+        } else {
+            $('.time-min').text(outMin);
+        }
+    }
+    clock();
+    setInterval(function () {
+        clock();
+    }, 1000);
+
+    // Get the status of the API
+    $.getJSON(apiStatusURL, function (response) {
+        // Success
+    });
+
+
+    // General button event handlers
 
     $('#login-button').click(function () {
         $('.login-page').slideUp();
@@ -18,47 +114,16 @@ $(document).ready(function () {
         $('.login-page').slideDown();
     });
 
-    function myDate() {
-
-        var now = new Date();
-        var outHour = now.getHours();
-        var ampm;
-
-        if (outHour >= 12) {
-            ampm = "PM";
-            var newHour = outHour - 12;
-            outHour = newHour;
-        } else {
-            ampm = "AM";
-        }
-        $('.ampm-indicator').text(ampm);
-
-        if (outHour < 10) {
-            $('.time-hour').text("0" + outHour); // leading 0
-        } else {
-            $('.time-hour').text(outHour);
-        }
-
-        var outMin = now.getMinutes();
-        if (outMin < 10) {
-            $('.time-min').text("0" + outMin); // leading 0
-        } else {
-            $('.time-min').text(outMin);
-        }
-
-        //  var outSec = now.getSeconds();
-        //  if(outSec<10) {
-        // document.getElementById('SecDiv').innerHTML="0"+outSec;
-        //  } else {
-        //  document.getElementById('SecDiv').innerHTML=outSec;
-        //  }
-    }
-    myDate();
-    setInterval(function () {
-        myDate();
-    }, 1000);
-    
     $('.refresh').click(function () {
         $('.refresh').html('<span class="glyphicon glyphicon-refresh"></span>')
     });
+
+    $('.menu-toggle').click(function () {
+        // ANIMATE ALL OF THIS!!!
+        //$('.menu-toggle').fadeToggle();
+        $('.main-page').toggleClass('main-page-toggled');
+        $('.menu-toggle').toggleClass('menu-toggle-toggled');
+
+    });
+
 });
