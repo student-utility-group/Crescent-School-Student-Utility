@@ -14,13 +14,38 @@ $(document).ready(function () {
     // Hide the main page
     $('.main-page').hide();
 
-
     // Attach the FastClick library to the .click event
     // FastClick.js
     // https://github.com/ftlabs/fastclick
     $(function () {
         FastClick.attach(document.body);
     });
+
+    // Online detection
+    function isOnline() {
+        $.getJSON(apiStatusURL, function (response) {
+            // Success
+            // Do nothing
+            return true;
+        })
+            .fail(function () {
+                // App is offline
+                $('#login-button').removeClass('btn-primary')
+                    .addClass('btn-danger')
+                    .html('Try again <small class="glyphicon glyphicon-refresh"></small>');
+                $('.login-form .form-group').html('<div class="alert alert-danger"><b>Oops!</b><br>There was a problem connecting to the Student Utility servers.<br><br><button class="btn btn-sm btn-info show-connection-help">More info <span class="glyphicon glyphicon-info-sign"></span></button></div>');
+                $('.show-connection-help').click(function () {
+                    apprise('<div style="text-align: center;">What happened?<br>The Student Utility was unable to contact the servers it runs on. This issue could arise in two ways:<br><br><ul class="list-group"><li class="list-group-item"><span class="label label-success">Most likely</span><br>Your device isn\'t connected to the Internet</li><li class="list-group-item"><span class="label label-warning">Least likely</span><br>The Student Utility servers are down</li></ul></div>');
+                    // SHOW MODAL
+                });
+                $('#login-button').click(function () {
+                    isOnline();
+                });
+                return false;
+            });
+    }
+
+    isOnline(); // Check 
 
     // Functions to get whether or not DST is in effect
     Date.prototype.stdTimezoneOffset = function () {
@@ -96,17 +121,15 @@ $(document).ready(function () {
         clock();
     }, 1000);
 
-    // Get the status of the API
-    $.getJSON(apiStatusURL, function (response) {
-        // Success
-    });
-
-
     // General button event handlers
 
     $('#login-button').click(function () {
-        $('.login-page').slideUp();
-        $('.main-page').slideDown();
+        if (isOnline() == true) {
+            $('.login-page').slideUp();
+            $('.main-page').slideDown();
+        } else {
+         // Do something else
+        }
     });
 
     $('.logout').click(function () {
