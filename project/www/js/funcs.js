@@ -7,28 +7,22 @@ var apiStatusURL = apiBaseURL + "/status"; // Note the leading slash
 var apiAuthURL = apiBaseURL + "/user/auth"; // NEED TO VERIFY THIS
 
 // Online detection functions
-
 function isOnline(apiStatusURL) {
-    var online;
-    $.getJSON(apiStatusURL, function (response) {
-        if (response.status == 'success') {
-            online = true;
-        } else {
-            online = false;
-        }
-    }).fail(function () {
-        online = false;
-    });
-
-    // Some weird little dodge that fixes a bug I don't understand
-    if (online == true) {
-        online = true;
-    } else {
-        online = false;
-    }
-
-    return online;
+    var response = $.getJSON(apiStatusURL, function (response) {});
+    return response;
 }
+
+isOnline(apiStatusURL).done(function (response) {
+    if (response.status == "success") {
+        var online = true;
+    } else {
+        var online = false;
+    }
+    return online;
+}).fail(function () {
+    var online = false;
+    return online;
+});
 
 function offlineProcedures() {
     // Shows the offline error message on the login screen
@@ -39,7 +33,7 @@ function offlineProcedures() {
     $('.show-connection-help').click(function () {
         //apprise('<div style="text-align: center;">What happened?<br>The Student Utility was unable to contact the servers it runs on. This issue could arise in two ways:<br><br><ul class="list-group"><li class="list-group-item"><span class="label label-success">Most likely</span><br>Your device isn\'t connected to the Internet</li><li class="list-group-item"><span class="label label-warning">Least likely</span><br>The Student Utility servers are down</li></ul></div>');
         // SHOW MODAL
-        $('.mymodal').modal();
+        $('.show-connection-help-modal').modal();
     });
     $('#login-button').click(function () {
         // Try again
@@ -47,11 +41,19 @@ function offlineProcedures() {
     });
 }
 
+function onlineProcedures() {
+    alert("onlineProcedures triggered");
+    $('#login-button').addClass('btn-primary')
+        .html('<input type="text" class="form-control" id="login-username-input" placeholder="Username"><br><input type="password" class="form-control" id="login-password-input" placeholder="Password">');
+}
+
 function applyOfflineProcedures(online) {
     // Checks if the app is online, then runs the offline procedures accordingly
     if (online == false) {
         // App offline, run procedures
         offlineProcedures();
+    } else if (online == true) {
+        onlineProcedures();
     }
 }
 

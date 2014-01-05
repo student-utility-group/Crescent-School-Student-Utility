@@ -10,6 +10,10 @@ $(document).ready(function () {
     // Hide the main page
     $('.main-page').hide();
 
+    // Show build number
+    var buildNumber = '[20419]';
+    $('.build-indicator').text(buildNumber);
+
     // Attach the FastClick library to the .click event
     // FastClick.js
     // https://github.com/ftlabs/fastclick
