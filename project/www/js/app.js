@@ -5,10 +5,6 @@
  *                                   *
  ************************************/
 
-var apiBaseURL = "http://wylienet.thelibbster.com/liv.php"; // No trailing slash
-var apiStatusURL = apiBaseURL + "/status"; // Note the leading slash
-var apiAuthURL = apiBaseURL + "/user/auth"; // NEED TO VERIFY THIS
-
 $(document).ready(function () {
 
     // Hide the main page
@@ -23,18 +19,25 @@ $(document).ready(function () {
 
 
     // Online detection
-    function isOnline() {
+    function isOnline(apiStatusURL) {
         var online;
         $.getJSON(apiStatusURL, function (response) {
-            online = true;
+            if (response.status == 'success') {
+                online = true;
+            } else {
+                online = false;
+            }
         }).fail(function () {
             online = false;
         });
+        
+        // Some weird little dodge that fixes a bug I don't understand
         if (online == true) {
             online = true;
         } else {
             online = false;   
         }
+
         return online;
     }
 
@@ -56,9 +59,9 @@ $(document).ready(function () {
     }
 
     function applyOfflineProcedures(online) {
-        // Checks if the app is online, then applies the offline procedures accordingly
+        // Checks if the app is online, then runs the offline procedures accordingly
         if (online == false) {
-            // App offline
+            // App offline, run procedures
             offlineProcedures();
         }
     }
@@ -138,7 +141,7 @@ $(document).ready(function () {
     }, 1000);
 
     // General button event handlers
-    var online = isOnline();
+    var online = isOnline(apiStatusURL);
     applyOfflineProcedures(online);
 
     $('#login-button').click(function () {
