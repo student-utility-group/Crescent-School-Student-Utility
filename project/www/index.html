@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>CSSU v2.0</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -7,6 +8,7 @@
     <link type="text/css" rel="stylesheet" href="css/apprise.min.css">
     <link type="text/css" rel="stylesheet" href="css/main.css">
 </head>
+
 <body>
     <div class="statusbar">&nbsp;</div>
     <!-- Fixed position element to cover the tranparent status bar -->
@@ -36,19 +38,54 @@
                     <!--<input type="checkbox" name="remember-me" id="login-remember-me-input">
 									<label class="string optional" for="remember_me"> Remember me</label>
 									<br>-->
-                    <button class="btn btn-lg btn-primary btn-block" id="login-button">Login</button>
+                    <button class="btn btn-lg btn-primary btn-block" id="login-button" data-loading-text="Loading...">Login</button>
                     <!--</div>-->
                     <!-- </form> -->
                 </div>
                 <!-- /login-form -->
                 <br>
+
+                <div class="modal fade mymodal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title">About: Connection Failures</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div style="text-align: center;">What happened?
+                                    <br>The Student Utility was unable to contact the servers it runs on. This issue could arise in two ways:
+                                    <br>
+                                    <br>
+                                    <ul class="list-group">
+                                        <li class="list-group-item">
+                                            <span class="label label-success">Most likely</span><br>
+                                            <br>Your device isn't connected to the Internet</li>
+                                        <li class="list-group-item">
+                                            <span class="label label-warning">Least likely</span><br>
+                                            <br>The Student Utility servers are offline</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <!-- /.modal -->
+
+
+
                 <footer class="login-footer">
                     <!-- Footer with icons -->
                     <h5>By Jonathan Libby & Matthew Cheung</h5>
                 </footer>
             </div>
-            <!-- /login-page -->         
-            
+            <!-- /login-page -->
+
             <div class="main-page page-container row">
                 <div class="btn btn-default menu-toggle">
                     <span class="glyphicon glyphicon-align-justify"></span>
@@ -67,7 +104,12 @@
                 <div class="clock hero-block col-xs-8 col-md-8 center row">
                     <div class="build-indicator label label-info">[20418]</div>
                     <div class="clock-inner col-xs-12">
-                        <span class="time"><span class="time-hour"></span>:<span class="time-min"></span></span></span><span class="ampm-indicator"></span>
+                        <span class="time">
+                            <span class="time-hour"></span>:
+                            <span class="time-min"></span>
+                        </span>
+                        </span>
+                        <span class="ampm-indicator"></span>
                     </div>
                 </div>
                 <br>
@@ -149,4 +191,5 @@
     <script type="text/javascript" src="js/apprise-1.5.min.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
 </body>
+
 </html>

@@ -7,7 +7,7 @@
 
 var apiBaseURL = "http://wylienet.thelibbster.com/liv.php"; // No trailing slash
 var apiStatusURL = apiBaseURL + "/status"; // Note the leading slash
-var apiAuthURL = apiBaseURL + "/auth"; // NEED TO VERIFY THIS
+var apiAuthURL = apiBaseURL + "/user/auth"; // NEED TO VERIFY THIS
 
 $(document).ready(function () {
 
@@ -21,31 +21,47 @@ $(document).ready(function () {
         FastClick.attach(document.body);
     });
 
+
     // Online detection
     function isOnline() {
+        var online;
         $.getJSON(apiStatusURL, function (response) {
-            // Success
-            // Do nothing
-            return true;
-        })
-            .fail(function () {
-                // App is offline
-                $('#login-button').removeClass('btn-primary')
-                    .addClass('btn-danger')
-                    .html('Try again <small class="glyphicon glyphicon-refresh"></small>');
-                $('.login-form .form-group').html('<div class="alert alert-danger"><b>Oops!</b><br>There was a problem connecting to the Student Utility servers.<br><br><button class="btn btn-sm btn-info show-connection-help">More info <span class="glyphicon glyphicon-info-sign"></span></button></div>');
-                $('.show-connection-help').click(function () {
-                    apprise('<div style="text-align: center;">What happened?<br>The Student Utility was unable to contact the servers it runs on. This issue could arise in two ways:<br><br><ul class="list-group"><li class="list-group-item"><span class="label label-success">Most likely</span><br>Your device isn\'t connected to the Internet</li><li class="list-group-item"><span class="label label-warning">Least likely</span><br>The Student Utility servers are down</li></ul></div>');
-                    // SHOW MODAL
-                });
-                $('#login-button').click(function () {
-                    isOnline();
-                });
-                return false;
+            online = true;
+        }).fail(function () {
+            online = false;
+        });
+        if (online == true) {
+            online = true;
+        } else {
+            online = false;   
+        }
+        return online;
+    }
+
+    function offlineProcedures() {
+            // Shows the offline error message on the login screen
+            $('#login-button').removeClass('btn-primary')
+                .addClass('btn-danger')
+                .html('Try again <small class="glyphicon glyphicon-refresh"></small>');
+            $('.login-form .form-group').html('<div class="alert alert-danger"><b>Oops!</b><br>There was a problem connecting to the Student Utility servers.<br><br><button class="btn btn-sm btn-info show-connection-help">More info <span class="glyphicon glyphicon-info-sign"></span></button></div>');
+            $('.show-connection-help').click(function () {
+                //apprise('<div style="text-align: center;">What happened?<br>The Student Utility was unable to contact the servers it runs on. This issue could arise in two ways:<br><br><ul class="list-group"><li class="list-group-item"><span class="label label-success">Most likely</span><br>Your device isn\'t connected to the Internet</li><li class="list-group-item"><span class="label label-warning">Least likely</span><br>The Student Utility servers are down</li></ul></div>');
+                // SHOW MODAL
+                $('.mymodal').modal();
+            });
+            $('#login-button').click(function () {
+                // Try again
+                isOnline();
             });
     }
 
-    isOnline(); // Check 
+    function applyOfflineProcedures(online) {
+        // Checks if the app is online, then applies the offline procedures accordingly
+        if (online == false) {
+            // App offline
+            offlineProcedures();
+        }
+    }
 
     // Functions to get whether or not DST is in effect
     Date.prototype.stdTimezoneOffset = function () {
@@ -57,7 +73,7 @@ $(document).ready(function () {
     Date.prototype.dst = function () {
         return this.getTimezoneOffset() < this.stdTimezoneOffset();
     }
-
+/*
     function NTPSync() {
         var clientTimestamp = (new Date()).valueOf();
         $.getJSON('http://wylienet.thelibbster.com/liv.php/time/' + clientTimestamp, function (data) {
@@ -71,7 +87,7 @@ $(document).ready(function () {
             alert(syncedServerTime);
         });
     }
-
+*/
     // Gets the date and time
     function clock() {
         var now = new Date();
@@ -122,14 +138,12 @@ $(document).ready(function () {
     }, 1000);
 
     // General button event handlers
+    var online = isOnline();
+    applyOfflineProcedures(online);
 
     $('#login-button').click(function () {
-        if (isOnline() == true) {
             $('.login-page').slideUp();
             $('.main-page').slideDown();
-        } else {
-         // Do something else
-        }
     });
 
     $('.logout').click(function () {
