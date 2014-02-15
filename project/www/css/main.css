@@ -145,6 +145,16 @@ body {
     width: 150px;
     left: -150px;
 }
+
+.list-pressable:active {
+    background-color: #018156;
+    color: #FFF;
+}
+
+.refreshing {
+ content: "Refreshing...";   
+}
+
 /* Everything below 768px wide */
 
 @media (max-width: 768px) {
@@ -159,6 +169,7 @@ body {
         border-left: 0;
     }
 }
+
 /* Hack fix for a bug on screens narrower than 460px */
 
 @media (max-width: 460px) {

@@ -42,17 +42,16 @@ function offlineProcedures() {
 }
 
 function onlineProcedures() {
-    alert("onlineProcedures triggered");
     $('#login-button').addClass('btn-primary')
         .html('<input type="text" class="form-control" id="login-username-input" placeholder="Username"><br><input type="password" class="form-control" id="login-password-input" placeholder="Password">');
 }
 
 function applyOfflineProcedures(online) {
     // Checks if the app is online, then runs the offline procedures accordingly
-    if (online == false) {
+    if (online.statusText == "error") {
         // App offline, run procedures
         offlineProcedures();
-    } else if (online == true) {
+    } else if (online.status == 200 || online.status == 304) {
         onlineProcedures();
     }
 }
@@ -123,4 +122,39 @@ function clock() {
     } else {
         $('.time-min').text(outMin);
     }
+}
+
+function getTestSched() {
+    var response = $.getJSON("http://wylienet.thelibbster.com/liv.php/getUserSchedTest", function (response) {
+        $('#class-1-code').html('<h3>' + response.class_1 + '</h3>');
+        $('#class-2-code').html('<h3>' + response.class_2 + '</h3>');
+        $('#class-3-code').html('<h3>' + response.class_3 + '</h3>');
+        $('#class-4-code').html('<h3>' + response.class_4 + '</h3>');
+    });
+}
+
+function initAuth(response) {
+    var username = $('#login-username-input').val();
+    var password = $('#login-password-input').val();
+    $.ajax({
+        type: "POST",
+        url: apiAuthURL,
+        data: {username: username, password: password},
+        success: response
+    });
+}
+
+function getSched(username) {
+    //var reasponse = $.post();
+    // Make the same request as above, but with the username and password (SSO)
+}
+
+function toggleMenu() {
+    $('.main-page').toggleClass('main-page-toggled');
+    $('.menu-toggle').toggleClass('menu-toggle-toggled');
+}
+
+function hideMenu() {
+    $('.main-page').removeClass('main-page-toggled');
+    $('.menu-toggle').removeClass('menu-toggle-toggled');
 }
