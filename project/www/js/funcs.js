@@ -4,8 +4,9 @@
 
 var apiBaseURL = "http://wylienet.thelibbster.com/liv.php"; // No trailing slash
 var apiStatusURL = apiBaseURL + "/status"; // Note the leading slash
-var apiAuthURL = apiBaseURL + "/user/auth"; // NEED TO VERIFY THIS
-
+var apiAuthURL = apiBaseURL + "/user/auth";
+var apiSchedURL = apiBaseURL + "/user/schedule";
+var apiMarkURL = apiBaseURL + "/user/marks";
 // Online detection functions
 function isOnline(apiStatusURL) {
     var response = $.getJSON(apiStatusURL, function (response) {});
@@ -139,14 +140,40 @@ function initAuth(response) {
     $.ajax({
         type: "POST",
         url: apiAuthURL,
-        data: {username: username, password: password},
+        data: {
+            username: username,
+            password: password
+        },
         success: response
     });
 }
 
-function getSched(username) {
-    //var reasponse = $.post();
-    // Make the same request as above, but with the username and password (SSO)
+function getSched(response) {
+    var username = $('#login-username-input').val();
+    var password = $('#login-password-input').val();
+    $.ajax({
+        type: "POST",
+        url: apiSchedURL,
+        data: {
+            username: username,
+            password: password
+        },
+        success: response
+    });
+}
+
+function getMarks(response) {
+    var username = $('#login-username-input').val();
+    var password = $('#login-password-input').val();
+    $.ajax({
+        type: "POST",
+        url: apiMarkURL,
+        data: {
+            username: username,
+            password: password
+        },
+        success: response
+    });
 }
 
 function toggleMenu() {
