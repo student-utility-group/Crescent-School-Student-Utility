@@ -85,6 +85,9 @@ $(document).ready(function () {
                             // No class today
                             window.areThereClassesToday = false;
                             showAveragesPage();
+                            hideSchedulePage();
+                            $('.schedule-button-no-class-indicator').removeClass('hidden');
+                            $('.schedule-button').removeClass('list-pressable').addClass('list-pressable-disabled');
                         } else {
 
                             // This is dirty but it works
@@ -210,8 +213,8 @@ $(document).ready(function () {
     });
 
     // Schedule (home) page
-    $('.schedule-button').click(function() {
-        if (window.areThereClassesToday == false) {
+    $('.schedule-button').click(function () {
+        if (window.areThereClassesToday == true) {
             hideAveragesPage();
             showSchedulePage();
             hideMenu();

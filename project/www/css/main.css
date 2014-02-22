@@ -104,7 +104,6 @@ body {
     font-weight: 500;
     padding-bottom: 8px;
 }
-
 .class-code {
     font-weight: 500;
     position: relative;
@@ -148,6 +147,9 @@ body {
     background-color: #018156;
     color: #FFF;
 }
+.list-pressable-disabled {
+    color: #888;
+}
 .refreshing {
     content: "Refreshing...";
 }
@@ -161,10 +163,10 @@ body {
     height: 320px;
     width: 200px;
 }
-
 #marks-container .row {
     position: relative;
-    left: 25px; /* This is a hack but it works */
+    left: 25px;
+    /* This is a hack but it works */
 }
 /* Everything below 768px wide */
 
