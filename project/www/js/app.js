@@ -198,6 +198,8 @@ $(document).ready(function () {
 
     $('.refresh').click(function () {
         $('.refresh').toggleClass('refreshing');
+        $('.logout').trigger('click');
+        $('#login-button').trigger('click');
         // Show a progress bar for aesthetic effect?
     });
 
