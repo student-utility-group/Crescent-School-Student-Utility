@@ -123,6 +123,78 @@ function clock() {
     } else {
         $('.time-min').text(outMin);
     }
+
+    var dow = now.getDay(); // DoW, 0 - 6
+    var dom = now.getDate(); // DoM, 0 - 31 (depends on # of days in month)
+    var month = now.getMonth(); // Month, 0 - 11
+    var year = now.getFullYear(); // Year, xxxx
+
+    // Convert DoW (numbered, starting at 0) to human DoW
+    switch (dow) {
+    case 0:
+        dow = 'Sunday';
+        break;
+    case 1:
+        dow = 'Monday';
+        break;
+    case 2:
+        dow = 'Tuesday';
+        break;
+    case 3:
+        dow = 'Wednesday';
+        break;
+    case 4:
+        dow = 'Thursday';
+        break;
+    case 5:
+        dow = 'Friday';
+        break;
+    case 6:
+        dow = 'Saturday';
+        break;
+    }
+
+    // Convert MoY (numbered, starting at 0) to human MoY
+    switch (month) {
+    case 0:
+        month = 'January';
+        break;
+    case 1:
+        month = 'February';
+        break;
+    case 2:
+        month = 'March';
+        break;
+    case 3:
+        month = 'April';
+        break;
+    case 4:
+        month = 'May';
+        break;
+    case 5:
+        month = 'June';
+        break;
+    case 6:
+        month = 'July';
+        break;
+    case 7:
+        month = 'August';
+        break;
+    case 8:
+        month = 'September';
+        break;
+    case 9:
+        month = 'October';
+        break;
+    case 10:
+        month = 'November';
+        break;
+    case 11:
+        month = 'December';
+        break;
+    }
+
+    $('.clock-date').text(dow + ', ' + dom + ' ' + month + ' ' + year);
 }
 
 function getTestSched() {
