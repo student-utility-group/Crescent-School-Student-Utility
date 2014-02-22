@@ -4,47 +4,46 @@
 
 var apiBaseURL = "https://wylienet.thelibbster.com/liv.php"; // No trailing slash
 var apiStatusURL = apiBaseURL + "/status"; // Note the leading slash
+var apiPingURL = apiBaseURL + '/ping';
 var apiAuthURL = apiBaseURL + "/user/auth";
 var apiSchedURL = apiBaseURL + "/user/schedule";
 var apiMarkURL = apiBaseURL + "/user/marks";
 // Online detection functions
-function isOnline(apiStatusURL) {
-    var response = $.getJSON(apiStatusURL, function (response) {});
-    return response;
+function isOnline(online) {
+    $.ajax({
+        type: "GET",
+        url: apiPingURL,
+    }).success(function () {
+        // Do nothing
+        if ($('#login-button').attr('data-online') == 'false') {
+            location.reload();
+        }
+        console.log('Got status page');
+    }).error(function () {
+        console.log('Couldn\'t get status page');
+        offlineProcedures();
+    });
 }
-
-isOnline(apiStatusURL).done(function (response) {
-    if (response.status == "success") {
-        var online = true;
-    } else {
-        var online = false;
-    }
-    return online;
-}).fail(function () {
-    var online = false;
-    return online;
-});
 
 function offlineProcedures() {
     // Shows the offline error message on the login screen
     $('#login-button').removeClass('btn-primary')
         .addClass('btn-danger')
+        .attr('data-online', 'false')
         .html('Try again <small class="glyphicon glyphicon-refresh"></small>');
-    $('.login-form .form-group').html('<div class="alert alert-danger"><b>Oops!</b><br>There was a problem connecting to the Student Utility servers.<br><br><button class="btn btn-sm btn-info show-connection-help">More info <span class="glyphicon glyphicon-info-sign"></span></button></div>');
+    $('.login-form .form-group').hide();
+    $('#offline-message').removeClass('hidden');
     $('.show-connection-help').click(function () {
-        //apprise('<div style="text-align: center;">What happened?<br>The Student Utility was unable to contact the servers it runs on. This issue could arise in two ways:<br><br><ul class="list-group"><li class="list-group-item"><span class="label label-success">Most likely</span><br>Your device isn\'t connected to the Internet</li><li class="list-group-item"><span class="label label-warning">Least likely</span><br>The Student Utility servers are down</li></ul></div>');
-        // SHOW MODAL
+        // Show modal
         $('.show-connection-help-modal').modal();
-    });
-    $('#login-button').click(function () {
-        // Try again
-        isOnline();
     });
 }
 
 function onlineProcedures() {
-    $('#login-button').addClass('btn-primary')
-        .html('<input type="text" class="form-control" id="login-username-input" placeholder="Username"><br><input type="password" class="form-control" id="login-password-input" placeholder="Password">');
+    $('#login-button').addClass('btn-primary');
+    $('#offline-message').addClass('hidden');
+    $('.login-form .form-group').show();
+    //  .html('<input type="text" class="form-control" id="login-username-input" placeholder="Username"><br><input type="password" class="form-control" id="login-password-input" placeholder="Password">');
 }
 
 function applyOfflineProcedures(online) {

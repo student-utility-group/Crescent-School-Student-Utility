@@ -38,6 +38,17 @@
                         <!--<input type="checkbox" name="remember-me" id="login-remember-me-input">
 									<label class="string optional" for="remember_me"> Remember me</label>
 									<br>-->
+
+                        <!-- Shown by offlineProcedures() -->
+                        <div class="alert alert-danger hidden" id="offline-message">
+                            <b>Oops!</b>
+                            <br>
+                            There was a problem connecting to the Student Utility servers.
+                            <br>
+                            <br>
+                            <button class="btn btn-sm btn-info show-connection-help">More info <span class="glyphicon glyphicon-info-sign"></span></button>
+                        </div>
+
                         <button class="btn btn-lg btn-primary btn-block" id="login-button" data-loading-text="Loading...">Login</button>
                         <!--</div>-->
                     </form>
@@ -133,6 +144,9 @@
                 <div class="modal fade login-progress-modal">
                     <div class="modal-dialog modal-sm">
                         <div class="modal-content">
+                            <div class="modal-header">
+                                <h3>Loading...</h3>
+                            </div>
                             <div class="modal-body">
                                 <!-- Progress bar -->
                                 <div id="progress-container" style="width: 100%">

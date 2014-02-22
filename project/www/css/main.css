@@ -90,14 +90,12 @@ body {
     font-weight: 100;
     font-size: 1.2em;
 }
-
 .clock-date {
     position: relative;
     top: -5px;
     font-size: 0.9em;
     color: #FFF;
 }
-
 .build-indicator-label {
     position: absolute;
     top: -5px;
@@ -174,11 +172,7 @@ body {
     left: 25px;
     /* This is a hack but it works */
 }
-
-#marks-container-header {
-
-}
-
+#marks-container-header {}
 /* Everything below 768px wide */
 
 @media (max-width: 768px) {

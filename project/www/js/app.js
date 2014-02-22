@@ -18,7 +18,7 @@ $(document).ready(function () {
     // FastClick.js
     // https://github.com/ftlabs/fastclick
     $(function () {
-        //   FastClick.attach(document.body);
+        FastClick.attach(document.body);
     });
 
     // Put the username and password into the form fields
@@ -41,13 +41,21 @@ $(document).ready(function () {
         clock();
     }, 1000);
 
-    // Online detection and action-taking
-    var online = isOnline(apiStatusURL);
-    //  console.log(online.status); // For some reason you can't access this #WTF
+    // Online detection
+    // Run once at launch and every 15 seconds after that
+    isOnline();
+    setInterval(function () {
+        isOnline();
+    }, 15000);
 
     // General button event handlers
+
+    // The login button event handler
     $('#login-button').click(function () {
+        isOnline(); // Make sure we're online before we try anything else
+
         console.log('User [' + username + '] attempting login');
+
         // Show the progress bar
         $('.login-progress-modal').modal('show');
         hideMenu();
@@ -67,6 +75,7 @@ $(document).ready(function () {
                 // Remember the username and password
                 var username = $('#login-username-input').val();
                 var password = $('#login-password-input').val();
+
                 $.jStorage.set('username', username);
                 $.jStorage.set('password', password);
                 $.jStorage.setTTL('password', 1209600000); // Password expires in 2 weeks (milliseconds)
@@ -82,6 +91,7 @@ $(document).ready(function () {
 
 
                         if (schedResponse['class'] == 'no class') {
+
                             // No class today
                             window.areThereClassesToday = false;
                             showAveragesPage();
@@ -173,16 +183,17 @@ $(document).ready(function () {
                             // Throw some wicked error
                         }
                     }); // End of the getMarks callback
+
                     // Putting this here does a nice job of fading into the homepage just
                     // as all of the DOM operations are finishing
                     $('.login-progress-modal').modal('hide');
+
                 }); // End of the getSched callback
             } else {
                 // Throw login error
                 $('.form-group').addClass('has-error');
                 $('.form-group').prepend('<label id="password-failure-message" class="control-label" for="login-username-input">Username or password incorrect. <button id="show-login-help" class="btn btn-xs btn-info" data-toggle="modal" data-target=".show-login-help-modal"><span class="glyphicon glyphicon-info-sign"></span> More info</button></label>');
             }
-
         }); // End of the initAuth callback
 
         return false; // So that there's no page refresh when the login button is pressed
