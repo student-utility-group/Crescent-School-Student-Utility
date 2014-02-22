@@ -261,20 +261,20 @@ function hideMenu() {
 }
 
 function showSchedulePage() {
-    $('.class-1').show();
+    $('.schedule-page').show();
 }
 
 function hideSchedulePage() {
-    $('.class-1').hide();
+    $('.schedule-page').hide();
 }
 
 function showAveragesPage() {
     hideSchedulePage();
-    $('#marks-container').removeClass('hidden');
+    $('.marks-page').removeClass('hidden');
 }
 
 function hideAveragesPage() {
-    $('#marks-container').addClass('hidden');
+    $('.marks-page').addClass('hidden');
 }
 
 function getMarksTable(marks) {
