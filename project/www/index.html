@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>CSSU v2.0</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="css/apprise.min.css">
+    <link type="text/css" rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <div class="statusbar">&nbsp;</div>
+    <!-- Fixed position element to cover the tranparent status bar -->
+    <div class="screen row">
+        <div class="container page-container row">
+            <div class="login-page col-md-12 center">
+                <div class="row">
+                    <br>
+                    <br>
+                </div>
+                <div class="login-logo">
+                    <img src="img/apple-touch-icon-144x144-precomposed.png" alt="Crescent School Crest" height="100" width="100">
+                    <br>
+                    <h2 style="color: #444;">Crescent School
+                        <br>Student Utility</h2>
+                </div>
+                <!-- /login-logo -->
+                <div>&nbsp;</div>
+                <div class="login-form col-md-6 center">
+                    <form id="login-form" accept-charset="UTF-8">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="login-username-input" placeholder="Username">
+                            <br>
+                            <input type="password" class="form-control" id="login-password-input" placeholder="Password">
+                        </div>
+                        <!--<div class="form-group">-->
+                        <!--<input type="checkbox" name="remember-me" id="login-remember-me-input">
+									<label class="string optional" for="remember_me"> Remember me</label>
+									<br>-->
+                        <button class="btn btn-lg btn-primary btn-block" id="login-button" data-loading-text="Loading...">Login</button>
+                        <!--</div>-->
+                    </form>
+                </div>
+                <!-- /login-form -->
+                <br>
+
+                <!-- Connection help modal -->
+                <div class="modal fade show-connection-help-modal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title">About: Connection Failures</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div style="text-align: center;">What happened?
+                                    <br>The Student Utility was unable to contact the servers it runs on. This issue could arise in two ways:
+                                    <br>
+                                    <br>
+                                    <ul class="list-group">
+                                        <li class="list-group-item">
+                                            <span class="label label-success">Most likely</span>
+                                            <br>
+                                            <br>Your device isn't connected to the Internet</li>
+                                        <li class="list-group-item">
+                                            <span class="label label-warning">Least likely</span>
+                                            <br>
+                                            <br>The Student Utility servers are offline</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <!-- /.modal -->
+
+                <!-- Login help modal -->
+                <div class="modal fade show-login-help-modal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title">About: Logging in</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div style="text-align: center;">What happened?
+                                    <br>You were unable to login to the Student Utility. This issue could arise in two ways:
+                                    <br>
+                                    <br>
+                                    <ul class="list-group">
+                                        <li class="list-group-item">
+                                            <span class="label label-success">Most likely</span>
+                                            <br>
+                                            <br>You typed in your username or password wrong.
+                                            <br>
+                                            <br>
+                                            <span class="label label-default" text-align="center">Fix:</span>
+                                            <br>Try logging in again, being sure to user your network (email, Greenroom, computer) credentials.
+                                        </li>
+                                        <li class="list-group-item">
+                                            <span class="label label-warning">Least likely</span>
+                                            <br>
+                                            <br>There was an error on our side.
+                                            <br>
+                                            <br>
+                                            <span class="label label-default" text-align="center">Fix:</span>
+                                            <br>Occasionally there is a problem with the Student Utility. If you think you've found a problem, drop us an email at either
+                                            <b>jonathanlibby@crescentschool.org</b>or
+                                            <b>matthewcheung@crescentschool.org</b>.
+                                            <!--<a class="btn btn-default btn-xs" href="mailto:jonathanlibby@crescentschool.org?cc=matthewcheung@crescentschool.org&subject=Question or concern about the Student Utility&body=Hi Jonathan,">tap here to drop us an email.</a> -->
+
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <!-- /.modal -->
+
+                <!-- Progress bar modal -->
+                <div class="modal fade login-progress-modal">
+                    <div class="modal-dialog modal-sm">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <!-- Progress bar -->
+                                <div id="progress-container" style="width: 100%">
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar" id="login-progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                                        </div>
+                                    </div>
+                                    <a href="index.html" class="btn btn-danger" data-dismiss="modal">Cancel</a>
+                                    <!-- Refreshes the page -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <!-- /.modal -->
+
+
+                <footer class="login-footer">
+                    <!-- Footer with icons -->
+                    <h5>By Jonathan Libby & Matthew Cheung</h5>
+                    <span class="glyphicon glyphicon-signal"></span>
+                    <span class="glyphicon glyphicon-globe"></span>
+                    <span class="glyphicon glyphicon-lock"></span>
+                    <span class="glyphicon glyphicon-link"></span>
+                    <br>
+                    <span class="build-indicator" style="font-size: 0.5em"></span>
+                </footer>
+            </div>
+            <!-- /login-page -->
+
+            <div class="main-page page-container row">
+                <div class="btn btn-default menu-toggle">
+                    <span class="glyphicon glyphicon-align-justify"></span>
+                </div>
+                <div class="menu">
+                    <ul class="list-group">
+                        <li class="list-group-item list-pressable logout">Logout
+                            <span class="glyphicon glyphicon-log-out pull-right"></span>
+                        </li>
+                        <li class="list-group-item list-pressable refresh">Refresh
+                            <span class="glyphicon glyphicon-refresh pull-right"></span>
+                        </li>
+                        <li class="list-group-item list-pressable">About
+                            <span class="glyphicon glyphicon-info-sign pull-right"></span>
+                        </li>
+                        <li class="list-group-item list-pressable schedule-button">Schedule
+                            <span class="glyphicon glyphicon-calendar pull-right"></span>
+                        </li>
+                        <li class="list-group-item list-pressable averages-button">Averages
+                            <span class="glyphicon glyphicon-list pull-right"></span>
+                        </li>
+                        <li class="list-group-item" style="color: #888;">Lunch Menu
+                            <span class="glyphicon glyphicon-list-alt pull-right"></span>
+                        </li>
+                    </ul>
+                </div>
+                <!-- The clock on the main page -->
+                <div class="clock hero-block col-xs-8 col-md-8 center row">
+                    <div class="build-indicator build-indicator-label label label-info"></div>
+                    <div class="clock-inner col-xs-12">
+                        <!-- All of the following spans must be on one line without spaces in between -->
+                        <span class="time"><span class="time-hour"></span>:<span class="time-min"></span></span><span class="ampm-indicator"></span>
+                    </div>
+                </div>
+                <br>                
+                <!-- Start of the class 1 indicator and related elements -->
+                <div class="class-1 bubble hero-block col-xs-6 center row">
+                    <div class="class-1-mark">
+                        <div class="class-mark-average label label-default" id="class-1-mark">0%</div>
+                    </div>
+                    <div class="class-code" id="class-1-code">
+                        <!-- Eg. ENG2D-6 -->
+                    </div>
+                    <!--<div class="class-teacher">
+                        <h5>Costanzo</h5>
+                    </div>
+                    <div class="class-location">
+                        <h6>L410</h6>
+                    </div> -->
+                </div>
+                <br>
+                <!-- End of the class 1 indicator and related elements -->
+                <!-- Start of the class 2 indicator and related elements -->
+                <div class="class-1 bubble hero-block col-xs-6 center row">
+                    <div class="class-1-mark">
+                        <div class="class-mark-average label label-default" id="class-2-mark">0%</div>
+                    </div>
+                    <div class="class-code" id="class-2-code">
+                    </div>
+                    <!-- Future: teacher (.class-teacher) and location (.class-location) -->
+                </div>
+                <br>
+                <!-- End of the class 2 indicator and related elements -->
+                <!-- Start of the class 3 indicator and related elements -->
+                <div class="class-1 bubble hero-block col-xs-6 center row">
+                    <div class="class-1-mark">
+                        <div class="class-mark-average label label-default" id="class-3-mark">0%</div>
+                    </div>
+                    <div class="class-code" id="class-3-code">
+                    </div>
+                    <!-- Future: teacher (.class-teacher) and location (.class-location) -->
+                </div>
+                <br>
+                <!-- End of the class 3 indicator and related elements -->
+                <!-- Start of the class 4 indicator and related elements -->
+                <div class="class-1 bubble hero-block col-xs-6 center row">
+                    <div class="class-1-mark">
+                        <div class="class-mark-average label label-default" id="class-4-mark">0%</div>
+                    </div>
+                    <div class="class-code" id="class-4-code">
+                    </div>
+                    <!-- Future: teacher (.class-teacher) and location (.class-location) -->
+                </div>
+                <br>
+                <!-- End of the class 4 indicator and related elements -->
+                <!-- Marks container -->
+                <div class="hero-block center col-xs-6 bubble hidden" id="marks-container">
+                    <div class="row col-xs-5">
+                        <table class="table table-condensed center">
+                            <thead>
+                                <th>Class</th>
+                                <th>Average</th>
+                            </thead>
+                            <tbody class="marks-table-tbody">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- /marks container -->
+                <div class="center">
+                    <footer class="footer">
+                        <div class="btn-group">
+                            <button class="btn btn-lg btn-default logout">
+                                <span class="glyphicon glyphicon-log-out"></span>
+                            </button>
+                            <button class="btn btn-lg btn-default refresh">
+                                <span class="glyphicon glyphicon-refresh"></span>
+                            </button>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+            <!-- /main-page -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /screen -->
+
+    <!-- Javascript inclusion -->
+    <script type="text/javascript" src="js/jquery-2.0.2.min.js"></script>
+    <!-- jQuery first -->
+    <script type="text/javascript" src="cordova.js"></script>
+    <!-- cordova.js not in the js directory for a reason -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- Bootstrap -->
+    <script type="text/javascript" src="js/lawnchair-0.6.1.min.js"></script>
+    <!-- Lawnchair -->
+    <script type="text/javascript" src="js/fastclick.js"></script>
+    <!-- Fastclick -->
+    <script type="text/javascript" src="js/apprise-1.5.min.js"></script>
+    <!-- Apprise -->
+    <script type="text/javascript" src="js/jquery.json-2.4.min.js"></script>
+    <!-- Required for jstorage, must be included before jstorage.js -->
+    <script type="text/javascript" src="js/jstorage.js"></script>
+    <!-- JStorage -->
+    <script type="text/javascript" src="js/funcs.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+</body>
+
+</html>

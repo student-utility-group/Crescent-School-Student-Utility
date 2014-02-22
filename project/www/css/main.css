@@ -1,0 +1,185 @@
+/* Let's do this. */
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    margin-top: 20px;
+    /* To account for the iOS transparent status bar */
+}
+.screen {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #FFF;
+    /*   background-image: linear-gradient(-45deg, rgba(255, 255, 255, .2) 5%, transparent 5%, transparent 10%, rgba(255, 255, 255, .2) 10%, rgba(255, 255, 255, .2) 15%, transparent 15%, transparent 20%, rgba(255, 255, 255, .2) 20%, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 30%, rgba(255, 255, 255, .2) 30%, rgba(255, 255, 255, .2) 35%, transparent 35%, transparent 40%, rgba(255, 255, 255, .2) 40%, rgba(255, 255, 255, .2) 45%, transparent 45%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 55%, transparent 55%, transparent 60%, rgba(255, 255, 255, .2) 60%, rgba(255, 255, 255, .2) 65%, transparent 65%, transparent 70%, rgba(255, 255, 255, .2) 70%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent 80%, rgba(255, 255, 255, .2) 80%, rgba(255, 255, 255, .2) 85%, transparent 85%, transparent 90%, rgba(255, 255, 255, .2) 90%, rgba(255, 255, 255, .2) 95%, transparent 95%, transparent 100%); */
+    /*    border: 1px solid #fbff00; */
+}
+.screen:before {
+    /*
+	    background-image: radial-gradient(transparent, rgba(0,0,0,.7));
+*/
+}
+@font-face {
+    font-family: 'OpenLight-Light';
+    src: url('../fonts/OpenLight-Light.woff') format('woff'), url('../fonts/OpenLight-Light.ttf') format('truetype'), url('../fonts/OpenLight-Light.otf') format('opentype');
+}
+@font-face {
+    font-family: 'OpenLight-Regular';
+    src: url('../fonts/OpenLight-Regular.woff') format('woff'), url('../fonts/OpenLight-Regular.ttf') format('truetype'), url('../fonts/OpenLight-Regular.otf') format('opentype');
+}
+.page-container {
+    margin: 0 auto;
+    /* Fixes the overscrolling issue */
+}
+.login-page {
+    /*border: 1px solid #ff00e6; */
+    height: 100%;
+}
+.login-logo {
+    position: relative;
+    /*	border: 1px solid #00eaff;*/
+    text-align: center;
+}
+.center {
+    float: none;
+    margin: 0 auto;
+    text-align: center;
+}
+.statusbar {
+    top: 0;
+    position: fixed;
+    z-index: 99;
+    height: 20px;
+}
+.login-footer {
+    text-align: center;
+    position: relative;
+}
+.main-page-toggled {
+    position: relative;
+    left: 135px;
+}
+.hero-block {
+    background-color: #018156;
+    border-radius: 10px;
+    color: #FFF;
+}
+.clock {
+    height: 100px;
+}
+.clock-inner {
+    position: relative;
+    top: 8px;
+    text-align: center;
+    margin: 0 auto;
+    vertical-align: middle;
+    /*    border: 1px solid #F00; */
+}
+/* The actual clock time */
+
+.time {
+    font-size: 4.0em;
+    font-weight: 596;
+    /* This is a very precise design element. Jony Ive designed this. */
+    vertical-align: baseline;
+}
+.ampm-indicator-label {
+    font-weight: 100;
+    font-size: 1.2em;
+}
+.build-indicator-label {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+}
+/* The current academic class the user is in */
+
+.bubble {
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+    font-weight: 500;
+    padding-bottom: 8px;
+}
+
+.class-code {
+    font-weight: 500;
+    position: relative;
+}
+.class-1-mark {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+}
+.class-mark-average {
+    /* background-color: #018156;
+    height: 60px;
+    width: 60px;
+    border-radius: 60px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 0.5em; */
+}
+.class-mark-average-percentage {
+    /*  position: relative;
+    top: 20px;
+    color: #FFF; */
+}
+.menu-toggle {
+    position: absolute;
+    left: 0;
+    font-size: 2em;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    border-left: 0;
+}
+.menu-toggle-toggled {
+    font-size: 1.4em;
+}
+.menu {
+    position: absolute;
+    width: 150px;
+    left: -150px;
+}
+.list-pressable:active {
+    background-color: #018156;
+    color: #FFF;
+}
+.refreshing {
+    content: "Refreshing...";
+}
+.login-progress-modal {
+    position: absolute;
+    top: 150px;
+}
+#marks-container {
+    position: relative;
+    top: -70px;
+    height: 320px;
+    width: 200px;
+}
+
+#marks-container .row {
+    position: relative;
+    left: 25px; /* This is a hack but it works */
+}
+/* Everything below 768px wide */
+
+@media (max-width: 768px) {
+    .menu .list-group-item:first-child {
+        border-top-right-radius: 0;
+        border-top-left-radius: 0;
+    }
+    .menu .list-group-item:last-child {
+        border-bottom-left-radius: 0;
+    }
+    .menu .list-group-item {
+        border-left: 0;
+    }
+}
+/* Hack fix for a bug on screens narrower than 460px */
+
+@media (max-width: 460px) {}
