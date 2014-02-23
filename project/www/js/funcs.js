@@ -279,7 +279,30 @@ function hideAveragesPage() {
 function getMarksTable(marks) {
     // Make sure we clear out the table each time
     $('.marks-table-tbody').html('');
+    
+    // All averages added together
+    var total = 0;
+    
+    // There is no length() method on jQuery objects, so we have to use this courseCount variable
+    var courseCount = 0;
+    
     $.each(marks, function (index, value) {
-        $('.marks-table-tbody').append('<tr><td>' + index + '</td><td>' + value + '%</td></tr>');
+        total += parseInt(value);
+        courseCount++;
     });
+    var average = Math.round(total / courseCount);
+
+    $.each(marks, function (index, value) {
+        if (value > average) {
+            classToAdd = 'success';
+        } else if (value < average) {
+            classToAdd = 'danger';
+        } else {
+            classToAdd = 'default';
+        }
+        $('.marks-table-tbody').append('<tr class="marks-row"><td>' + index + '</td><td id="mark"><span class="label label-' + classToAdd + '">' + value + '%</span></td></tr>');
+    });
+    $('.marks-table-tbody').append('<tr><td><span class="label label-info"><b>Overall</b></span></td><td><span class="label label-info"><b>' + average + '%</b></span></td></tr>');
+
+
 }

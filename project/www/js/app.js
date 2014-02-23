@@ -11,7 +11,7 @@ $(document).ready(function () {
     $('.main-page').hide();
 
     // Show build number
-    var buildNumber = '[' + '20424' + ']';
+    var buildNumber = '[' + '20425' + ']';
     $('.build-indicator').text(buildNumber);
 
     // Attach the FastClick library to the .click event
