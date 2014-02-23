@@ -10,9 +10,8 @@ $(document).ready(function () {
     // Hide the main page
     $('.main-page').hide();
 
-    // Show build number
-    var buildNumber = '[' + '20425' + ']';
-    $('.build-indicator').text(buildNumber);
+    // Build number
+    var buildNumber = '[' + 20426 + ']';
 
     // Attach the FastClick library to the .click event
     // FastClick.js
@@ -34,12 +33,11 @@ $(document).ready(function () {
         var password = $('#login-password-input').val();
     }
 
-
-    // Run the clock function every second
-    clock();
-    setInterval(function () {
-        clock();
-    }, 1000);
+    // Show build number
+    $('.build-indicator').text(buildNumber);
+    if (username == 'jonathanlibby' || username == 'matthewcheung') {
+        $('.build-indicator-developer').text(buildNumber);
+    }
 
     // Online detection
     // Run once at launch and every 15 seconds after that
@@ -55,6 +53,12 @@ $(document).ready(function () {
         isOnline(); // Make sure we're online before we try anything else
 
         console.log('User [' + username + '] attempting login');
+
+        // Run the clock function every second
+        clock();
+        setInterval(function () {
+            clock();
+        }, 1000);
 
         // Show the progress bar
         $('.login-progress-modal').modal('show');
@@ -232,6 +236,12 @@ $(document).ready(function () {
             showSchedulePage();
             hideMenu();
         }
+    });
+
+    // About page
+    $('.about-button').click(function(){
+        hideMenu();
+        $('.about-page-modal').modal();
     });
 
 });

@@ -154,8 +154,7 @@
                                         <div class="progress-bar" id="login-progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
                                         </div>
                                     </div>
-                                    <a href="index.html" class="btn btn-danger" data-dismiss="modal">Cancel</a>
-                                    <!-- Refreshes the page -->
+                                    <button class="btn btn-danger" data-dismiss="modal">Cancel</button>
                                 </div>
                             </div>
                         </div>
@@ -164,7 +163,6 @@
                     <!-- /.modal-dialog -->
                 </div>
                 <!-- /.modal -->
-
 
                 <footer class="login-footer">
                     <!-- Footer with icons -->
@@ -180,6 +178,103 @@
             <!-- /login-page -->
 
             <div class="main-page page-container row no-select">
+
+                <!-- About page modal -->
+                <div class="modal fade about-page-modal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h3>About: Student Utility</h3>
+                            </div>
+                            <div class="modal-body">
+                                <p>
+                                    Welcome to the Student Utility! It allows students to have key information
+                                    about their day right at their fingertips.
+                                    <br>
+                                    <span class="label label-default">Current version: <span class="build-indicator"></span></span>
+                                </p>
+                                <div class="panel-group" id="accordion">
+                                  <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                      <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                          About: Story
+                                        </a>
+                                      </h4>
+                                    </div>
+                                    <div id="collapseOne" class="panel-collapse collapse in">
+                                      <div class="panel-body">
+                                        The Student Utility began as a small project to access information from
+                                        Crescent sites such as NetClassroom on mobile phones, to give people quick
+                                        access to important information. It's since grown to become an major
+                                        organizational tool in the Crescent student's daily life. 
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                      <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                                          About: Team
+                                        </a>
+                                      </h4>
+                                    </div>
+                                    <div id="collapseTwo" class="panel-collapse collapse">
+                                      <div class="panel-body">
+                                        The Student Utility was dreamed of, planned, designed, built, and tested
+                                        by a small team of students from the Upper School; along with the help of several
+                                        faculty and staff members without whom this project would not have been possible.
+                                        <p>&nbsp;</p>
+                                        <table class="table table-bordered">
+                                            <tbody>
+                                                <tr><td>Jonathan Libby <span class="label label-info">Co-founder</span></td><td>Dreamer, designer, <u>programmer.</u> Enjoys sleepless nights and lots of code.</td></tr>
+                                                <tr><td>Matthew Cheung <span class="label label-info">Co-founder</span></td><td>Dreamer, project manager, <u>designer</u>.</td></tr>
+                                                <tr><td>Ian Lo</td><td>Original ideas and planning.</td></tr>
+                                                <tr><td>Mr. James Wildman</td><td>IT co-ordination, logistics, and an immeasurable amount of help.</td></tr>
+                                                <tr><td>Ms. Jan Reynolds</td><td>Back-end systems & co-ordination, also an immeasurable amount of help.</td></tr>
+                                                <tr><td>Ms. Martha Miller</td><td>Staff supervisor, logistics, and IT co-ordination.</td></tr>
+                                            </tbody>
+                                        </table>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                      <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                                          Contact
+                                        </a>
+                                      </h4>
+                                    </div>
+                                    <div id="collapseThree" class="panel-collapse collapse">
+                                      <div class="panel-body">
+                                        <p>
+                                            For questions, comments, concerns (if you think you've found a bug or some incorrect information), 
+                                            or if you'd just like to say hello;
+                                            feel free to send us an e-mail at any of the below addresses:
+                                            <ul style="text-align: left;">
+                                                <li>jonathanlibby@crescentschool.org</li>
+                                                <li>matthewcheung@crescentschool.org</li>
+                                                <li>jwildman@crescentschool.org</li>
+                                                <li>mmiller@crescentschool.org</li>
+                                            </ul>
+                                        </p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                            </div> 
+                            <div class="modal-footer">
+                                <button class="btn btn-default" data-dismiss="modal">Ok</a>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <!-- /.modal -->
+
                 <div class="btn btn-default menu-toggle">
                     <span class="glyphicon glyphicon-align-justify"></span>
                 </div>
@@ -191,7 +286,7 @@
                         <li class="list-group-item list-pressable no-select refresh">Refresh
                             <span class="glyphicon glyphicon-refresh pull-right"></span>
                         </li>
-                        <li class="list-group-item list-pressable no-select ">About
+                        <li class="list-group-item list-pressable no-select about-button">About
                             <span class="glyphicon glyphicon-info-sign pull-right"></span>
                         </li>
                         <li class="list-group-item list-pressable no-select schedule-button">Schedule
@@ -209,7 +304,7 @@
                 </div>
                 <!-- The clock on the main page -->
                 <div class="clock hero-block col-xs-8 col-md-8 center row no-select">
-                    <div class="build-indicator build-indicator-label label label-info"></div>
+                    <div class="build-indicator build-indicator-label build-indicator-developer label label-info"></div>
                     <div class="clock-inner col-xs-12">
                         <!-- All of the following spans must be on one line without spaces in between -->
                         <span class="time"><span class="time-hour"></span>:<span class="time-min"></span></span><span class="ampm-indicator"></span>

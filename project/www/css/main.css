@@ -183,6 +183,10 @@ body {
     -ms-user-select: none;
     /* IE 10+ */
 }
+
+.about-page-modal {
+    text-align: center;
+}
 @media (max-width: 768px) {
     .menu .list-group-item:first-child {
         border-top-right-radius: 0;
