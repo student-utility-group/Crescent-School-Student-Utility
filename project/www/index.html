@@ -14,7 +14,7 @@
     <!-- Fixed position element to cover the tranparent status bar -->
     <div class="screen row">
         <div class="container page-container row">
-            <div class="login-page col-md-12 center">
+            <div class="login-page col-md-12 center no-select">
                 <div class="row">
                     <br>
                     <br>
@@ -179,36 +179,36 @@
             </div>
             <!-- /login-page -->
 
-            <div class="main-page page-container row">
+            <div class="main-page page-container row no-select">
                 <div class="btn btn-default menu-toggle">
                     <span class="glyphicon glyphicon-align-justify"></span>
                 </div>
                 <div class="menu">
                     <ul class="list-group">
-                        <li class="list-group-item list-pressable logout">Logout
+                        <li class="list-group-item list-pressable no-select logout">Logout
                             <span class="glyphicon glyphicon-log-out pull-right"></span>
                         </li>
-                        <li class="list-group-item list-pressable refresh">Refresh
+                        <li class="list-group-item list-pressable no-select refresh">Refresh
                             <span class="glyphicon glyphicon-refresh pull-right"></span>
                         </li>
-                        <li class="list-group-item list-pressable">About
+                        <li class="list-group-item list-pressable no-select ">About
                             <span class="glyphicon glyphicon-info-sign pull-right"></span>
                         </li>
-                        <li class="list-group-item list-pressable schedule-button">Schedule
+                        <li class="list-group-item list-pressable no-select schedule-button">Schedule
                             <span class="glyphicon glyphicon-calendar pull-right"></span>
                             <span class="label label-danger schedule-button-no-class-indicator hidden" style="position: absolute; top: 8px; left: 25px; -moz-transform:rotate(-20deg); -webkit-transform:rotate(-20deg); -ms-transform:rotate(-20deg);">No class today!</span>
                         </li>
-                        <li class="list-group-item list-pressable averages-button">Averages
+                        <li class="list-group-item list-pressable no-select averages-button">Averages
                             <span class="glyphicon glyphicon-list pull-right"></span>
                         </li>
-                        <li class="list-group-item list-pressable-disabled">Lunch Menu
+                        <li class="list-group-item list-pressable-disabled no-select">Lunch Menu
                             <span class="glyphicon glyphicon-list-alt pull-right"></span>
                             <span class="label label-info" style="position: absolute; top: 10px; left: 25px; -moz-transform:rotate(-20deg); -webkit-transform:rotate(-20deg); -ms-transform:rotate(-20deg);">Coming soon!</span>
                         </li>
                     </ul>
                 </div>
                 <!-- The clock on the main page -->
-                <div class="clock hero-block col-xs-8 col-md-8 center row">
+                <div class="clock hero-block col-xs-8 col-md-8 center row no-select">
                     <div class="build-indicator build-indicator-label label label-info"></div>
                     <div class="clock-inner col-xs-12">
                         <!-- All of the following spans must be on one line without spaces in between -->
@@ -219,7 +219,7 @@
                 <div class="schedule-page">
                 <br>                
                     <!-- Start of the class 1 indicator and related elements -->
-                    <div class="class-1 bubble hero-block col-xs-6 center row">
+                    <div class="class-1 bubble hero-block col-xs-6 center row no-select">
                         <div class="class-1-mark">
                             <div class="class-mark-average label label-default" id="class-1-mark"></div>
                         </div>
@@ -236,7 +236,7 @@
                     <br>
                     <!-- End of the class 1 indicator and related elements -->
                     <!-- Start of the class 2 indicator and related elements -->
-                    <div class="class-1 bubble hero-block col-xs-6 center row">
+                    <div class="class-1 bubble hero-block col-xs-6 center row no-select">
                         <div class="class-1-mark">
                             <div class="class-mark-average label label-default" id="class-2-mark"></div>
                         </div>
@@ -247,7 +247,7 @@
                     <br>
                     <!-- End of the class 2 indicator and related elements -->
                     <!-- Start of the class 3 indicator and related elements -->
-                    <div class="class-1 bubble hero-block col-xs-6 center row">
+                    <div class="class-1 bubble hero-block col-xs-6 center row no-select">
                         <div class="class-1-mark">
                             <div class="class-mark-average label label-default" id="class-3-mark"></div>
                         </div>
@@ -258,7 +258,7 @@
                     <br>
                     <!-- End of the class 3 indicator and related elements -->
                     <!-- Start of the class 4 indicator and related elements -->
-                    <div class="class-1 bubble hero-block col-xs-6 center row">
+                    <div class="class-1 bubble hero-block col-xs-6 center row no-select">
                         <div class="class-1-mark">
                             <div class="class-mark-average label label-default" id="class-4-mark"></div>
                         </div>
@@ -276,7 +276,7 @@
                     <!-- <div class="hero-block center col-xs-6 bubble" id="marks-container-header">
                         <h3>Class Averages</h3>
                     </div> -->
-                    <div class="hero-block center col-xs-6 bubble" id="marks-container">
+                    <div class="hero-block center col-xs-6 bubble no-select" id="marks-container">
                         <br>
                         <div class="row col-xs-5">
                             <table class="table table-condensed center">

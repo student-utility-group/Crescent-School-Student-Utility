@@ -175,6 +175,14 @@ body {
 #marks-container-header {}
 /* Everything below 768px wide */
 
+.no-select {
+    -webkit-user-select: none;
+    /* Chrome all / Safari all */
+    -moz-user-select: none;
+    /* Firefox all */
+    -ms-user-select: none;
+    /* IE 10+ */
+}
 @media (max-width: 768px) {
     .menu .list-group-item:first-child {
         border-top-right-radius: 0;
