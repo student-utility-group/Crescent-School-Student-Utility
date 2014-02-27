@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="org.crescentschool.studentutility" version="2.0.3" xmlns="http://www.w3.org/ns/widgets">
+<widget id="org.crescentschool.studentutility" version="2.0.4" xmlns="http://www.w3.org/ns/widgets">
     <name>Student Utility</name>
     <description>
         The Student Utility allows students to access the information they need most during their day quickly and easily.
