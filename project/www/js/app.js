@@ -11,7 +11,7 @@ $(document).ready(function () {
     $('.main-page').hide();
 
     // Build number
-    var buildNumber = '[' + 20426 + ']';
+    buildNumber = '[' + 20500 + ']';
 
     // Attach the FastClick library to the .click event
     // FastClick.js
@@ -26,25 +26,18 @@ $(document).ready(function () {
     if (rememberedUsername && rememberedPassword) {
         $('#login-username-input').attr('value', rememberedUsername);
         $('#login-password-input').attr('value', rememberedPassword);
-        var username = rememberedUsername;
-        var password = rememberedPassword;
-    } else {
-        var username = $('#login-username-input').val();
-        var password = $('#login-password-input').val();
+        username = rememberedUsername;
+        password = rememberedPassword;
     }
-
-    // Show build number
-    $('.build-indicator').text(buildNumber);
-    if (username == 'jonathanlibby' || username == 'matthewcheung') {
-        $('.build-indicator-developer').text(buildNumber);
-    }
-
     // Online detection
     // Run once at launch and every 15 seconds after that
     isOnline();
-    setInterval(function () {
+    var getStatusPageInterval = setInterval(function () {
         isOnline();
     }, 15000);
+
+    // Show build number
+    $('.build-indicator').text(buildNumber);
 
     // General button event handlers
 
@@ -52,7 +45,21 @@ $(document).ready(function () {
     $('#login-button').click(function () {
         isOnline(); // Make sure we're online before we try anything else
 
+        // Get the username and password
+        username = $('#login-username-input').val();
+        password = $('#login-password-input').val();
+
         console.log('User [' + username + '] attempting login');
+
+        // Only show the home page build number if it's one of us
+        if (username == 'jonathanlibby' || username == 'matthewcheung') {
+            $('.build-indicator-developer').show().text(buildNumber);
+        } else {
+            $('.build-indicator-developer').hide();
+        }
+
+        // Stop getting the status pages to reduce bandwidth
+        clearInterval(getStatusPageInterval);
 
         // Run the clock function every second
         clock();
@@ -69,6 +76,13 @@ $(document).ready(function () {
             if (response.auth == 'success') {
                 console.log('Authenticated successfully');
 
+                // Hides the keyboard if the enter key was used
+                // to submit the form
+                $('#login-username-input').blur();
+                $('#login-password-input').blur();
+
+                // Hide the login page and show the main page,
+                // obviously
                 $('.login-page').slideUp();
                 $('.main-page').slideDown();
 
@@ -190,13 +204,14 @@ $(document).ready(function () {
 
                     // Putting this here does a nice job of fading into the homepage just
                     // as all of the DOM operations are finishing
-                    $('.login-progress-modal').modal('hide');
+                    hideLoginModal();
 
                 }); // End of the getSched callback
             } else {
                 // Throw login error
                 $('.form-group').addClass('has-error');
                 $('.form-group').prepend('<label id="password-failure-message" class="control-label" for="login-username-input">Username or password incorrect. <button id="show-login-help" class="btn btn-xs btn-info" data-toggle="modal" data-target=".show-login-help-modal"><span class="glyphicon glyphicon-info-sign"></span> More info</button></label>');
+                hideLoginModal();
             }
         }); // End of the initAuth callback
 
@@ -239,7 +254,7 @@ $(document).ready(function () {
     });
 
     // About page
-    $('.about-button').click(function(){
+    $('.about-button').click(function () {
         hideMenu();
         $('.about-page-modal').modal();
     });

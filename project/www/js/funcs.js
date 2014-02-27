@@ -105,6 +105,10 @@ function clock() {
         ampm = "PM";
     }
 
+    if (outHour == 0) {
+        outHour = 12;
+    }
+    
     if (outHour > 12) {
         var newHour = outHour - 12;
         outHour = newHour;
@@ -122,78 +126,7 @@ function clock() {
     } else {
         $('.time-min').text(outMin);
     }
-
-    var dow = now.getDay(); // DoW, 0 - 6
-    var dom = now.getDate(); // DoM, 0 - 31 (depends on # of days in month)
-    var month = now.getMonth(); // Month, 0 - 11
-    var year = now.getFullYear(); // Year, xxxx
-
-    // Convert DoW (numbered, starting at 0) to human DoW
-    switch (dow) {
-    case 0:
-        dow = 'Sunday';
-        break;
-    case 1:
-        dow = 'Monday';
-        break;
-    case 2:
-        dow = 'Tuesday';
-        break;
-    case 3:
-        dow = 'Wednesday';
-        break;
-    case 4:
-        dow = 'Thursday';
-        break;
-    case 5:
-        dow = 'Friday';
-        break;
-    case 6:
-        dow = 'Saturday';
-        break;
-    }
-
-    // Convert MoY (numbered, starting at 0) to human MoY
-    switch (month) {
-    case 0:
-        month = 'January';
-        break;
-    case 1:
-        month = 'February';
-        break;
-    case 2:
-        month = 'March';
-        break;
-    case 3:
-        month = 'April';
-        break;
-    case 4:
-        month = 'May';
-        break;
-    case 5:
-        month = 'June';
-        break;
-    case 6:
-        month = 'July';
-        break;
-    case 7:
-        month = 'August';
-        break;
-    case 8:
-        month = 'September';
-        break;
-    case 9:
-        month = 'October';
-        break;
-    case 10:
-        month = 'November';
-        break;
-    case 11:
-        month = 'December';
-        break;
-    }
-
-    $('.clock-date').text(dow + ', ' + dom + ' ' + month + ' ' + year);
+    $('.clock-date').text(Date.today().toString('dddd, d MMMM yyyy'));
 }
 
 function getTestSched() {
@@ -252,11 +185,15 @@ function getMarks(response) {
 function toggleMenu() {
     $('.main-page').toggleClass('main-page-toggled');
     $('.menu-toggle').toggleClass('menu-toggle-toggled');
+    // Stops the user from being able to scroll around
+    $('body').toggleClass('body-fixed-position');
 }
 
 function hideMenu() {
     $('.main-page').removeClass('main-page-toggled');
     $('.menu-toggle').removeClass('menu-toggle-toggled');
+    // Lets the user scroll around again
+    $('body').removeClass('body-fixed-position');
 }
 
 function showSchedulePage() {
@@ -276,16 +213,20 @@ function hideAveragesPage() {
     $('.marks-page').addClass('hidden');
 }
 
+function hideLoginModal() {
+    $('.login-progress-modal').modal('hide');
+}
+
 function getMarksTable(marks) {
     // Make sure we clear out the table each time
     $('.marks-table-tbody').html('');
-    
+
     // All averages added together
     var total = 0;
-    
+
     // There is no length() method on jQuery objects, so we have to use this courseCount variable
     var courseCount = 0;
-    
+
     $.each(marks, function (index, value) {
         total += parseInt(value);
         courseCount++;

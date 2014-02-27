@@ -93,7 +93,7 @@ body {
 .clock-date {
     position: relative;
     top: -5px;
-    font-size: 0.9em;
+    font-size: 0.8em;
     color: #FFF;
 }
 .build-indicator-label {
@@ -187,6 +187,11 @@ body {
 .about-page-modal {
     text-align: center;
 }
+
+.body-fixed-position {
+    position: fixed;
+}
+
 @media (max-width: 768px) {
     .menu .list-group-item:first-child {
         border-top-right-radius: 0;
