@@ -22,6 +22,9 @@ body {
 	    background-image: radial-gradient(transparent, rgba(0,0,0,.7));
 */
 }
+.container {
+    padding-bottom: 10px;
+}
 @font-face {
     font-family: 'OpenLight-Light';
     src: url('../fonts/OpenLight-Light.woff') format('woff'), url('../fonts/OpenLight-Light.ttf') format('truetype'), url('../fonts/OpenLight-Light.otf') format('opentype');
@@ -53,6 +56,7 @@ body {
     position: fixed;
     z-index: 99;
     height: 20px;
+    background-color: #FFF;
 }
 .login-footer {
     text-align: center;
@@ -69,6 +73,7 @@ body {
 }
 .clock {
     height: 100px;
+    margin-bottom: 15px;
 }
 .clock-inner {
     position: relative;
@@ -114,7 +119,7 @@ body {
     font-weight: 500;
     position: relative;
 }
-.class-1-mark {
+.class-mark {
     position: absolute;
     top: -5px;
     right: -10px;
@@ -173,7 +178,12 @@ body {
     /* This is a hack but it works */
 }
 #marks-container-header {}
-/* Everything below 768px wide */
+
+#settings-container {
+    background-color: #FFF;
+    border: 1px solid #018156;
+    color: #000;
+}
 
 .no-select {
     -webkit-user-select: none;
@@ -183,15 +193,22 @@ body {
     -ms-user-select: none;
     /* IE 10+ */
 }
-
 .about-page-modal {
     text-align: center;
 }
-
 .body-fixed-position {
     position: fixed;
 }
+.marks-disclaimer-text {
+    text-align: center;
+}
+.lunch-page {
+}
+.lunch-bubble {
+    padding-top: 13px;
+}
 
+/* Everything below 768px wide */
 @media (max-width: 768px) {
     .menu .list-group-item:first-child {
         border-top-right-radius: 0;

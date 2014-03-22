@@ -8,6 +8,7 @@ var apiPingURL = apiBaseURL + '/ping';
 var apiAuthURL = apiBaseURL + "/user/auth";
 var apiSchedURL = apiBaseURL + "/user/schedule";
 var apiMarkURL = apiBaseURL + "/user/marks";
+var apiLunchURL = apiBaseURL + "/lunch";
 // Online detection functions
 function isOnline(online) {
     $.ajax({
@@ -15,9 +16,9 @@ function isOnline(online) {
         url: apiPingURL,
     }).success(function () {
         // Do nothing
-        if ($('#login-button').attr('data-online') == 'false') {
-            location.reload();
-        }
+        // if ($('#login-button').attr('data-online') == 'false') {
+        //     location.reload();
+        // }
         console.log('Got status page');
     }).error(function () {
         console.log('Couldn\'t get status page');
@@ -35,7 +36,7 @@ function offlineProcedures() {
     $('#offline-message').removeClass('hidden');
     $('.show-connection-help').click(function () {
         // Show modal
-        $('.show-connection-help-modal').modal();
+        $('.show-connection-help-modal').modal('show');
     });
 }
 
@@ -94,10 +95,7 @@ function clock() {
     //if (outHour < 12) {
     //    outHour += 12;
     //}
-    // Check for daylight savings time. If it is in effect, subtract 1 hour from the time.
-    if (now.dst()) {
-        outHour -= 1;
-    }
+    // DST check isn't actually necessary, the device clock handles that
     //outHour = outHour - offset;
     var ampm;
 
@@ -108,7 +106,7 @@ function clock() {
     if (outHour == 0) {
         outHour = 12;
     }
-    
+
     if (outHour > 12) {
         var newHour = outHour - 12;
         outHour = newHour;
@@ -126,16 +124,12 @@ function clock() {
     } else {
         $('.time-min').text(outMin);
     }
-    $('.clock-date').text(Date.today().toString('dddd, d MMMM yyyy'));
-}
-
-function getTestSched() {
-    var response = $.getJSON("http://wylienet.thelibbster.com/liv.php/getUserSchedTest", function (response) {
-        $('#class-1-code').html('<h3>' + response.class_1 + '</h3>');
-        $('#class-2-code').html('<h3>' + response.class_2 + '</h3>');
-        $('#class-3-code').html('<h3>' + response.class_3 + '</h3>');
-        $('#class-4-code').html('<h3>' + response.class_4 + '</h3>');
-    });
+    dateFormat = $.jStorage.get('date_format');
+    if (!dateFormat) {
+        dateFormat = 'dddd, d MMMM yyyy'; // Default date format
+        $.jStorage.set('date_format', dateFormat);
+    }
+    $('.clock-date').text(Date.today().toString(dateFormat));
 }
 
 // DO SOMETHING WITH THESE FUNCTIONS WHEN THE CONNECTIONS FAIL!!!!
@@ -182,6 +176,43 @@ function getMarks(response) {
     });
 }
 
+function getMarksTable(marks) {
+    // Make sure we clear out the table each time
+    $('.marks-table-tbody').html('');
+
+    // All averages added together
+    var total = 0;
+
+    // There is no length() method on jQuery objects, so we have to use this courseCount variable
+    var courseCount = 0;
+
+    $.each(marks, function (index, value) {
+        total += parseInt(value);
+        courseCount++;
+    });
+    var average = Math.round((total / courseCount) * 10) / 10;
+
+    $.each(marks, function (index, value) {
+        if (value > average) {
+            classToAdd = 'success';
+        } else if (value < average) {
+            classToAdd = 'danger';
+        } else {
+            classToAdd = 'default';
+        }
+        $('.marks-table-tbody').append('<tr class="marks-row"><td>' + index + '</td><td id="mark"><span class="label label-' + classToAdd + '">' + value + '%</span></td></tr>');
+    });
+    $('.marks-table-tbody').append('<tr><td><span class="label label-info"><b>Overall</b></span></td><td><span class="label label-info"><b>' + average + '%</b></span></td></tr>');
+}
+
+function getLunch(response) {
+    $.ajax({
+        type: "GET",
+        url: apiLunchURL,
+        success: response
+    });
+}
+
 function toggleMenu() {
     $('.main-page').toggleClass('main-page-toggled');
     $('.menu-toggle').toggleClass('menu-toggle-toggled');
@@ -213,37 +244,22 @@ function hideAveragesPage() {
     $('.marks-page').addClass('hidden');
 }
 
+function showLunchPage() {
+    $('.lunch-page').removeClass('hidden');
+}
+
+function hideLunchPage() {
+    $('.lunch-page').addClass('hidden');
+}
+
 function hideLoginModal() {
     $('.login-progress-modal').modal('hide');
 }
 
-function getMarksTable(marks) {
-    // Make sure we clear out the table each time
-    $('.marks-table-tbody').html('');
+function showSettingsPage() {
+    $('.settings-page').removeClass('hidden');
+}
 
-    // All averages added together
-    var total = 0;
-
-    // There is no length() method on jQuery objects, so we have to use this courseCount variable
-    var courseCount = 0;
-
-    $.each(marks, function (index, value) {
-        total += parseInt(value);
-        courseCount++;
-    });
-    var average = Math.round(total / courseCount);
-
-    $.each(marks, function (index, value) {
-        if (value > average) {
-            classToAdd = 'success';
-        } else if (value < average) {
-            classToAdd = 'danger';
-        } else {
-            classToAdd = 'default';
-        }
-        $('.marks-table-tbody').append('<tr class="marks-row"><td>' + index + '</td><td id="mark"><span class="label label-' + classToAdd + '">' + value + '%</span></td></tr>');
-    });
-    $('.marks-table-tbody').append('<tr><td><span class="label label-info"><b>Overall</b></span></td><td><span class="label label-info"><b>' + average + '%</b></span></td></tr>');
-
-
+function hideSettingsPage() {
+    $('.settings-page').addClass('hidden');
 }

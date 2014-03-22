@@ -7,11 +7,18 @@
 
 $(document).ready(function () {
 
-    // Hide the main page
-    $('.main-page').hide();
+    // THIS STUFF IS FOR OFFLINE DEV ONLY
+    // clock();
+    // setInterval(function () {
+    //     clock();
+    // }, 1000);
+    // $('.login-page').slideUp();
+    // $('.main-page').removeClass('hidden').slideDown();
+    // END STUFF FOR OFFLINE DEV ONLY
 
     // Build number
-    buildNumber = '[' + 20500 + ']';
+    buildNumber = '[' + 20519 + ']';
+    debug = true;
 
     // Attach the FastClick library to the .click event
     // FastClick.js
@@ -19,6 +26,8 @@ $(document).ready(function () {
     $(function () {
         FastClick.attach(document.body);
     });
+
+
 
     // Put the username and password into the form fields
     var rememberedUsername = $.jStorage.get('username');
@@ -39,9 +48,20 @@ $(document).ready(function () {
     // Show build number
     $('.build-indicator').text(buildNumber);
 
+    // Get the lunch menu
+    var lunch = getLunch(function (lunchResponse) {
+        console.log(lunchResponse);
+        $('#lunch-monday').html(lunchResponse['monday']);
+        $('#lunch-tuesday').html(lunchResponse['tuesday']);
+        $('#lunch-wednesday').html(lunchResponse['wednesday']);
+        $('#lunch-thursday').html(lunchResponse['thursday']);
+        $('#lunch-friday').html(lunchResponse['friday']);
+    });
+
     // General button event handlers
 
     // The login button event handler
+
     $('#login-button').click(function () {
         isOnline(); // Make sure we're online before we try anything else
 
@@ -84,7 +104,7 @@ $(document).ready(function () {
                 // Hide the login page and show the main page,
                 // obviously
                 $('.login-page').slideUp();
-                $('.main-page').slideDown();
+                $('.main-page').removeClass('hidden').slideDown();
 
                 // Get rid of the error messages, if any
                 $('#password-failure-message').remove();
@@ -143,6 +163,7 @@ $(document).ready(function () {
                     } else {
                         // Didn't get the schedule
                         // Show some wicked error
+                        apprise("The Student Utility encountered a wicked error while trying to fetch your schedule. We're terribly sorry for the inconvenience. Please e-mail jonathanlibby@crescentschool.org to notify him of this issue.");
                     }
                     // Get the marks
                     var marks = getMarks(function (markResponse) {
@@ -195,10 +216,10 @@ $(document).ready(function () {
                                 }
                             } // End of the if there *is* class today
                             getMarksTable(markResponse['grades']);
-
                         } else {
                             // Didn't get the marks
                             // Throw some wicked error
+                            apprise("The Student Utility encountered a wicked error while trying to fetch your marks. We're terribly sorry for the inconvenience. Please e-mail jonathanlibby@crescentschool.org to notify him of this issue.");
                         }
                     }); // End of the getMarks callback
 
@@ -219,7 +240,6 @@ $(document).ready(function () {
     });
 
     $('.logout').click(function () {
-
         $('.main-page').slideUp();
         $('.login-page').slideDown();
         hideMenu();
@@ -230,16 +250,18 @@ $(document).ready(function () {
         $('.refresh').toggleClass('refreshing');
         $('.logout').trigger('click');
         $('#login-button').trigger('click');
-        // Show a progress bar for aesthetic effect?
     });
 
     $('.menu-toggle').click(function () {
-        // Animate?
+        // Animate!
         toggleMenu();
     });
 
     // Marks page
     $('.averages-button').click(function () {
+        hideLunchPage();
+        hideSchedulePage();
+        hideSettingsPage();
         showAveragesPage();
         hideMenu();
     });
@@ -248,9 +270,19 @@ $(document).ready(function () {
     $('.schedule-button').click(function () {
         if (window.areThereClassesToday == true) {
             hideAveragesPage();
+            hideLunchPage();
+            hideSettingsPage();
             showSchedulePage();
             hideMenu();
         }
+    });
+
+    $('.lunch-button').click(function () {
+        hideAveragesPage();
+        hideSchedulePage();
+        hideSettingsPage();
+        showLunchPage();
+        hideMenu();
     });
 
     // About page
@@ -258,5 +290,16 @@ $(document).ready(function () {
         hideMenu();
         $('.about-page-modal').modal();
     });
+
+    // Settings page
+    $('.settings-button').click(function(){
+        hideMenu();
+        hideSchedulePage();
+        hideAveragesPage();
+        hideLunchPage();
+        showSettingsPage();
+    });
+
+    $('#date-format-input').val($.jStorage.get('date_format'));
 
 });

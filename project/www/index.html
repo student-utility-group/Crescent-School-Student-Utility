@@ -2,8 +2,9 @@
 <html lang="en">
 
 <head>
-    <title>CSSU v2.0</title>
+    <title>CSSU</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="favicon" href="img/favicon.ico"> <!-- NEEDS TO BE FIXED (not sure what the syntax is) -->
     <link type="text/css" rel="stylesheet" href="css/bootstrap.css">
     <link type="text/css" rel="stylesheet" href="css/apprise.min.css">
     <link type="text/css" rel="stylesheet" href="css/main.css">
@@ -20,10 +21,9 @@
                     <br>
                 </div>
                 <div class="login-logo">
-                    <img src="img/apple-touch-icon-144x144-precomposed.png" alt="Crescent School Crest" height="100" width="100">
+                    <img src="img/apple-touch-icon-144x144.png" alt="Crescent School Crest" height="100" width="100">
                     <br>
-                    <h2 style="color: #444;">Crescent School
-                        <br>Student Utility</h2>
+                    <h2 style="color: #444;">Crescent School<br>Student Utility</h2>
                 </div>
                 <!-- /login-logo -->
                 <div>&nbsp;</div>
@@ -177,7 +177,7 @@
             </div>
             <!-- /login-page -->
 
-            <div class="main-page page-container row no-select">
+            <div class="main-page page-container row no-select hidden">
 
                 <!-- About page modal -->
                 <div class="modal fade about-page-modal">
@@ -280,30 +280,37 @@
                 </div>
                 <div class="menu">
                     <ul class="list-group">
-                        <li class="list-group-item list-pressable no-select logout">Logout
+                        <li class="list-group-item list-pressable logout">Logout
                             <span class="glyphicon glyphicon-log-out pull-right"></span>
                         </li>
-                        <li class="list-group-item list-pressable no-select refresh">Refresh
+                        <li class="list-group-item list-pressable refresh">Refresh
                             <span class="glyphicon glyphicon-refresh pull-right"></span>
                         </li>
-                        <li class="list-group-item list-pressable no-select about-button">About
-                            <span class="glyphicon glyphicon-info-sign pull-right"></span>
-                        </li>
-                        <li class="list-group-item list-pressable no-select schedule-button">Schedule
+                        <li class="list-group-item list-pressable schedule-button">Schedule
                             <span class="glyphicon glyphicon-calendar pull-right"></span>
                             <span class="label label-danger schedule-button-no-class-indicator hidden" style="position: absolute; top: 8px; left: 25px; -moz-transform:rotate(-20deg); -webkit-transform:rotate(-20deg); -ms-transform:rotate(-20deg);">No class today!</span>
                         </li>
-                        <li class="list-group-item list-pressable no-select averages-button">Averages
+                        <li class="list-group-item list-pressable averages-button">Averages
                             <span class="glyphicon glyphicon-list pull-right"></span>
                         </li>
-                        <li class="list-group-item list-pressable-disabled no-select">Lunch Menu
+                        <li class="list-group-item list-pressable lunch-button">Lunch Menu
                             <span class="glyphicon glyphicon-list-alt pull-right"></span>
+                        <li class="list-group-item list-pressable settings-button">Settings
+                            <span class="glyphicon glyphicon-cog pull-right"></span>
+                        </li>
+                        <li class="list-group-item list-pressable about-button">About
+                            <span class="glyphicon glyphicon-info-sign pull-right"></span>
+                        </li>
+
+<!--
                             <span class="label label-info" style="position: absolute; top: 10px; left: 25px; -moz-transform:rotate(-20deg); -webkit-transform:rotate(-20deg); -ms-transform:rotate(-20deg);">Coming soon!</span>
+-->
+
                         </li>
                     </ul>
                 </div>
                 <!-- The clock on the main page -->
-                <div class="clock hero-block col-xs-8 col-md-8 center row no-select">
+                <div class="clock hero-block col-xs-8 col-md-8 center row">
                     <div class="build-indicator-label build-indicator-developer label label-info"></div>
                     <div class="clock-inner col-xs-12">
                         <!-- All of the following spans must be on one line without spaces in between -->
@@ -312,9 +319,8 @@
                     <span class="clock-date"></span>
                 </div>
                 <div class="schedule-page">
-                <br>                
                     <!-- Start of the class 1 indicator and related elements -->
-                    <div class="class-1 bubble hero-block col-xs-6 center row no-select">
+                    <div class="class-1 bubble hero-block col-xs-6 center row">
                         <div class="class-1-mark">
                             <div class="class-mark-average label label-default" id="class-1-mark"></div>
                         </div>
@@ -331,7 +337,7 @@
                     <br>
                     <!-- End of the class 1 indicator and related elements -->
                     <!-- Start of the class 2 indicator and related elements -->
-                    <div class="class-1 bubble hero-block col-xs-6 center row no-select">
+                    <div class="class-1 bubble hero-block col-xs-6 center row">
                         <div class="class-1-mark">
                             <div class="class-mark-average label label-default" id="class-2-mark"></div>
                         </div>
@@ -342,7 +348,7 @@
                     <br>
                     <!-- End of the class 2 indicator and related elements -->
                     <!-- Start of the class 3 indicator and related elements -->
-                    <div class="class-1 bubble hero-block col-xs-6 center row no-select">
+                    <div class="class-1 bubble hero-block col-xs-6 center row">
                         <div class="class-1-mark">
                             <div class="class-mark-average label label-default" id="class-3-mark"></div>
                         </div>
@@ -353,8 +359,8 @@
                     <br>
                     <!-- End of the class 3 indicator and related elements -->
                     <!-- Start of the class 4 indicator and related elements -->
-                    <div class="class-1 bubble hero-block col-xs-6 center row no-select">
-                        <div class="class-1-mark">
+                    <div class="class-1 bubble hero-block col-xs-6 center row">
+                        <div class="class-mark">
                             <div class="class-mark-average label label-default" id="class-4-mark"></div>
                         </div>
                         <div class="class-code" id="class-4-code">
@@ -366,12 +372,11 @@
                 <!-- End of the class 4 indicator and related elements -->
                 
                 <div class="marks-page hidden">
-                    <br>
                     <!-- Marks container -->
                     <!-- <div class="hero-block center col-xs-6 bubble" id="marks-container-header">
                         <h3>Class Averages</h3>
                     </div> -->
-                    <div class="hero-block center col-xs-6 bubble no-select" id="marks-container">
+                    <div class="hero-block center col-xs-6 bubble" id="marks-container">
                         <br>
                         <div class="row col-xs-5">
                             <table class="table table-condensed center">
@@ -383,6 +388,66 @@
                                 </tbody>
                             </table>
                         </div>
+                    </div>
+                    <div class="marks-disclaimer-text center col-xs-10" style="color:#888;"><br>Note: If your mark has been manually adjusted by a teacher, it may take some time for the change to be reflected here.</div>
+                </div>
+
+                <div class="lunch-page hidden center col-xs-10">
+                    <div class="hero-block center col-xs-6 bubble lunch-bubble">
+                        <div id="lunch-monday"></div>
+                        <div class="class-mark">
+                            <div class="class-mark-average label label-info">Monday</div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="hero-block center col-xs-6 bubble lunch-bubble">
+                        <div id="lunch-tuesday"></div>
+                        <div class="class-mark">
+                            <div class="class-mark-average label label-info">Tuesday</div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="hero-block center col-xs-6 bubble lunch-bubble">
+                        <div id="lunch-wednesday"></div>
+                        <div class="class-mark">
+                            <div class="class-mark-average label label-info">Wednesday</div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="hero-block center col-xs-6 bubble lunch-bubble">
+                        <div id="lunch-thursday"></div>
+                        <div class="class-mark">
+                            <div class="class-mark-average label label-info">Thursday</div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="hero-block center col-xs-6 bubble lunch-bubble">
+                        <div id="lunch-friday"></div>
+                        <div class="class-mark">
+                            <div class="class-mark-average label label-info">Friday</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="settings-page hidden">
+                    <div class="hero-block center col-xs-9 bubble" id="settings-container">
+                        <h2>Settings</h2>
+                        <p>Here, you can configure different aspects of the Student Utility's behaviour.</p>
+                        <fieldset>
+                            <legend>Date and time</legend>
+                            <div class="input-group">
+                                <span class="input-group-addon">Format</span>
+                                <input type="text" class="form-control" id="date-format-input" placeholder="dddd, d MMMM yyyy">
+                            </div>
+                            <div class="btn-group" data-toggle="buttons" style="position: relative; top: 4px;">
+                                <label class="btn btn-info">
+                                    <input type="radio" name="options" id="12-hour"> 12-hour
+                                </label>
+                                <label class="btn btn-info">
+                                    <input type="radio" name="options" id="24-hour"> 24-hour
+                                </label>
+                            </div>
+                        </fieldset>
                     </div>
                 </div>
 
@@ -427,6 +492,8 @@
     <!-- Date.js -->
     <script type="text/javascript" src="js/funcs.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
-</body>
 
+    <!-- Phonegap debugging script -->
+<!-- <script src="http://debug.phonegap.com/target/target-script-min.js#475936"></script> -->
+</body>
 </html>
