@@ -292,13 +292,13 @@ $(document).ready(function () {
     });
 
     // Settings page
-    $('.settings-button').click(function(){
-        hideMenu();
-        hideSchedulePage();
-        hideAveragesPage();
-        hideLunchPage();
-        showSettingsPage();
-    });
+//    $('.settings-button').click(function(){
+//        hideMenu();
+//        hideSchedulePage();
+//        hideAveragesPage();
+//        hideLunchPage();
+//        showSettingsPage();
+//    });
 
     $('#date-format-input').val($.jStorage.get('date_format'));
 
