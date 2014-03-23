@@ -250,6 +250,7 @@ $(document).ready(function () {
         $('.refresh').toggleClass('refreshing');
         $('.logout').trigger('click');
         $('#login-button').trigger('click');
+        hideLunchPage();
     });
 
     $('.menu-toggle').click(function () {

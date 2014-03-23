@@ -124,6 +124,11 @@ body {
     top: -5px;
     right: -10px;
 }
+.dow-indicator { /* Used on lunch page, must mimic .class-mark exactly */
+    position: absolute;
+    top: -5px;
+    right: -10px;
+}
 .class-mark-average {
     /* background-color: #018156;
     height: 60px;
@@ -177,14 +182,11 @@ body {
     left: 25px;
     /* This is a hack but it works */
 }
-#marks-container-header {}
-
-#settings-container {
+#marks-container-header {} #settings-container {
     background-color: #FFF;
     border: 1px solid #018156;
     color: #000;
 }
-
 .no-select {
     -webkit-user-select: none;
     /* Chrome all / Safari all */
@@ -202,13 +204,11 @@ body {
 .marks-disclaimer-text {
     text-align: center;
 }
-.lunch-page {
-}
-.lunch-bubble {
+.lunch-page {} .lunch-bubble {
     padding-top: 13px;
 }
-
 /* Everything below 768px wide */
+
 @media (max-width: 768px) {
     .menu .list-group-item:first-child {
         border-top-right-radius: 0;
