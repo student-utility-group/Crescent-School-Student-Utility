@@ -17,7 +17,7 @@ $(document).ready(function () {
     // END STUFF FOR OFFLINE DEV ONLY
 
     // Build number
-    buildNumber = '[' + 20519 + ']';
+    buildNumber = '[' + 20521 + ']';
     debug = true;
 
     // Attach the FastClick library to the .click event
