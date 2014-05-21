@@ -190,7 +190,7 @@ function getMarksTable(marks) {
         total += parseInt(value);
         courseCount++;
     });
-    var average = Math.round((total / courseCount) * 10) / 10;
+    var average = Math.round((total / courseCount) * 10) / 10.0;
 
     $.each(marks, function (index, value) {
         if (value > average) {

@@ -17,7 +17,7 @@ $(document).ready(function () {
     // END STUFF FOR OFFLINE DEV ONLY
 
     // Build number
-    buildNumber = '[' + 20521 + ']';
+    buildNumber = '[' + 20600 + ']';
     debug = true;
 
     // Attach the FastClick library to the .click event
@@ -51,6 +51,16 @@ $(document).ready(function () {
     // Get the lunch menu
     var lunch = getLunch(function (lunchResponse) {
         console.log(lunchResponse);
+        
+        // During US exam weeks, post the upper school exam schedules
+        // to the lunch menu page. Lunch isn't served that week, so there's
+        // nothing to be lost!
+        if (lunchResponse['status'] == 'exams') {
+            $('.lunch-menu-text').text('Exam Schedule');
+            $('.lunch-menu-note').text('Note: This is an Upper School final exam schedule. Please double-check your exam schedule in more than one place to ensure accuracy.');
+        }
+        
+        // Write out the response object elements to the page
         $('#lunch-monday').html(lunchResponse['monday']);
         $('#lunch-tuesday').html(lunchResponse['tuesday']);
         $('#lunch-wednesday').html(lunchResponse['wednesday']);
@@ -64,7 +74,7 @@ $(document).ready(function () {
 
     $('#login-button').click(function () {
         isOnline(); // Make sure we're online before we try anything else
-
+        
         // Get the username and password
         username = $('#login-username-input').val();
         password = $('#login-password-input').val();
@@ -216,6 +226,9 @@ $(document).ready(function () {
                                 }
                             } // End of the if there *is* class today
                             getMarksTable(markResponse['grades']);
+                        } else if (markResponse.status == 'exams') {
+                            $('#marks-container').hide();
+                            $('.marks-page').html('<div class="marks-page-note note"><p>Note: For administrative purposes beyond our control, marks are disabled during exam periods. We apologize for the inconvenience.</p></div>');
                         } else {
                             // Didn't get the marks
                             // Throw some wicked error

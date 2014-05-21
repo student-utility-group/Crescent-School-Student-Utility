@@ -207,6 +207,12 @@ body {
 .lunch-page {} .lunch-bubble {
     padding-top: 13px;
 }
+
+.note {
+ text-align: center;
+ color: #777;
+}
+
 /* Everything below 768px wide */
 
 @media (max-width: 768px) {
