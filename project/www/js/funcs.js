@@ -177,19 +177,29 @@ function getMarks(response) {
 }
 
 function getMarksTable(marks) {
-    // Make sure we clear out the table each time
+    // Draw the table in the first place
+    // This one-line html stuff is really awful, but it's the only way right now
+    $('.marks-page-note').hide(); // In case the last user didn't get any marks
+
+     // Essentially, put the background colour back. Resets what we do in the case of a note rather than marks
+    $('#marks-container')
+        .addClass('hero-block')
+        .html('<br><div class="row col-xs-5"><table class="table table-condensed center"><thead><th>Class</th><th>Average</th></thead><tbody class="marks-table-tbody"></tbody></table></div>');
+
+    // Make sure we clear out the table each time, because we'll be appending rows to it below
     $('.marks-table-tbody').html('');
 
-    // All averages added together
+    // All averages added together, to be used in average calculation
     var total = 0;
 
-    // There is no length() method on jQuery objects, so we have to use this courseCount variable
-    var courseCount = 0;
+    // Number of courses a user is enrolled in
+    var courseCount = Object.keys(marks).length;
 
     $.each(marks, function (index, value) {
         total += parseInt(value);
-        courseCount++;
-    });
+     });
+    
+    // Calculate an overall average and round to 2 decimal places
     var average = Math.round((total / courseCount) * 10) / 10.0;
 
     $.each(marks, function (index, value) {

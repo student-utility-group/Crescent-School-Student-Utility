@@ -176,10 +176,11 @@ body {
 #marks-container {
     height: 365px;
     width: 200px;
+    padding: 15px;
 }
 #marks-container .row {
     position: relative;
-    left: 25px;
+    left: 21px; 
     /* This is a hack but it works */
 }
 #marks-container-header {} #settings-container {

@@ -17,7 +17,7 @@ $(document).ready(function () {
     // END STUFF FOR OFFLINE DEV ONLY
 
     // Build number
-    buildNumber = '[' + 20601 + ']';
+    buildNumber = '[' + 20602 + ']';
     debug = true;
 
     // Attach the FastClick library to the .click event
@@ -231,10 +231,11 @@ $(document).ready(function () {
                                 $('.class-mark').show();
 
                             } // End of the if there *is* class today
+
                             getMarksTable(markResponse['grades']);
                         } else if (markResponse.status == 'exams') {
-                            $('#marks-container').hide();
-                            $('.marks-page').html('<div class="marks-page-note note"><p>Note: For administrative purposes beyond our control, marks are disabled during exam periods. We apologize for the inconvenience.</p></div>');
+                            $('#marks-container').removeClass('hero-block'); // Essentially, hide the background
+                            $('#marks-container').html('<div class="marks-page-note note"><p>Note: For administrative purposes beyond our control, marks are disabled during exam periods. We apologize for the inconvenience.</p></div>');
                         } else {
                             // Didn't get the marks
                             // Throw some wicked error
