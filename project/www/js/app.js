@@ -262,7 +262,7 @@ $(document).ready(function () {
         $('.main-page').slideUp();
         $('.login-page').slideDown();
         hideMenu();
-        $('.class-mark').fadeOut();
+        $('.class-mark').fadeOut(100);
     });
 
     $('.refresh').click(function () {
