@@ -17,7 +17,7 @@ $(document).ready(function () {
     // END STUFF FOR OFFLINE DEV ONLY
 
     // Build number
-    buildNumber = '[' + 20600 + ']';
+    buildNumber = '[' + 20601 + ']';
     debug = true;
 
     // Attach the FastClick library to the .click event
@@ -79,6 +79,7 @@ $(document).ready(function () {
         username = $('#login-username-input').val();
         password = $('#login-password-input').val();
 
+        // Just for debugging
         console.log('User [' + username + '] attempting login');
 
         // Only show the home page build number if it's one of us
@@ -149,16 +150,16 @@ $(document).ready(function () {
                         } else {
 
                             // This is dirty but it works
-                            if (schedResponse[1] == undefined) {
+                            if (schedResponse[1] === undefined) {
                                 schedResponse[1] = 'Spare!';
                             }
-                            if (schedResponse[2] == undefined) {
+                            if (schedResponse[2] === undefined) {
                                 schedResponse[2] = 'Spare!';
                             }
-                            if (schedResponse[3] == undefined) {
+                            if (schedResponse[3] === undefined) {
                                 schedResponse[3] = 'Spare!';
                             }
-                            if (schedResponse[5] == undefined) {
+                            if (schedResponse[5] === undefined) {
                                 schedResponse[5] = 'Spare!';
                             }
 
@@ -204,26 +205,31 @@ $(document).ready(function () {
 
                                 // Don't show the percentage indicators if there is no mark to be shown
                                 // This is dirty but it works
-                                if (markResponse['grades'][classIndex_1] == undefined) {
-                                    $('#class-1-mark').hide();
+                                if (markResponse['grades'][classIndex_1] === undefined) {
+                                   $('#class-1-mark').show();
                                 } else {
-                                    $('#class-1-mark').show();
+                                   $('#class-1-mark').show();
                                 }
-                                if (markResponse['grades'][classIndex_2] == undefined) {
-                                    $('#class-2-mark').hide();
+                                if (markResponse['grades'][classIndex_2] === undefined) {
+                                   $('#class-2-mark').hide();
                                 } else {
-                                    $('#class-2-mark').show();
+                                   $('#class-2-mark').show();
                                 }
-                                if (markResponse['grades'][classIndex_3] == undefined) {
-                                    $('#class-3-mark').hide();
+                                if (markResponse['grades'][classIndex_3] === undefined) {
+                                   $('#class-3-mark').hide();
                                 } else {
-                                    $('#class-3-mark').show();
+                                   $('#class-3-mark').show();
                                 }
-                                if (markResponse['grades'][classIndex_4] == undefined) {
-                                    $('#class-4-mark').hide();
+                                if (markResponse['grades'][classIndex_4] === undefined) {
+                                   $('#class-4-mark').hide();
                                 } else {
                                     $('#class-4-mark').show();
                                 }
+
+                                // .class-mark elements are hidden in the .logout element click
+                                // event handler. Show them again when logging back in.
+                                $('.class-mark').show();
+
                             } // End of the if there *is* class today
                             getMarksTable(markResponse['grades']);
                         } else if (markResponse.status == 'exams') {
@@ -256,7 +262,7 @@ $(document).ready(function () {
         $('.main-page').slideUp();
         $('.login-page').slideDown();
         hideMenu();
-        $('.class-mark').hide();
+        $('.class-mark').fadeOut();
     });
 
     $('.refresh').click(function () {
