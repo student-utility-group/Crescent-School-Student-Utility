@@ -157,11 +157,11 @@ $(document).ready(function () {
                                 if (index == 4) {
                                     // Period 4 isn't a class, so skip it
                                     index++;
-                            }
+                                }
 
                                 if (schedResponse[index] === undefined) {
                                     schedResponse[index] = 'Spare';
-                            }
+                                }
                             }
 
                             // This is dirty but it works

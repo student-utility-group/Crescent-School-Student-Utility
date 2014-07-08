@@ -187,7 +187,7 @@ function getMarksTable(marks) {
     // This one-line html stuff is really awful, but it's the only way right now
     $('.marks-page-note').hide(); // In case the last user didn't get any marks
 
-     // Essentially, put the background colour back. Resets what we do in the case of a note rather than marks
+    // Essentially, put the background colour back. Resets what we do in the case of a note rather than marks
     $('#marks-container')
         .addClass('hero-block')
         .html('<br><div class="row col-xs-5"><table class="table table-condensed center"><thead><th>Class</th><th>Average</th></thead><tbody class="marks-table-tbody"></tbody></table></div>');
@@ -203,8 +203,8 @@ function getMarksTable(marks) {
 
     $.each(marks, function (index, value) {
         total += parseInt(value);
-     });
-    
+    });
+
     // Calculate an overall average and round to 2 decimal places
     var average = Math.round((total / courseCount) * 10) / 10.0;
 
@@ -230,7 +230,21 @@ function getLunch(response) {
 }
 
 function toggleMenu() {
-    $('.main-page').toggleClass('main-page-toggled');
+    //$('.main-page').toggleClass('main-page-toggled');
+    if ($('.animation-wrapper').position().left < 150) {
+        $('.animation-wrapper').animate({
+            left: "+=135",
+        }, 80, function () {
+            // Animation complete.
+        });
+    } else {
+        $('.animation-wrapper').animate({
+            left: "-=135",
+        }, 80, function () {
+            // Animation complete.
+            console.log($('.animation-wrapper').position().left);
+        });
+    }
     $('.menu-toggle').toggleClass('menu-toggle-toggled');
     // Stops the user from being able to scroll around
     $('body').toggleClass('body-fixed-position');
