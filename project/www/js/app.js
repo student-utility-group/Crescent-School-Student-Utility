@@ -164,21 +164,6 @@ $(document).ready(function () {
                             }
                             }
 
-                            // This is dirty but it works
-                            // if (schedResponse[1] === undefined) {
-                            //     schedResponse[1] = 'Spare!';
-                            // }
-                            // if (schedResponse[2] === undefined) {
-                            //     schedResponse[2] = 'Spare!';
-                            // }
-                            // if (schedResponse[3] === undefined) {
-                            //     schedResponse[3] = 'Spare!';
-                            // }
-                            // if (schedResponse[5] === undefined) {
-                            //     schedResponse[5] = 'Spare!';
-                            // }
-
-
                             $('#class-1-code').html(to + schedResponse[1] + tc);
                             $('#class-2-code').html(to + schedResponse[2] + tc);
                             $('#class-3-code').html(to + schedResponse[3] + tc);
