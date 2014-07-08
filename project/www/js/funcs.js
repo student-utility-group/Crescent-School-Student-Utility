@@ -35,8 +35,14 @@ function offlineProcedures() {
     $('.login-form .form-group').hide();
     $('#offline-message').removeClass('hidden');
     $('.show-connection-help').click(function () {
-        // Show modal
+        
+		// Show the connection help modal
         $('.show-connection-help-modal').modal('show');
+		
+		// Prevent the button from refreshing the page, even
+		// though it shouldn't because it's a button element
+		// and not an anchor. Either way, it fixes a bug.
+		return false;
     });
 }
 
