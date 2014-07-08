@@ -55,17 +55,17 @@ $(document).ready(function () {
         // During US exam weeks, post the upper school exam schedules
         // to the lunch menu page. Lunch isn't served that week, so there's
         // nothing to be lost!
-        if (lunchResponse['status'] == 'exams') {
+        if (lunchResponse.status == 'exams') {
             $('.lunch-menu-text').text('Exam Schedule');
             $('.lunch-menu-note').text('Note: This is an Upper School final exam schedule. Please double-check your exam schedule in more than one place to ensure accuracy.');
         }
         
         // Write out the response object elements to the page
-        $('#lunch-monday').html(lunchResponse['monday']);
-        $('#lunch-tuesday').html(lunchResponse['tuesday']);
-        $('#lunch-wednesday').html(lunchResponse['wednesday']);
-        $('#lunch-thursday').html(lunchResponse['thursday']);
-        $('#lunch-friday').html(lunchResponse['friday']);
+        $('#lunch-monday').html(lunchResponse.monday);
+        $('#lunch-tuesday').html(lunchResponse.tuesday);
+        $('#lunch-wednesday').html(lunchResponse.wednesday);
+        $('#lunch-thursday').html(lunchResponse.thursday);
+        $('#lunch-friday').html(lunchResponse.friday);
     });
 
     // General button event handlers
@@ -139,7 +139,7 @@ $(document).ready(function () {
                         tc = '</h3>'; // Tag close
 
 
-                        if (schedResponse['class'] == 'no class') {
+                        if (schedResponse.class == 'no class') {
 
                             // No class today
                             window.areThereClassesToday = false;
@@ -183,7 +183,7 @@ $(document).ready(function () {
                             // Got the marks
 
                             // If there *is* class today
-                            if (schedResponse['class'] != 'no class') {
+                            if (schedResponse.class != 'no class') {
                                 window.areThereClassesToday = true;
                                 // Separate course codes from sections
                                 var classIndex_1_array = schedResponse[1].split('-');
@@ -205,22 +205,22 @@ $(document).ready(function () {
 
                                 // Don't show the percentage indicators if there is no mark to be shown
                                 // This is dirty but it works
-                                if (markResponse['grades'][classIndex_1] === undefined) {
+                                if (markResponse.grades[classIndex_1] === undefined) {
                                    $('#class-1-mark').show();
                                 } else {
                                    $('#class-1-mark').show();
                                 }
-                                if (markResponse['grades'][classIndex_2] === undefined) {
+                                if (markResponse.grades[classIndex_2] === undefined) {
                                    $('#class-2-mark').hide();
                                 } else {
                                    $('#class-2-mark').show();
                                 }
-                                if (markResponse['grades'][classIndex_3] === undefined) {
+                                if (markResponse.grades[classIndex_3] === undefined) {
                                    $('#class-3-mark').hide();
                                 } else {
                                    $('#class-3-mark').show();
                                 }
-                                if (markResponse['grades'][classIndex_4] === undefined) {
+                                if (markResponse.grades[classIndex_4] === undefined) {
                                    $('#class-4-mark').hide();
                                 } else {
                                     $('#class-4-mark').show();
