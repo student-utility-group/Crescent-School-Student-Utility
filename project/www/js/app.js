@@ -17,8 +17,8 @@ $(document).ready(function () {
     // END STUFF FOR OFFLINE DEV ONLY
 
     // Build number
-    buildNumber = '[' + 20602 + ']';
-    debug = true;
+    var buildNumber = '[' + 20602 + ']';
+    var debug = true;
 
     // Attach the FastClick library to the .click event
     // FastClick.js
@@ -35,8 +35,8 @@ $(document).ready(function () {
     if (rememberedUsername && rememberedPassword) {
         $('#login-username-input').attr('value', rememberedUsername);
         $('#login-password-input').attr('value', rememberedPassword);
-        username = rememberedUsername;
-        password = rememberedPassword;
+        var username = rememberedUsername;
+        var password = rememberedPassword;
     }
     // Online detection
     // Run once at launch and every 15 seconds after that
@@ -135,8 +135,8 @@ $(document).ready(function () {
                     if (schedResponse.status == 'success') {
                         // Got the schedule
 
-                        to = '<h3>'; // Tag open
-                        tc = '</h3>'; // Tag close
+                        var to = '<h3>'; // Tag open
+                        var tc = '</h3>'; // Tag close
 
 
                         if (schedResponse.class == 'no class') {
