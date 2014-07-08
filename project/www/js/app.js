@@ -149,19 +149,34 @@ $(document).ready(function () {
                             $('.schedule-button').removeClass('list-pressable').addClass('list-pressable-disabled');
                         } else {
 
+                            // Loop through the periods of the day and set display value
+                            // to 'Spare' if they're undefined (which is what the WN API
+                            // returns)
+
+                            for (var index = 1; index <= 4; index++) {
+                                if (index == 4) {
+                                    // Period 4 isn't a class, so skip it
+                                    index++;
+                            }
+
+                                if (schedResponse[index] === undefined) {
+                                    schedResponse[index] = 'Spare';
+                            }
+                            }
+
                             // This is dirty but it works
-                            if (schedResponse[1] === undefined) {
-                                schedResponse[1] = 'Spare!';
-                            }
-                            if (schedResponse[2] === undefined) {
-                                schedResponse[2] = 'Spare!';
-                            }
-                            if (schedResponse[3] === undefined) {
-                                schedResponse[3] = 'Spare!';
-                            }
-                            if (schedResponse[5] === undefined) {
-                                schedResponse[5] = 'Spare!';
-                            }
+                            // if (schedResponse[1] === undefined) {
+                            //     schedResponse[1] = 'Spare!';
+                            // }
+                            // if (schedResponse[2] === undefined) {
+                            //     schedResponse[2] = 'Spare!';
+                            // }
+                            // if (schedResponse[3] === undefined) {
+                            //     schedResponse[3] = 'Spare!';
+                            // }
+                            // if (schedResponse[5] === undefined) {
+                            //     schedResponse[5] = 'Spare!';
+                            // }
 
 
                             $('#class-1-code').html(to + schedResponse[1] + tc);
