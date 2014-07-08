@@ -213,10 +213,10 @@ $(document).ready(function () {
                                 var classIndex_4 = classIndex_4_array[0];
 
                                 // Write 'em out
-                                $('#class-1-mark').text(markResponse['grades'][classIndex_1] + '%');
-                                $('#class-2-mark').text(markResponse['grades'][classIndex_2] + '%');
-                                $('#class-3-mark').text(markResponse['grades'][classIndex_3] + '%');
-                                $('#class-4-mark').text(markResponse['grades'][classIndex_4] + '%');
+                                $('#class-1-mark').text(markResponse.grades[classIndex_1] + '%');
+                                $('#class-2-mark').text(markResponse.grades[classIndex_2] + '%');
+                                $('#class-3-mark').text(markResponse.grades[classIndex_3] + '%');
+                                $('#class-4-mark').text(markResponse.grades[classIndex_4] + '%');
 
                                 // Don't show the percentage indicators if there is no mark to be shown
                                 // This is dirty but it works
