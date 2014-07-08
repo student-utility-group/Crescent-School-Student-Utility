@@ -164,21 +164,6 @@ $(document).ready(function () {
                                 }
                             }
 
-                            // This is dirty but it works
-                            // if (schedResponse[1] === undefined) {
-                            //     schedResponse[1] = 'Spare!';
-                            // }
-                            // if (schedResponse[2] === undefined) {
-                            //     schedResponse[2] = 'Spare!';
-                            // }
-                            // if (schedResponse[3] === undefined) {
-                            //     schedResponse[3] = 'Spare!';
-                            // }
-                            // if (schedResponse[5] === undefined) {
-                            //     schedResponse[5] = 'Spare!';
-                            // }
-
-
                             $('#class-1-code').html(to + schedResponse[1] + tc);
                             $('#class-2-code').html(to + schedResponse[2] + tc);
                             $('#class-3-code').html(to + schedResponse[3] + tc);
@@ -207,38 +192,24 @@ $(document).ready(function () {
                                 var classIndex_4_array = schedResponse[5].split('-');
 
                                 // Indexes for the response array
-                                var classIndex_1 = classIndex_1_array[0];
-                                var classIndex_2 = classIndex_2_array[0];
-                                var classIndex_3 = classIndex_3_array[0];
-                                var classIndex_4 = classIndex_4_array[0];
+                                var classIndex[1] = classIndex_1_array[0];
+                                var classIndex[2] = classIndex_2_array[0];
+                                var classIndex[3] = classIndex_3_array[0];
+                                var classIndex[4] = classIndex_4_array[0];
 
                                 // Write 'em out
-                                $('#class-1-mark').text(markResponse.grades[classIndex_1] + '%');
-                                $('#class-2-mark').text(markResponse.grades[classIndex_2] + '%');
-                                $('#class-3-mark').text(markResponse.grades[classIndex_3] + '%');
-                                $('#class-4-mark').text(markResponse.grades[classIndex_4] + '%');
+                                $('#class-1-mark').text(markResponse.grades.classIndex[1] + '%');
+                                $('#class-2-mark').text(markResponse.grades.classIndex[2] + '%');
+                                $('#class-3-mark').text(markResponse.grades.classIndex[3] + '%');
+                                $('#class-4-mark').text(markResponse.grades.classIndex[4] + '%');
 
                                 // Don't show the percentage indicators if there is no mark to be shown
                                 // This is dirty but it works
-                                if (markResponse.grades[classIndex_1] === undefined) {
-                                   $('#class-1-mark').show();
-                                } else {
-                                   $('#class-1-mark').show();
-                                }
-                                if (markResponse.grades[classIndex_2] === undefined) {
-                                   $('#class-2-mark').hide();
-                                } else {
-                                   $('#class-2-mark').show();
-                                }
-                                if (markResponse.grades[classIndex_3] === undefined) {
-                                   $('#class-3-mark').hide();
-                                } else {
-                                   $('#class-3-mark').show();
-                                }
-                                if (markResponse.grades[classIndex_4] === undefined) {
-                                   $('#class-4-mark').hide();
-                                } else {
-                                    $('#class-4-mark').show();
+
+                                for (var index = 1; index <= 4; index++) {
+                                    if (markResponse.grades.classIndex[index] === undefined) {
+                                        $('#class-' + index + '-mark').show();
+                                    }
                                 }
 
                                 // .class-mark elements are hidden in the .logout element click
