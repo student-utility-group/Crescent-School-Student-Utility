@@ -12,4 +12,12 @@
     <preference name="fullscreen" value="true" />
     <preference name="webviewbounce" value="false" />
     <preference name="UIWebViewBounce" value="false" />
+
+    <!-- General icon -->
+    <icon src="icon.png" width="144" height="144" />
+
+    <!-- General splash screen (iPhone 4s and below) -->
+    <gap:splash src="Default@2x~iphone.png" width="640" height="960" />
+    <!-- General splash screen (iPhone 5 and above, 16:9)-->
+    <gap:splash src="splash.png" width="640" height="1136" />
 </widget>
