@@ -66,23 +66,32 @@
                             </div>
                             <div class="modal-body">
                                 <div style="text-align: center;">What happened?
-                                    <br>The Student Utility was unable to contact the servers it runs on. This issue could arise in two ways:
+                                    <br>The Student Utility was unable to contact the servers it runs on.
                                     <br>
                                     <br>
-                                    <ul class="list-group">
-                                        <li class="list-group-item">
-                                            <span class="label label-success">Most likely</span>
-                                            <br>
-                                            <br>Your device isn't connected to the Internet</li>
-                                        <li class="list-group-item">
-                                            <span class="label label-warning">Least likely</span>
-                                            <br>
-                                            <br>The Student Utility servers are offline</li>
-                                    </ul>
+									
+									<div class="panel panel-success">
+  										<div class="panel-heading">Most likely</div>
+  										<div class="panel-body">
+    										Your device isn't connected to the Internet.
+											<br>
+											The Student Utility requires an Internet connection. 
+											Check your network connection, and try again.
+  										</div>
+									</div>
+									<div class="panel panel-warning">
+  										<div class="panel-heading">Less likely</div>
+  										<div class="panel-body">
+    										The Student Utility servers are offline.
+											<br>
+											This happens from time to time. If you're sure your device isn't
+											the source of the problem, feel free to contact the developers.
+  										</div>
+									</div>									
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
+                                <button type="button" class="btn btn-default btn-lg" data-dismiss="modal">Ok</button>
                             </div>
                         </div>
                         <!-- /.modal-content -->
