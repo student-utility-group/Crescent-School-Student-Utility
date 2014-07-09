@@ -210,11 +210,11 @@ function getMarksTable(marks) {
 
     $.each(marks, function (index, value) {
         if (value > average) {
-            classToAdd = 'success';
+            var classToAdd = 'success';
         } else if (value < average) {
-            classToAdd = 'danger';
+            var classToAdd = 'danger';
         } else {
-            classToAdd = 'default';
+            var classToAdd = 'default';
         }
         $('.marks-table-tbody').append('<tr class="marks-row"><td>' + index + '</td><td id="mark"><span class="label label-' + classToAdd + '">' + value + '%</span></td></tr>');
     });
