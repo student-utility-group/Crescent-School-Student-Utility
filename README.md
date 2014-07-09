@@ -1,6 +1,6 @@
 Crescent-School-Student-Utility
 ===============================
-[![Code Climate](https://codeclimate.com/github/Libbux-Labs/Crescent-School-Student-Utility.png)](https://codeclimate.com/github/Libbux-Labs/Crescent-School-Student-Utility)
+[![Code Climate](https://codeclimate.com/github/Libbux-Labs/Crescent-School-Student-Utility.png)](https://codeclimate.com/github/Libbux-Labs/Crescent-School-Student-Utility)[![Code Climate (coverage)](https://codeclimate.com/github/Libbux-Labs/Crescent-School-Student-Utility/coverage.png)](https://codeclimate.com/github/Libbux-Labs/Crescent-School-Student-Utility)
 
 Repository for the Crescent School Student Utility (v2). This repository includes code for the client side application.
 
