@@ -3,6 +3,8 @@
 
 project/www default/
 
+project/www/bower_components
+
 *.xcuserstate
 *.pbxproj
 
