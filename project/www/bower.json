@@ -21,8 +21,12 @@
     "angularjs": "~1.2.21",
     "fastclick": "~1.0.3",
     "jstorage": "~0.4.12",
+    "nprogress": ">=0.1.6",
     "jquery-json": "~2.5.1",
     "slick-carousel": "~1.3.6",
-    "vex": "~2.2.1"
+    "vex": "~2.2.1",
+    "Ladda": ">=0.9.4",
+    "chardin.js": ">=0.1.3",
+    "moment": "~2.8.1"
   }
 }
